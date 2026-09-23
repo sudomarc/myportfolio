@@ -66,3 +66,66 @@ Préférer des commits atomiques :
 - Ne pas ajouter de faux témoignages.
 - Ne pas afficher de prix ou métriques non validés.
 - Ne pas supprimer un placeholder sans le remplacer par une donnée réelle.
+
+## Mandatory Vibe Coding Instructions integration
+
+This project **MUST use** the governance system from:
+
+- Repository: https://github.com/sudomarc/vibe-coding-instructions
+- Local project-specific copy, when vendored: `.ai/`
+- Upstream project entry point: `AGENTS.md`
+
+### Non-optional bootstrap
+
+Before any development task that changes code, UI, configuration, content structure, dependencies, security, deployment, or architecture:
+
+1. Read this `AGENTS.md`.
+2. Load the applicable rules from **Vibe Coding Instructions**.
+3. For public-web work, load the applicable web baseline and specialist skill(s), beginning with `.ai/skills/web-project-baseline/SKILL.md` when a local copy exists.
+4. Inspect the repository state, relevant files, manifests and existing project evidence.
+5. Plan the change according to the Vibe Coding Instructions operating loop.
+6. Implement the smallest coherent change.
+7. Run the required verification for the changed surface.
+8. Review the final diff/status before reporting completion.
+
+### Enforcement rule
+
+Using Vibe Coding Instructions is a **development prerequisite**, not an optional recommendation.
+
+If the applicable Vibe Coding Instructions context is unavailable, do **not** start substantive implementation. Stop after inspection and report exactly which required governance context is missing.
+
+Do not replace the framework with a simplified personal workflow when the framework contains an applicable rule or skill.
+
+### Required web-development routing
+
+For substantial web work, follow this order unless a narrower task clearly makes a step inapplicable:
+
+`BASELINE → DESIGN DIRECTION → ARCHITECTURE → IMPLEMENT → BROWSER VERIFY → SPECIALIST REVIEW → FINAL DIFF`
+
+Use the narrowest applicable Vibe Coding Instructions skill(s), especially for:
+
+- `.ai/skills/web-project-baseline/`
+- `.ai/skills/design-direction/`
+- `.ai/skills/design-system/`
+- `.ai/skills/anti-vibe-design/`
+- `.ai/skills/responsive-design/`
+- `.ai/skills/interaction-motion/`
+- `.ai/skills/accessibility/`
+- `.ai/skills/seo-web/`
+- `.ai/skills/web-security/`
+- `.ai/skills/web-performance/`
+- `.ai/skills/browser-qa/`
+- `.ai/skills/legal-compliance/`
+- `.ai/skills/nextjs/`
+
+Do not load every skill by default. Route by changed surface and risk.
+
+### Conflict and precedence
+
+System, developer, and current user instructions take precedence over repository instructions. Within repository policy, this file and the applicable Vibe Coding Instructions rules must both be followed; the more specific applicable rule wins.
+
+If a material conflict remains unresolved, do not guess. Surface the conflict.
+
+### Evidence requirement
+
+Never claim that Vibe Coding Instructions, tests, builds, browser checks, audits, or deployments were used or completed unless there is evidence that they actually were.
