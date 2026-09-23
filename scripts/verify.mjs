@@ -93,7 +93,7 @@ for (const file of htmlFiles) {
 
   check(/^<!doctype html>/i.test(html), "doctype");
   check(/<html lang="fr"/.test(html), "lang fr");
-  check(/<title>[^<]+<\/title>/.test(html), "title");
+  check(/<title[^>]*>[^<]+<\/title>/.test(html), "title");
   check(/<meta name="description" content="[^"]+"/.test(html), "meta description");
   check(/<meta name="viewport" content="width=device-width, initial-scale=1"/.test(html), "viewport");
   check(/<link rel="icon" href="\/icon\.svg"/.test(html), "favicon");
@@ -149,7 +149,7 @@ if ((css.match(/:root/g) || []).length >= 1 && css.includes("--")) ok("tokens :r
 else fail("tokens CSS manquants");
 
 const js = readFileSync(join(root, "script.js"), "utf8");
-if (!/querySelectorAll\("\\.reveal, \\[data-reveal\\]"\)/.test(js)) {
+if (!/querySelectorAll\("\.reveal, \[data-reveal\]"\)/.test(js)) {
   fail("script.js : sélecteur reveal incohérent");
 } else {
   ok("script.js : sélecteur reveal cohérent");

@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Marco Polo — Portfolio web &amp; interfaces</title>
-  <meta name="description" content="Portfolio personnel : projets web, interfaces, expériences digitales et études de cas — documentés par des preuves, pas par des promesses.">
+  <title data-i18n="doc.home.title">Marco Polo — Portfolio web &amp; interfaces</title>
+  <meta name="description" content="Portfolio personnel : projets web, interfaces, expériences digitales et études de cas — documentés par des preuves, pas par des promesses." data-i18n-desc="doc.home.desc">
   <script src="/theme.js"></script>
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/styles.css">
@@ -18,19 +18,29 @@
       <a class="brand" href="/" aria-label="Marco Polo, accueil">Marco Polo</a>
 
       <nav class="site-nav" aria-label="Navigation principale">
-        <a href="/#work" data-nav="work">Projets</a>
-        <a href="/#about" data-nav="about">À propos</a>
-        <a href="/#contact" data-nav="contact">Contact</a>
+        <a href="/#work" data-nav="work" data-i18n="nav.projects">Projets</a>
+        <a href="/#about" data-nav="about" data-i18n="nav.about">À propos</a>
+        <a href="/#contact" data-nav="contact" data-i18n="nav.contact">Contact</a>
       </nav>
 
       <details class="menu">
-        <summary><span aria-hidden="true">Menu</span><span class="sr-only">Ouvrir le menu</span></summary>
+        <summary><span aria-hidden="true">Menu</span><span class="sr-only" data-i18n="a11y.menu.open">Ouvrir le menu</span></summary>
         <nav class="menu-panel" aria-label="Navigation mobile">
-          <a href="/#work" data-nav="work">Projets</a>
-          <a href="/#about" data-nav="about">À propos</a>
-          <a href="/#contact" data-nav="contact">Contact</a>
+          <a href="/#work" data-nav="work" data-i18n="nav.projects">Projets</a>
+          <a href="/#about" data-nav="about" data-i18n="nav.about">À propos</a>
+          <a href="/#contact" data-nav="contact" data-i18n="nav.contact">Contact</a>
         </nav>
       </details>
+
+      <div class="header-controls">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Activer le mode sombre">
+          <svg class="theme-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
+        <div class="lang-toggle">
+          <button type="button" data-lang="fr" aria-pressed="true" aria-label="Passer en français" data-i18n-aria="controls.lang.fr">FR</button>
+          <button type="button" data-lang="en" aria-pressed="false" aria-label="Passer en anglais" data-i18n-aria="controls.lang.en">EN</button>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -40,7 +50,7 @@
         <div class="stagger">
           <p class="label hero-eyebrow reveal" data-i18n="hero.eyebrow">Portfolio — Web development &amp; UI</p>
 
-          <div class="hero-meta reveal" aria-label="localisation et disponibilité">
+          <div class="hero-meta reveal" aria-label="localisation et disponibilité" data-i18n-aria="hero.meta.aria">
             <span class="mono" data-i18n="hero.meta.location">Guinée · Remote</span>
             <span class="mono" data-i18n="hero.meta.availability">Disponible pour des projets sélectionnés</span>
           </div>
@@ -60,13 +70,13 @@
           </div>
         </div>
 
-        <aside class="index-panel" aria-label="Sélection de travaux">
+        <aside class="index-panel" aria-label="Sélection de travaux" data-i18n-aria="hero.index.aria">
           <div class="index-panel-head">
             <span class="label" data-i18n="hero.index.series">Sélection</span>
             <span class="mono count" data-i18n="hero.index.count">3 projets</span>
           </div>
           <div class="index-panel-body stagger">
-            <a class="index-item reveal" href="/work/amplio-web.html" data-i18n="hero.index.items.0.title">
+            <a class="index-item reveal" href="/work/amplio-web.html">
               <span class="num">01</span>
               <span>
                 <strong>Amplio Web</strong>
@@ -74,7 +84,7 @@
               </span>
               <span class="arrow" aria-hidden="true">→</span>
             </a>
-            <a class="index-item reveal" href="/work/le-patio.html" data-i18n="hero.index.items.1.title">
+            <a class="index-item reveal" href="/work/le-patio.html">
               <span class="num">02</span>
               <span>
                 <strong>Le Patio</strong>
@@ -82,7 +92,7 @@
               </span>
               <span class="arrow" aria-hidden="true">→</span>
             </a>
-            <a class="index-item reveal" href="/work/naya-beauty.html" data-i18n="hero.index.items.2.title">
+            <a class="index-item reveal" href="/work/naya-beauty.html">
               <span class="num">03</span>
               <span>
                 <strong>Naya Beauty</strong>
@@ -93,18 +103,12 @@
           </div>
         </aside>
       </div>
-
-      <div class="container">
-        <div class="scroll-indicator">
-          <div class="line-reveal" aria-hidden="true"></div>
-        </div>
-      </div>
     </section>
 
     <section class="section" id="work" aria-labelledby="work-title">
       <div class="container">
         <div class="section-head reveal">
-          <span class="eyebrow" data-i18n="section.work.title">Sélection</span>
+          <span class="label" data-i18n="section.work.eyebrow">Sélection</span>
           <h2 class="display" id="work-title" data-i18n="section.work.title">Les projets avant les promesses.</h2>
           <p data-i18n="section.work.desc">Chaque réalisation est documentée comme une étude de cas : contexte, décisions, interface et éléments vérifiables. Les concepts et démos restent explicitement marqués.</p>
         </div>
@@ -118,14 +122,14 @@
               <div>
                 <div class="project-title-row">
                   <h3 class="display">Amplio Web</h3>
-                  <span class="status status-real" aria-label="Statut : projet réel" data-i18n="status.real">Projet réel</span>
+                  <span class="status status-real" aria-label="Statut : projet réel" data-i18n-aria="status.real.aria" data-i18n="status.real">Projet réel</span>
                 </div>
                 <p class="project-cat mono" data-i18n="work.amplio-web.meta">Web design · Développement · 2026</p>
               </div>
               <div>
-                <p class="project-summary">Projet principal en cours : démonstration réelle de direction artistique, de structure produit et d’intégration front-end.</p>
+                <p class="project-summary" data-i18n="section.work.projects.0.summary">Projet principal en cours : démonstration réelle de direction artistique, de structure produit et d’intégration front-end.</p>
                 <div class="project-links">
-                  <a class="btn-link" href="/work/amplio-web.html" data-i18n="page.back">Étude de cas <span aria-hidden="true">→</span></a>
+                  <a class="btn-link" href="/work/amplio-web.html"><span data-i18n="project.case.link">Étude de cas</span> <span aria-hidden="true">→</span></a>
                 </div>
               </div>
             </div>
@@ -139,14 +143,14 @@
               <div>
                 <div class="project-title-row">
                   <h3 class="display">Le Patio</h3>
-                  <span class="status status-demo" aria-label="Statut : démo" data-i18n="status.demo">Démo</span>
+                  <span class="status status-demo" aria-label="Statut : démo" data-i18n-aria="status.demo.aria" data-i18n="status.demo">Démo</span>
                 </div>
                 <p class="project-cat mono" data-i18n="work.le-patio.meta">Restaurant · Landing page · 2026</p>
               </div>
               <div>
-                <p class="project-summary">Concept de landing page mobile-first pour présenter une offre et générer des prises de contact. Aucun client ou résultat commercial n’est présenté comme réel.</p>
+                <p class="project-summary" data-i18n="section.work.projects.1.summary">Concept de landing page mobile-first pour présenter une offre et générer des prises de contact. Aucun client ou résultat commercial n’est présenté comme réel.</p>
                 <div class="project-links">
-                  <a class="btn-link" href="/work/le-patio.html" data-i18n="page.back">Étude de cas <span aria-hidden="true">→</span></a>
+                  <a class="btn-link" href="/work/le-patio.html"><span data-i18n="project.case.link">Étude de cas</span> <span aria-hidden="true">→</span></a>
                 </div>
               </div>
             </div>
@@ -160,14 +164,14 @@
               <div>
                 <div class="project-title-row">
                   <h3 class="display">Naya Beauty</h3>
-                  <span class="status status-concept" aria-label="Statut : concept" data-i18n="status.concept">Concept</span>
+                  <span class="status status-concept" aria-label="Statut : concept" data-i18n-aria="status.concept.aria" data-i18n="status.concept">Concept</span>
                 </div>
                 <p class="project-cat mono" data-i18n="work.naya-beauty.meta">Beauté · Direction visuelle · 2026</p>
               </div>
               <div>
-                <p class="project-summary">Exploration de direction de marque et de hiérarchie de contenu pour présenter des prestations, une galerie et un rendez-vous. Aucune donnée client revendiquée.</p>
+                <p class="project-summary" data-i18n="section.work.projects.2.summary">Exploration de direction de marque et de hiérarchie de contenu pour présenter des prestations, une galerie et un rendez-vous. Aucune donnée client revendiquée.</p>
                 <div class="project-links">
-                  <a class="btn-link" href="/work/naya-beauty.html" data-i18n="page.back">Étude de cas <span aria-hidden="true">→</span></a>
+                  <a class="btn-link" href="/work/naya-beauty.html"><span data-i18n="project.case.link">Étude de cas</span> <span aria-hidden="true">→</span></a>
                 </div>
               </div>
             </div>
@@ -179,7 +183,7 @@
     <section class="section" id="about" aria-labelledby="about-title">
       <div class="container">
         <div class="section-head reveal">
-          <span class="eyebrow" data-i18n="section.about.title">À propos</span>
+          <span class="label" data-i18n="section.about.eyebrow">À propos</span>
           <h2 class="display" id="about-title" data-i18n="section.about.title">Court, concret, honnête.</h2>
           <p data-i18n="section.about.desc">Pas de CV interminable : l'essentiel pour comprendre comment je travaille.</p>
         </div>
@@ -212,7 +216,7 @@
     <section class="section" id="capabilities" aria-labelledby="capabilities-title">
       <div class="container">
         <div class="section-head reveal">
-          <span class="eyebrow" data-i18n="section.capabilities.title">Capacités</span>
+          <span class="label" data-i18n="section.capabilities.eyebrow">Capacités</span>
           <h2 class="display" id="capabilities-title" data-i18n="section.capabilities.title">Ce que je sais construire.</h2>
           <p data-i18n="section.capabilities.desc">Liste courte, chaque capacité étant démontrée ou démontrée en cours par les projets de ce portfolio.</p>
         </div>
@@ -234,16 +238,16 @@
     <section class="section" id="process" aria-labelledby="process-title">
       <div class="container">
         <div class="section-head reveal">
-          <span class="eyebrow" data-i18n="section.process.title">Méthode</span>
+          <span class="label" data-i18n="section.process.eyebrow">Méthode</span>
           <h2 class="display" id="process-title" data-i18n="section.process.title">Un processus court et reproductible.</h2>
         </div>
 
         <ol class="process-list stagger" role="list">
-          <li class="process-step reveal"><span class="num" data-i18n="section.process.steps.0.title">01 · Discover</span><h3 data-i18n="section.process.steps.0.title">Discover</h3><p data-i18n="section.process.steps.0.desc">Cadrer le besoin réel et les contraintes avant d'écrire du code.</p></li>
-          <li class="process-step reveal"><span class="num" data-i18n="section.process.steps.1.title">02 · Design</span><h3 data-i18n="section.process.steps.1.title">Design</h3><p data-i18n="section.process.steps.1.desc">Hiérarchie, typographie, composition et interaction.</p></li>
-          <li class="process-step reveal"><span class="num" data-i18n="section.process.steps.2.title">03 · Build</span><h3 data-i18n="section.process.steps.2.title">Build</h3><p data-i18n="section.process.steps.2.desc">HTML, CSS, JavaScript — propre, léger, progressif.</p></li>
-          <li class="process-step reveal"><span class="num" data-i18n="section.process.steps.3.title">04 · Verify</span><h3 data-i18n="section.process.steps.3.title">Verify</h3><p data-i18n="section.process.steps.3.desc">Responsive, accessibilité, sécurité, SEO, navigateur.</p></li>
-          <li class="process-step reveal"><span class="num" data-i18n="section.process.steps.4.title">05 · Deploy</span><h3 data-i18n="section.process.steps.4.title">Deploy</h3><p data-i18n="section.process.steps.4.desc">Publication avec headers, robots et preuves de release.</p></li>
+          <li class="process-step reveal"><span class="num">01 · Discover</span><h3 data-i18n="section.process.steps.0.title">Discover</h3><p data-i18n="section.process.steps.0.desc">Cadrer le besoin réel et les contraintes avant d'écrire du code.</p></li>
+          <li class="process-step reveal"><span class="num">02 · Design</span><h3 data-i18n="section.process.steps.1.title">Design</h3><p data-i18n="section.process.steps.1.desc">Hiérarchie, typographie, composition et interaction.</p></li>
+          <li class="process-step reveal"><span class="num">03 · Build</span><h3 data-i18n="section.process.steps.2.title">Build</h3><p data-i18n="section.process.steps.2.desc">HTML, CSS, JavaScript — propre, léger, progressif.</p></li>
+          <li class="process-step reveal"><span class="num">04 · Verify</span><h3 data-i18n="section.process.steps.3.title">Verify</h3><p data-i18n="section.process.steps.3.desc">Responsive, accessibilité, sécurité, SEO, navigateur.</p></li>
+          <li class="process-step reveal"><span class="num">05 · Deploy</span><h3 data-i18n="section.process.steps.4.title">Deploy</h3><p data-i18n="section.process.steps.4.desc">Publication avec headers, robots et preuves de release.</p></li>
         </ol>
       </div>
     </section>
@@ -298,9 +302,9 @@
         <div class="footer-col">
           <h2 data-i18n="footer.legal.title">Légal</h2>
           <ul role="list">
-            <li><a href="/mentions-legales.html" data-i18n="nav.contact">Mentions légales</a></li>
-            <li><a href="/confidentialite.html" data-i18n="nav.about">Confidentialité</a></li>
-            <li><a href="/cookies.html" data-i18n="nav.projects">Cookies</a></li>
+            <li><a href="/mentions-legales.html" data-i18n="footer.legal.mentions">Mentions légales</a></li>
+            <li><a href="/confidentialite.html" data-i18n="footer.legal.privacy">Confidentialité</a></li>
+            <li><a href="/cookies.html" data-i18n="footer.legal.cookies">Cookies</a></li>
           </ul>
         </div>
       </div>

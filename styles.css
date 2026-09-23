@@ -1,26 +1,25 @@
 /* ============================================================
-   PORTFOLIO — Dark Editorial / Digital Studio (PREMIUM)
-   Theme tokens, motion system, components, View Transitions.
-   Mobile-first. Static HTML + CSS + JS only.
+   PORTFOLIO — Editorial digital studio
+   Design tokens (dark / light), motion language, components.
+   Mobile-first. Static HTML + CSS + JS only. No 3D, no GIFs.
+   Motion is progressive: content is visible by default.
    ============================================================ */
 
-/* ---------- Theme tokens ---------- */
-
-/* System default: dark. @media light overrides when no explicit choice.
-   Explicit [data-theme] overrides everything. */
+/* ---------- Motion language (centralized) ---------- */
 
 :root {
-  /* motion tokens */
   --ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
-  --ease-soft: cubic-bezier(0.0, 0, 0.2, 1);
-  --ease-emphasis: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-soft: cubic-bezier(0, 0, 0.2, 1);
+  --ease-emphasis: cubic-bezier(0.16, 1, 0.3, 1);
   --dur-micro: 120ms;
-  --dur-fast: 200ms;
-  --dur: 350ms;
-  --dur-med: 500ms;
-  --dur-slow: 700ms;
+  --dur-fast: 160ms;
+  --dur-med: 320ms;
+  --dur-slow: 540ms;
+}
 
-  /* layout tokens */
+/* ---------- Layout tokens ---------- */
+
+:root {
   --header-h: 4rem;
   --container-w: 1120px;
   --space-1: 0.25rem;
@@ -37,13 +36,15 @@
   --space-20: 5rem;
   --space-24: 6rem;
 
-  /* radii */
   --radius-sm: 8px;
   --radius-md: 14px;
   --radius-lg: 22px;
   --radius-pill: 999px;
+}
 
-  /* typography scale */
+/* ---------- Typography scale ---------- */
+
+:root {
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
   --text-base: 1rem;
@@ -52,57 +53,81 @@
   --text-2xl: 1.6rem;
   --text-3xl: 2rem;
   --text-4xl: 2.5rem;
-  --display: clamp(2.6rem, 7.5vw, 5rem);
+  --display: clamp(2.5rem, 7vw, 4.6rem);
   --display-lg: clamp(3rem, 9vw, 6.5rem);
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "SF Mono", "Cascadia Mono", "Segoe UI Mono", Menlo, Consolas,
+    monospace;
 }
 
-/* Dark (system default + explicit) */
+/* ---------- Theme tokens ----------
+   Dark is the system default (no explicit choice). Light is a true
+   sibling direction, not an inversion. [data-theme] overrides. */
+
 :root,
 [data-theme="dark"] {
-  --bg: #0a0a0b;
-  --bg-soft: #0e0e10;
-  --surface-1: #141417;
-  --surface-2: #1a1a1e;
+  --bg: #0a0a0c;
+  --bg-soft: #0e0e11;
+  --surface-1: #141418;
+  --surface-2: #1a1a1f;
   --border: rgba(255, 255, 255, 0.09);
-  --border-strong: rgba(255, 255, 255, 0.17);
-  --text: #f5f5f4;
-  --text-2: #a8a8a8;
-  --text-3: #77777c;
+  --border-strong: rgba(255, 255, 255, 0.18);
+  --text: #f4f4f3;
+  --text-2: #bababd;
+  --text-3: #909096;
   --accent: #86efac;
+  --accent-fg: #0a0a0c;
   --accent-dim: rgba(134, 239, 172, 0.14);
+  --hover: rgba(255, 255, 255, 0.05);
+  --hover-strong: rgba(255, 255, 255, 0.09);
+  --btn-invert-hover: rgba(244, 244, 243, 0.86);
+  --header-bg: rgba(10, 10, 12, 0.78);
+  --panel-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
   --color-scheme: dark;
 }
 
-/* Light (system preference OR explicit choice) */
 @media (prefers-color-scheme: light) {
   :root {
-    --bg: #f4f3f0;
-    --bg-soft: #e9e8e4;
+    --bg: #f4f2ed;
+    --bg-soft: #eae7e0;
     --surface-1: #ffffff;
-    --surface-2: #f1f0ec;
-    --border: rgba(0, 0, 0, 0.09);
-    --border-strong: rgba(0, 0, 0, 0.16);
-    --text: #111110;
-    --text-2: #444442;
-    --text-3: #888884;
+    --surface-2: #f2efe9;
+    --border: rgba(0, 0, 0, 0.1);
+    --border-strong: rgba(0, 0, 0, 0.18);
+    --text: #141414;
+    --text-2: #3f3f3c;
+    --text-3: #6b6b66;
     --accent: #1f6f45;
+    --accent-fg: #f4f2ed;
     --accent-dim: rgba(31, 111, 69, 0.12);
+    --hover: rgba(0, 0, 0, 0.05);
+    --hover-strong: rgba(0, 0, 0, 0.1);
+    --btn-invert-hover: rgba(20, 20, 20, 0.82);
+    --header-bg: rgba(244, 242, 237, 0.82);
+    --panel-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
     --color-scheme: light;
   }
 }
 
 [data-theme="light"] {
-  --bg: #f4f3f0;
-  --bg-soft: #e9e8e4;
+  --bg: #f4f2ed;
+  --bg-soft: #eae7e0;
   --surface-1: #ffffff;
-  --surface-2: #f1f0ec;
-  --border: rgba(0, 0, 0, 0.09);
-  --border-strong: rgba(0, 0, 0, 0.16);
-  --text: #111110;
-  --text-2: #444442;
-  --text-3: #888884;
+  --surface-2: #f2efe9;
+  --border: rgba(0, 0, 0, 0.1);
+  --border-strong: rgba(0, 0, 0, 0.18);
+  --text: #141414;
+  --text-2: #3f3f3c;
+  --text-3: #6b6b66;
   --accent: #1f6f45;
+  --accent-fg: #f4f2ed;
   --accent-dim: rgba(31, 111, 69, 0.12);
+  --hover: rgba(0, 0, 0, 0.05);
+  --hover-strong: rgba(0, 0, 0, 0.1);
+  --btn-invert-hover: rgba(20, 20, 20, 0.82);
+  --header-bg: rgba(244, 242, 237, 0.82);
+  --panel-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
   --color-scheme: light;
 }
 
@@ -110,16 +135,11 @@ html {
   color-scheme: var(--color-scheme);
 }
 
-/* Theme transition — only when user toggles, not on initial load */
+/* Theme transition — only on toggle/user action, never a load flash.
+   Reduced motion disables it. */
 body {
-  transition: background-color 420ms var(--ease-standard),
-    color 420ms var(--ease-standard);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  body {
-    transition: none;
-  }
+  transition: background-color var(--dur-med) var(--ease-standard),
+    color var(--dur-med) var(--ease-standard);
 }
 
 /* ---------- Reset ---------- */
@@ -139,8 +159,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--font-sans);
   font-size: var(--text-base);
   line-height: 1.65;
   text-rendering: optimizeLegibility;
@@ -191,7 +210,11 @@ button {
 
 :focus-visible {
   outline: 2px solid var(--accent);
-  outline-offset: 3px;
+  outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
 }
 
 .sr-only {
@@ -241,48 +264,57 @@ button {
   max-width: 60ch;
 }
 
-.mono {
-  font-family: "SF Mono", "Cascadia Mono", "Segoe UI Mono", Menlo, Consolas,
-    monospace;
-}
-
 .label {
-  font-family: var(--font-mono, inherit);
+  font-family: var(--font-mono);
   font-size: var(--text-xs);
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--text-3);
 }
 
-.display {
-  letter-spacing: -0.04em;
-  line-height: 1.05;
-  font-weight: 600;
+.mono {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
 }
 
-/* ---------- Motion / Reveal system ---------- */
+.hero-eyebrow {
+  margin-bottom: var(--space-6);
+}
+
+.display {
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+  font-weight: 600;
+  text-wrap: balance;
+}
+
+/* ---------- Motion / Reveal system ----------
+   Fail-safe: content is visible by default. `.motion-ready` is added
+   by script.js only when the reveal engine is actually available. */
 
 .reveal {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
   --i: 0;
 }
 
 .motion-ready .reveal {
   opacity: 0;
-  transform: translateY(28px);
+  transform: translateY(12px);
   transition: opacity var(--dur-med) var(--ease-standard),
     transform var(--dur-med) var(--ease-standard);
 }
 
 .reveal.is-visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
 }
 
 .motion-ready .stagger .reveal {
-  transition-delay: calc(var(--i, 0) * 0.07s);
+  transition-delay: calc(var(--i, 0) * 0.05s);
 }
+
 .stagger .reveal:nth-child(1) { --i: 0; }
 .stagger .reveal:nth-child(2) { --i: 1; }
 .stagger .reveal:nth-child(3) { --i: 2; }
@@ -291,19 +323,6 @@ button {
 .stagger .reveal:nth-child(6) { --i: 5; }
 .stagger .reveal:nth-child(7) { --i: 6; }
 .stagger .reveal:nth-child(8) { --i: 7; }
-.stagger .reveal:nth-child(9) { --i: 8; }
-.stagger .reveal:nth-child(10) { --i: 9; }
-.stagger .reveal:nth-child(11) { --i: 10; }
-.stagger .reveal:nth-child(12) { --i: 11; }
-
-.line-reveal {
-  width: 0;
-  transition: width 650ms var(--ease-emphasis);
-}
-
-.line-reveal.is-visible {
-  width: 3rem;
-}
 
 /* ---------- Header ---------- */
 
@@ -312,26 +331,16 @@ button {
   top: 0;
   z-index: 40;
   border-bottom: 1px solid var(--border);
-  background: rgba(10, 10, 11, 0.78);
+  background: var(--header-bg);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  transition: background-color 420ms var(--ease-standard);
-}
-
-@media (prefers-color-scheme: light) {
-  .site-header {
-    background: rgba(244, 243, 240, 0.82);
-  }
-}
-
-[data-theme="light"] .site-header {
-  background: rgba(244, 243, 240, 0.82);
+  transition: background-color var(--dur-med) var(--ease-standard),
+    border-color var(--dur-med) var(--ease-standard);
 }
 
 .header-inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: var(--space-6);
   min-height: var(--header-h);
 }
@@ -339,7 +348,7 @@ button {
 .brand {
   font-size: var(--text-sm);
   font-weight: 700;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.03em;
   text-decoration: none;
 }
 
@@ -364,31 +373,42 @@ button {
   display: flex;
   align-items: center;
   gap: var(--space-2);
+  margin-left: auto;
 }
 
-/* Theme toggle button */
+/* Theme toggle — a real, focusable button. Icon is a functional glyph,
+   labels are set by script.js in the active language. */
 .theme-toggle {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2rem;
-  height: 2rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 1px solid var(--border-strong);
   border-radius: var(--radius-pill);
   color: var(--text-2);
   transition: background var(--dur-fast) var(--ease-standard),
-    color var(--dur-fast) var(--ease-standard);
+    color var(--dur-fast) var(--ease-standard),
+    border-color var(--dur-fast) var(--ease-standard),
+    transform var(--dur-fast) var(--ease-standard);
 }
 
 .theme-toggle:hover {
-  background: rgba(255, 255, 255, 0.06);
+  background: var(--hover);
   color: var(--text);
+  border-color: var(--border-strong);
 }
 
-[data-theme="light"] .theme-toggle:hover {
-  background: rgba(0, 0, 0, 0.06);
+.theme-toggle:active {
+  transform: scale(0.94);
 }
 
-/* Language toggle (segmented control) */
+.theme-icon {
+  display: block;
+  pointer-events: none;
+}
+
+/* Language toggle — segmented control */
 .lang-toggle {
   display: inline-flex;
   align-items: center;
@@ -401,28 +421,23 @@ button {
   padding: 0.35rem 0.65rem;
   font-size: 0.7rem;
   font-weight: 600;
-  font-family: var(--font-mono, inherit);
+  font-family: var(--font-mono);
   letter-spacing: 0.05em;
   color: var(--text-3);
   transition: background var(--dur-fast) var(--ease-standard),
     color var(--dur-fast) var(--ease-standard);
 }
 
-.lang-toggle button.active {
-  background: var(--accent);
-  color: #0a0a0b;
-}
-
-.lang-toggle button:not(.active):hover {
-  background: rgba(255, 255, 255, 0.05);
+.lang-toggle button:hover {
   color: var(--text);
 }
 
-[data-theme="light"] .lang-toggle button:not(.active):hover {
-  background: rgba(0, 0, 0, 0.05);
+.lang-toggle button.active {
+  background: var(--accent);
+  color: var(--accent-fg);
 }
 
-/* Menu mobile — native <details> */
+/* Mobile menu — native <details>, no JS required */
 .menu {
   position: relative;
 }
@@ -442,7 +457,7 @@ button {
 }
 
 .menu summary:hover {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--hover);
 }
 
 .menu summary::-webkit-details-marker {
@@ -458,12 +473,12 @@ button {
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   background: var(--surface-1);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+  box-shadow: var(--panel-shadow);
 }
 
 .menu-panel a {
   display: block;
-  padding: var(--space-3) var(--space-3);
+  padding: var(--space-3);
   border-radius: var(--radius-sm);
   font-size: var(--text-sm);
   color: var(--text-2);
@@ -474,18 +489,8 @@ button {
 
 .menu-panel a:hover,
 .menu-panel a.is-active {
-  background: rgba(255, 255, 255, 0.06);
+  background: var(--hover);
   color: var(--text);
-}
-
-/* ---------- Focus visible (keyboard accessibility) ---------- */
-
-:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
-}
-:focus:not(:focus-visible) {
-  outline: none;
 }
 
 /* ---------- Hero ---------- */
@@ -525,20 +530,7 @@ button {
   margin-top: var(--space-10);
 }
 
-/* Scroll indicator */
-.scroll-indicator {
-  margin-top: var(--space-16);
-  display: flex;
-  justify-content: center;
-}
-
-.scroll-indicator .line-reveal {
-  width: 0;
-  height: 1px;
-  background: var(--text-3);
-}
-
-/* Index panel */
+/* Index panel — the one distinctive editorial idea of the hero */
 .index-panel {
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
@@ -560,7 +552,6 @@ button {
 
 .index-panel-body {
   display: grid;
-  grid-template-columns: 1fr;
 }
 
 .index-item {
@@ -571,7 +562,7 @@ button {
   padding: var(--space-5) var(--space-6);
   color: var(--text);
   text-decoration: none;
-  transition: background var(--dur) var(--ease-standard);
+  transition: background var(--dur-med) var(--ease-standard);
 }
 
 .index-item + .index-item {
@@ -579,11 +570,11 @@ button {
 }
 
 .index-item:hover {
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--hover);
 }
 
 .index-item .num {
-  font-family: var(--font-mono, inherit);
+  font-family: var(--font-mono);
   font-size: var(--text-xs);
   color: var(--text-3);
 }
@@ -592,14 +583,14 @@ button {
   display: block;
   font-size: var(--text-base);
   font-weight: 600;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.03em;
   line-height: 1.35;
 }
 
 .index-item small {
   display: block;
   margin-top: 2px;
-  font-family: var(--font-mono, inherit);
+  font-family: var(--font-mono);
   font-size: var(--text-xs);
   color: var(--text-3);
   text-transform: uppercase;
@@ -607,10 +598,11 @@ button {
 }
 
 .index-item .arrow {
-  font-family: var(--font-mono, inherit);
+  font-family: var(--font-mono);
   font-size: var(--text-sm);
   color: var(--text-3);
-  transition: transform var(--dur) var(--ease-standard);
+  transition: transform var(--dur-med) var(--ease-standard),
+    color var(--dur-med) var(--ease-standard);
 }
 
 .index-item:hover .arrow {
@@ -627,8 +619,7 @@ button {
 .section-head {
   display: grid;
   gap: var(--space-6);
-  align-items: end;
-  margin-bottom: var(--space-10);
+  margin-bottom: var(--space-12);
 }
 
 .section-head h2 {
@@ -636,7 +627,7 @@ button {
 }
 
 .section-head p {
-  max-width: 48ch;
+  max-width: 44ch;
   color: var(--text-2);
 }
 
@@ -646,11 +637,12 @@ button {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
-  font-family: var(--font-mono, inherit);
+  font-family: var(--font-mono);
   font-size: var(--text-xs);
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--text-2);
+  white-space: nowrap;
 }
 
 .status::before {
@@ -727,12 +719,12 @@ button {
   padding: 0.3rem 0.7rem;
   border: 1px solid var(--border);
   border-radius: var(--radius-pill);
-  font-family: var(--font-mono, inherit);
+  font-family: var(--font-mono);
   font-size: var(--text-xs);
   color: var(--text-2);
 }
 
-/* Media placeholder */
+/* Media placeholder — sober, honest until a real capture exists */
 .media {
   position: relative;
   display: grid;
@@ -755,7 +747,7 @@ button {
 .media-label {
   position: relative;
   z-index: 1;
-  font-family: var(--font-mono, inherit);
+  font-family: var(--font-mono);
   font-size: var(--text-xs);
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -779,7 +771,7 @@ button {
 }
 
 .editorial-row .num {
-  font-family: var(--font-mono, inherit);
+  font-family: var(--font-mono);
   font-size: var(--text-xs);
   color: var(--text-3);
 }
@@ -787,7 +779,7 @@ button {
 .editorial-row h3 {
   font-size: var(--text-xl);
   font-weight: 600;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.03em;
 }
 
 .editorial-row p {
@@ -820,13 +812,13 @@ button {
   display: block;
   font-size: var(--text-base);
   font-weight: 600;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.03em;
 }
 
 .capability span {
   display: block;
   margin-top: var(--space-1);
-  font-family: var(--font-mono, inherit);
+  font-family: var(--font-mono);
   font-size: var(--text-xs);
   color: var(--text-3);
 }
@@ -848,7 +840,7 @@ button {
 }
 
 .process-step .num {
-  font-family: var(--font-mono, inherit);
+  font-family: var(--font-mono);
   font-size: var(--text-xs);
   color: var(--accent);
   letter-spacing: 0.15em;
@@ -859,7 +851,7 @@ button {
   margin-top: var(--space-3);
   font-size: var(--text-lg);
   font-weight: 600;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.03em;
 }
 
 .process-step p {
@@ -917,7 +909,7 @@ button {
 }
 
 .contact-channel .value {
-  font-family: var(--font-mono, inherit);
+  font-family: var(--font-mono);
   font-size: var(--text-sm);
   color: var(--text-2);
 }
@@ -934,9 +926,9 @@ button {
   font-size: var(--text-sm);
   font-weight: 600;
   text-decoration: none;
-  transition: background var(--dur) var(--ease-standard),
-    color var(--dur) var(--ease-standard),
-    border-color var(--dur) var(--ease-standard),
+  transition: background var(--dur-med) var(--ease-standard),
+    color var(--dur-med) var(--ease-standard),
+    border-color var(--dur-med) var(--ease-standard),
     transform var(--dur-fast) var(--ease-standard);
 }
 
@@ -946,7 +938,7 @@ button {
 }
 
 .btn-primary:hover {
-  background: rgba(245, 245, 244, 0.86);
+  background: var(--btn-invert-hover);
 }
 
 .btn-ghost {
@@ -955,7 +947,7 @@ button {
 }
 
 .btn-ghost:hover {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--hover);
 }
 
 .btn-link {
@@ -968,11 +960,13 @@ button {
   text-decoration: none;
   border-bottom: 1px solid var(--border-strong);
   padding-bottom: 2px;
-  transition: border-color var(--dur) var(--ease-standard);
+  transition: border-color var(--dur-med) var(--ease-standard),
+    color var(--dur-med) var(--ease-standard);
 }
 
 .btn-link:hover {
-  border-color: var(--text);
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 .btn:active {
@@ -984,7 +978,6 @@ button {
 .site-footer {
   border-top: 1px solid var(--border);
   padding: var(--space-12) 0 var(--space-8);
-  transition: border-color 420ms var(--ease-standard);
 }
 
 .footer-grid {
@@ -994,7 +987,7 @@ button {
 
 .footer-brand {
   font-weight: 700;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.03em;
   text-decoration: none;
 }
 
@@ -1007,7 +1000,7 @@ button {
 
 .footer-col h2 {
   font-size: var(--text-xs);
-  font-family: var(--font-mono, inherit);
+  font-family: var(--font-mono);
   font-weight: 500;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -1043,7 +1036,7 @@ button {
   flex-wrap: wrap;
   gap: var(--space-3);
   justify-content: space-between;
-  font-family: var(--font-mono, inherit);
+  font-family: var(--font-mono);
   font-size: var(--text-xs);
   color: var(--text-3);
 }
@@ -1109,7 +1102,7 @@ button {
 .case-block h2 {
   margin-top: var(--space-2);
   font-size: var(--text-2xl);
-  letter-spacing: -0.04em;
+  letter-spacing: -0.03em;
 }
 
 .case-block p {
@@ -1167,7 +1160,7 @@ button {
 }
 
 .result-tag {
-  font-family: var(--font-mono, inherit);
+  font-family: var(--font-mono);
   font-size: var(--text-xs);
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -1197,7 +1190,7 @@ button {
 
 .legal-section h2 {
   font-size: var(--text-lg);
-  letter-spacing: -0.04em;
+  letter-spacing: -0.03em;
 }
 
 .legal-section p,
@@ -1220,7 +1213,7 @@ button {
 }
 
 .notfound .code {
-  font-family: var(--font-mono, inherit);
+  font-family: var(--font-mono);
   font-size: var(--text-sm);
   color: var(--text-3);
 }
@@ -1243,7 +1236,8 @@ button {
   flex-wrap: wrap;
 }
 
-/* ---------- View Transitions ---------- */
+/* ---------- View Transitions ----------
+   Native cross-document transitions (progressive enhancement). */
 
 @view-transition {
   navigation: auto;
@@ -1251,15 +1245,8 @@ button {
 
 ::view-transition-old(root),
 ::view-transition-new(root) {
-  animation-duration: 280ms;
+  animation-duration: var(--dur-med);
   animation-timing-function: var(--ease-standard);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  ::view-transition-old(root),
-  ::view-transition-new(root) {
-    animation-duration: 0.01ms;
-  }
 }
 
 /* ---------- Responsive ---------- */
@@ -1278,8 +1265,23 @@ button {
     gap: var(--space-14);
   }
 
-  .index-panel-body {
-    grid-template-columns: 1fr;
+  .section-head {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 44ch);
+    column-gap: var(--space-14);
+    align-items: end;
+  }
+
+  .section-head .label {
+    grid-column: 1;
+  }
+
+  .section-head h2 {
+    grid-column: 1;
+  }
+
+  .section-head p {
+    grid-column: 2;
+    grid-row: 1 / span 2;
   }
 
   .project-head {
@@ -1336,15 +1338,19 @@ button {
     scroll-behavior: auto;
   }
 
+  body {
+    transition: none;
+  }
+
   .reveal {
     opacity: 1;
     transform: none;
     transition: none;
   }
 
-  .line-reveal {
-    width: 3rem;
-    transition: none;
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 0.01ms;
   }
 
   *,

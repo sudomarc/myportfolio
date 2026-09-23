@@ -1,7 +1,7 @@
 /* ============================================================
    PORTFOLIO — Progressive enhancement engine
-   Theme · Language · Motion · Navigation · View Transitions
-   Zero dependencies. Static site.
+   Theme · Language · Motion · Navigation states
+   Zero dependencies. Static site. Content-first, JS enhances.
    ============================================================ */
 
 (function () {
@@ -9,9 +9,20 @@
 
   /* ---------- i18n dictionary ----------
      FR is the default (visible without JavaScript).
-     EN swaps textContent of every [data-i18n] element. */
+     EN swaps textContent of every [data-i18n] element,
+     aria-labels via [data-i18n-aria], meta description via
+     [data-i18n-desc]. <title> is translated as a [data-i18n] node. */
   var dict = {
     fr: {
+      /* a11y */
+      "a11y.menu.open": "Ouvrir le menu",
+      "controls.theme.on": "Activer le mode clair",
+      "controls.theme.off": "Activer le mode sombre",
+      "controls.lang.fr": "Passer en français",
+      "controls.lang.en": "Passer en anglais",
+      "status.real.aria": "Statut : projet réel",
+      "status.demo.aria": "Statut : démo",
+      "status.concept.aria": "Statut : concept",
       /* navigation */
       "nav.home": "Accueil",
       "nav.projects": "Projets",
@@ -19,6 +30,8 @@
       "nav.contact": "Contact",
       /* hero */
       "hero.eyebrow": "Portfolio — Web development & UI",
+      "hero.meta.aria": "Localisation et disponibilité",
+      "hero.index.aria": "Sélection de travaux",
       "hero.meta.location": "Guinée · Remote",
       "hero.meta.availability": "Disponible pour des projets sélectionnés",
       "hero.title": "Je construis des expériences web simples, claires et crédibles.",
@@ -27,15 +40,17 @@
       "hero.cta.work": "Voir les projets",
       "hero.index.series": "Sélection",
       "hero.index.count": "3 projets",
-      "hero.index.items.0.title": "Amplio Web",
       "hero.index.items.0.sub": "Projet réel · Web design",
-      "hero.index.items.1.title": "Le Patio",
       "hero.index.items.1.sub": "Démo · Landing page",
-      "hero.index.items.2.title": "Naya Beauty",
       "hero.index.items.2.sub": "Concept · Direction visuelle",
       /* sections */
+      "section.work.eyebrow": "Sélection",
       "section.work.title": "Les projets avant les promesses.",
       "section.work.desc": "Chaque réalisation est documentée comme une étude de cas : contexte, décisions, interface et éléments vérifiables. Les concepts et démos restent explicitement marqués.",
+      "section.work.projects.0.summary": "Projet principal en cours : démonstration réelle de direction artistique, de structure produit et d'intégration front-end.",
+      "section.work.projects.1.summary": "Concept de landing page mobile-first pour présenter une offre et générer des prises de contact. Aucun client ou résultat commercial n'est présenté comme réel.",
+      "section.work.projects.2.summary": "Exploration de direction de marque et de hiérarchie de contenu pour présenter des prestations, une galerie et un rendez-vous. Aucune donnée client revendiquée.",
+      "section.about.eyebrow": "À propos",
       "section.about.title": "Court, concret, honnête.",
       "section.about.desc": "Pas de CV interminable : l'essentiel pour comprendre comment je travaille.",
       "section.about.rows.0.title": "Qui je suis",
@@ -46,6 +61,7 @@
       "section.about.rows.2.text": "Interfaces web, mini-sites et études de cas. Le projet principal (Amplio Web) est réel ; les autres sont des concepts ou démos, marqués comme tels.",
       "section.about.rows.3.title": "Comment je travaille",
       "section.about.rows.3.text": "Découvrir, cadrer, construire, vérifier, déployer : une méthode courte pour livrer un résultat public et vérifiable.",
+      "section.capabilities.eyebrow": "Capacités",
       "section.capabilities.title": "Ce que je sais construire.",
       "section.capabilities.desc": "Liste courte, chaque capacité étant démontrée ou démontrée en cours par les projets de ce portfolio.",
       "section.capabilities.items.0.name": "Web development",
@@ -66,6 +82,7 @@
       "section.capabilities.items.7.desc": "Utilisé sur Amplio Web",
       "section.capabilities.items.8.name": "TypeScript",
       "section.capabilities.items.8.desc": "Utilisé sur Amplio Web",
+      "section.process.eyebrow": "Méthode",
       "section.process.title": "Un processus court et reproductible.",
       "section.process.steps.0.title": "Discover",
       "section.process.steps.0.desc": "Cadrer le besoin réel et les contraintes avant d'écrire du code.",
@@ -92,6 +109,9 @@
       "footer.tagline": "Web development & UI — interfaces simples, claires et crédibles.",
       "footer.nav.title": "Navigation",
       "footer.legal.title": "Légal",
+      "footer.legal.mentions": "Mentions légales",
+      "footer.legal.privacy": "Confidentialité",
+      "footer.legal.cookies": "Cookies",
       "footer.copyright": "© 2026 Marco Polo. Tous droits réservés.",
       "footer.technical": "Fait main — HTML, CSS, JavaScript. Aucun cookie, aucun tracker.",
       /* status */
@@ -155,12 +175,30 @@
       "case.media.mobile": "Capture mobile",
       /* page generic */
       "page.back": "Retour aux projets",
+      "page.back.home": "Retour à l'accueil",
+      "project.case.link": "Étude de cas",
       "page.notfound.code": "404",
       "page.notfound.title": "Page introuvable.",
       "page.notfound.desc": "L'adresse demandée n'existe pas ou a été déplacée.",
       "page.notfound.home": "Retour à l'accueil",
       "page.notfound.work": "Voir les projets",
+      /* document */
+      "doc.home.title": "Marco Polo — Portfolio web & interfaces",
+      "doc.home.desc": "Portfolio personnel : projets web, interfaces, expériences digitales et études de cas — documentés par des preuves, pas par des promesses.",
+      "doc.amplio.title": "Amplio Web — Étude de cas | Marco Polo",
+      "doc.amplio.desc": "Étude de cas d'Amplio Web : projet web principal servant de démonstration de direction artistique, de structure produit et d'intégration front-end.",
+      "doc.le-patio.title": "Le Patio — Étude de cas | Marco Polo",
+      "doc.le-patio.desc": "Étude de cas du Patio : démo de landing page mobile-first pour présenter une offre et générer des prises de contact.",
+      "doc.naya-beauty.title": "Naya Beauty — Étude de cas | Marco Polo",
+      "doc.naya-beauty.desc": "Étude de cas de Naya Beauty : concept de mini-site pour organiser prestations, galerie et prise de rendez-vous.",
+      "doc.mentions.title": "Mentions légales | Marco Polo",
+      "doc.mentions.desc": "Mentions légales du portfolio de Marco Polo.",
+      "doc.privacy.title": "Politique de confidentialité | Marco Polo",
+      "doc.privacy.desc": "Politique de confidentialité du portfolio de Marco Polo.",
+      "doc.cookies.title": "Cookies | Marco Polo",
+      "doc.cookies.desc": "Inventaire des cookies et technologies de stockage du portfolio de Marco Polo.",
       /* legal */
+      "legal.label": "Légal",
       "legal.editor": "Éditeur du site",
       "legal.editor.text": "[PLACEHOLDER — nom légal]",
       "legal.editor.address": "[PLACEHOLDER — adresse / siège]",
@@ -179,15 +217,24 @@
       "privacy.contact": "Contact",
       "privacy.contact.text": "[PLACEHOLDER — email de contact]",
       /* cookies */
-      "cookies.inventory": "À ce stade, ce site n'utilise aucun cookie, localStorage, sessionStorage, IndexedDB, analytics, pixel, embed tiers, police distante ou script externe.",
-      "cookies.banner": "Aucune bannière de consentement n'est donc nécessaire : il n'existe aucun stockage non essentiel à contrôler [PLACEHOLDER — revérifier cet inventaire à chaque intégration].",
+      "cookies.heading": "Inventaire actuel",
+      "cookies.inventory": "À ce stade, ce site n'utilise aucun cookie, analytics, pixel, embed tiers, police distante ni script externe. Seul le stockage local du navigateur (localStorage) enregistre deux préférences utilisateur : le thème (sombre/clair) et la langue (FR/EN). Ces clés ne servent qu'à votre confort de lecture, restent sur votre appareil et ne sont ni lues ni transmises à un serveur.",
+      "cookies.banner": "Aucune bannière de consentement n'est donc nécessaire : les seules données stockées sont des préférences strictement fonctionnelles, non publicitaires [PLACEHOLDER — revérifier cet inventaire à chaque intégration].",
       "cookies.evolution": "Évolution",
       "cookies.evolution.text": "Si une intégration ajoute un cookie, un stockage ou un outil de mesure, cet inventaire sera mis à jour avant l'implémentation, puis un contrôle de consentement sera évalué.",
-      /* controls */
       "theme.label": "Thème",
       "lang.label": "Langue"
     },
     en: {
+      /* a11y */
+      "a11y.menu.open": "Open menu",
+      "controls.theme.on": "Switch to light mode",
+      "controls.theme.off": "Switch to dark mode",
+      "controls.lang.fr": "Switch to French",
+      "controls.lang.en": "Switch to English",
+      "status.real.aria": "Status: real project",
+      "status.demo.aria": "Status: demo",
+      "status.concept.aria": "Status: concept",
       /* navigation */
       "nav.home": "Home",
       "nav.projects": "Work",
@@ -195,6 +242,8 @@
       "nav.contact": "Contact",
       /* hero */
       "hero.eyebrow": "Portfolio — Web development & UI",
+      "hero.meta.aria": "Location and availability",
+      "hero.index.aria": "Selected work",
       "hero.meta.location": "Guinea · Remote",
       "hero.meta.availability": "Available for selected projects",
       "hero.title": "I build simple, clear, and credible web experiences.",
@@ -203,15 +252,17 @@
       "hero.cta.work": "View projects",
       "hero.index.series": "Selection",
       "hero.index.count": "3 projects",
-      "hero.index.items.0.title": "Amplio Web",
       "hero.index.items.0.sub": "Real project · Web design",
-      "hero.index.items.1.title": "Le Patio",
       "hero.index.items.1.sub": "Demo · Landing page",
-      "hero.index.items.2.title": "Naya Beauty",
       "hero.index.items.2.sub": "Concept · Visual direction",
       /* sections */
+      "section.work.eyebrow": "Selected work",
       "section.work.title": "Projects before promises.",
       "section.work.desc": "Each work is documented as a case study: context, decisions, interface, and verifiable elements. Concepts and demos remain explicitly marked.",
+      "section.work.projects.0.summary": "Main project in progress: a real demonstration of art direction, product structure, and front-end integration.",
+      "section.work.projects.1.summary": "Mobile-first landing page concept to present an offer and generate contacts. No client or commercial result is presented as real.",
+      "section.work.projects.2.summary": "Brand direction and content hierarchy exploration to present services, a gallery, and a booking. No client data claimed.",
+      "section.about.eyebrow": "About",
       "section.about.title": "Short, concrete, honest.",
       "section.about.desc": "No endless résumé: the essentials to understand how I work.",
       "section.about.rows.0.title": "Who I am",
@@ -222,6 +273,7 @@
       "section.about.rows.2.text": "Web interfaces, mini-sites, and case studies. The main project (Amplio Web) is real; the others are concepts or demos, marked as such.",
       "section.about.rows.3.title": "How I work",
       "section.about.rows.3.text": "Discover, scope, build, verify, deploy: a short method for shipping a public, verifiable result.",
+      "section.capabilities.eyebrow": "Capabilities",
       "section.capabilities.title": "What I can build.",
       "section.capabilities.desc": "Short list, each capability demonstrated or being demonstrated by the projects in this portfolio.",
       "section.capabilities.items.0.name": "Web development",
@@ -242,6 +294,7 @@
       "section.capabilities.items.7.desc": "Used on Amplio Web",
       "section.capabilities.items.8.name": "TypeScript",
       "section.capabilities.items.8.desc": "Used on Amplio Web",
+      "section.process.eyebrow": "Process",
       "section.process.title": "A short, repeatable process.",
       "section.process.steps.0.title": "Discover",
       "section.process.steps.0.desc": "Scope the real need and constraints before writing code.",
@@ -268,6 +321,9 @@
       "footer.tagline": "Web development & UI — simple, clear, and credible interfaces.",
       "footer.nav.title": "Navigation",
       "footer.legal.title": "Legal",
+      "footer.legal.mentions": "Legal notice",
+      "footer.legal.privacy": "Privacy",
+      "footer.legal.cookies": "Cookies",
       "footer.copyright": "© 2026 Marco Polo. All rights reserved.",
       "footer.technical": "Handmade — HTML, CSS, JavaScript. No cookies, no tracking.",
       /* status */
@@ -331,12 +387,30 @@
       "case.media.mobile": "Mobile capture",
       /* page generic */
       "page.back": "Back to projects",
+      "page.back.home": "Back to home",
+      "project.case.link": "Case study",
       "page.notfound.code": "404",
       "page.notfound.title": "Page not found.",
       "page.notfound.desc": "The requested address does not exist or has moved.",
       "page.notfound.home": "Back to home",
       "page.notfound.work": "View projects",
+      /* document */
+      "doc.home.title": "Marco Polo — Web portfolio & interfaces",
+      "doc.home.desc": "Personal portfolio: web projects, interfaces, digital experiences, and case studies — documented by proof, not promises.",
+      "doc.amplio.title": "Amplio Web — Case study | Marco Polo",
+      "doc.amplio.desc": "Amplio Web case study: the main web project serving as a demonstration of art direction, product structure, and front-end integration.",
+      "doc.le-patio.title": "Le Patio — Case study | Marco Polo",
+      "doc.le-patio.desc": "Le Patio case study: a mobile-first landing page demo for presenting an offer and generating contacts.",
+      "doc.naya-beauty.title": "Naya Beauty — Case study | Marco Polo",
+      "doc.naya-beauty.desc": "Naya Beauty case study: a mini-site concept structuring services, a gallery, and appointment booking.",
+      "doc.mentions.title": "Legal notice | Marco Polo",
+      "doc.mentions.desc": "Legal notice for the Marco Polo portfolio.",
+      "doc.privacy.title": "Privacy policy | Marco Polo",
+      "doc.privacy.desc": "Privacy policy for the Marco Polo portfolio.",
+      "doc.cookies.title": "Cookies | Marco Polo",
+      "doc.cookies.desc": "Cookie and storage inventory for the Marco Polo portfolio.",
       /* legal */
+      "legal.label": "Legal",
       "legal.editor": "Site editor",
       "legal.editor.text": "[PLACEHOLDER — legal name]",
       "legal.editor.address": "[PLACEHOLDER — address / headquarters]",
@@ -355,19 +429,21 @@
       "privacy.contact": "Contact",
       "privacy.contact.text": "[PLACEHOLDER — contact email]",
       /* cookies */
-      "cookies.inventory": "At this stage, this site uses no cookies, localStorage, sessionStorage, IndexedDB, analytics, pixels, third-party embeds, remote fonts, or external scripts.",
-      "cookies.banner": "No consent banner is therefore necessary: there is no non-essential storage to control [PLACEHOLDER — reverify this inventory with each integration].",
+      "cookies.heading": "Current inventory",
+      "cookies.inventory": "At this stage, this site uses no cookies, analytics, pixels, third-party embeds, remote fonts, or external scripts. Only browser local storage (localStorage) records two user preferences: the theme (dark/light) and the language (FR/EN). These keys serve only your reading comfort, stay on your device, and are neither read nor transmitted to any server.",
+      "cookies.banner": "No consent banner is therefore necessary: the only stored data are strictly functional, non-advertising preferences [PLACEHOLDER — reverify this inventory with each integration].",
       "cookies.evolution": "Evolution",
       "cookies.evolution.text": "If an integration adds a cookie, storage, or measurement tool, this inventory will be updated before implementation, and a consent control will then be evaluated.",
-      /* controls */
       "theme.label": "Theme",
       "lang.label": "Language"
     }
   };
 
-  /* ---------- Icons ---------- */
-  var moonIcon = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
-  var sunIcon = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>';
+  /* ---------- Theme icons ---------- */
+  var ICONS = {
+    sun: '<svg class="theme-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>',
+    moon: '<svg class="theme-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>'
+  };
 
   /* ---------- Helpers ---------- */
   function tryLocal(key, value) {
@@ -379,12 +455,21 @@
     }
   }
 
+  function getLang() {
+    return tryLocal("lang") || "fr";
+  }
+
   /* ---------- Theme ---------- */
   function getSystemTheme() {
     return window.matchMedia("(prefers-color-scheme: dark)").matches
       ? "dark"
       : "light";
   }
+
+  function effectiveTheme() {
+    return tryLocal("theme") || getSystemTheme();
+  }
+
   function applyTheme(theme) {
     if (!theme) {
       document.documentElement.removeAttribute("data-theme");
@@ -393,43 +478,69 @@
     }
     updateThemeButton();
   }
+
   function updateThemeButton() {
     var btn = document.getElementById("theme-toggle");
     if (!btn) return;
-    var theme = tryLocal("theme") || getSystemTheme();
-    var isDark = theme === "dark";
-    btn.innerHTML = isDark ? sunIcon : moonIcon;
-    btn.setAttribute("aria-label", isDark ? "Passer en mode clair" : "Passer en mode sombre");
-    btn.setAttribute("title", isDark ? "Mode clair" : "Mode sombre");
+    var isDark = effectiveTheme() === "dark";
+    var labelKey = isDark ? "controls.theme.on" : "controls.theme.off";
+    var d = dict[getLang()] || dict.fr;
+    btn.innerHTML = isDark ? ICONS.sun : ICONS.moon;
+    btn.setAttribute("aria-label", d[labelKey]);
+    btn.setAttribute("title", d[labelKey]);
   }
+
   function toggleTheme() {
-    var current = tryLocal("theme") || getSystemTheme();
-    var next = current === "dark" ? "light" : "dark";
+    var next = effectiveTheme() === "dark" ? "light" : "dark";
     tryLocal("theme", next);
     applyTheme(next);
   }
 
   /* ---------- Language ---------- */
-  function getLang() {
-    return tryLocal("lang") || "fr";
-  }
   function applyLang(lang) {
     document.documentElement.lang = lang;
     var d = dict[lang] || dict.fr;
+
     document.querySelectorAll("[data-i18n]").forEach(function (el) {
       var key = el.getAttribute("data-i18n");
       var text = d[key];
-      if (text) el.textContent = text;
+      if (text !== undefined) el.textContent = text;
     });
+    document.querySelectorAll("[data-i18n-desc]").forEach(function (el) {
+      var key = el.getAttribute("data-i18n-desc");
+      var text = d[key];
+      if (text !== undefined) el.setAttribute("content", text);
+    });
+    document.querySelectorAll("[data-i18n-aria]").forEach(function (el) {
+      var key = el.getAttribute("data-i18n-aria");
+      var text = d[key];
+      if (text !== undefined) el.setAttribute("aria-label", text);
+    });
+
     document.querySelectorAll(".lang-toggle button").forEach(function (btn) {
       var active = btn.getAttribute("data-lang") === lang;
       btn.classList.toggle("active", active);
       btn.setAttribute("aria-pressed", active ? "true" : "false");
     });
+
+    updateThemeButton();
   }
+
   function setLang(lang) {
     tryLocal("lang", lang);
     applyLang(lang);
+  }
+
+  /* ---------- Controls wiring (static markup, progressive) ---------- */
+  function wireControls() {
+    var themeBtn = document.getElementById("theme-toggle");
+    if (themeBtn) themeBtn.addEventListener("click", toggleTheme);
+
+    document.querySelectorAll(".lang-toggle button").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        setLang(btn.getAttribute("data-lang"));
+      });
+    });
   }
 
   /* ---------- WhatsApp links ---------- */
@@ -458,29 +569,6 @@
       link.setAttribute("rel", "noreferrer");
       link.removeAttribute("data-whatsapp");
     });
-  }
-
-  /* ---------- Controls injection ---------- */
-  function buildControls() {
-    var inner = document.querySelector(".header-inner");
-    if (!inner) return;
-    var controls = document.createElement("div");
-    controls.className = "header-controls";
-    controls.innerHTML =
-      '<button class="theme-toggle" id="theme-toggle" type="button" aria-label="Thème"></button>' +
-      '<div class="lang-toggle" role="radiogroup" aria-label="Langue">' +
-      '<button type="button" data-lang="fr" aria-pressed="true">FR</button>' +
-      '<button type="button" data-lang="en" aria-pressed="false">EN</button>' +
-      "</div>";
-    inner.appendChild(controls);
-
-    document.getElementById("theme-toggle").addEventListener("click", toggleTheme);
-    controls.querySelectorAll(".lang-toggle button").forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        setLang(btn.getAttribute("data-lang"));
-      });
-    });
-    updateThemeButton();
   }
 
   /* ---------- Active nav (IntersectionObserver) ---------- */
@@ -517,7 +605,8 @@
       navLinks.forEach(function (link) {
         var on = link.getAttribute("data-nav") === active;
         link.classList.toggle("is-active", on);
-        link.setAttribute("aria-current", on ? "true" : "false");
+        if (on) link.setAttribute("aria-current", "location");
+        else link.removeAttribute("aria-current");
       });
     }
     function onScroll() {
@@ -533,10 +622,19 @@
     update();
   }
 
-  /* ---------- Reveal (IntersectionObserver) ---------- */
+  /* ---------- Reveal (IntersectionObserver, fail-safe) ----------
+     `.motion-ready` is added only here: if this code never runs,
+     every `.reveal` stays visible. If reduced motion is preferred,
+     the class is skipped and content stays visible (CSS already
+     forces the visible state). */
   function initReveals() {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     var items = document.querySelectorAll(".reveal, [data-reveal]");
     if (items.length === 0) return;
+    if (!("IntersectionObserver" in window)) return;
+
+    document.documentElement.classList.add("motion-ready");
+
     var observer = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (e) {
@@ -553,67 +651,14 @@
     });
   }
 
-  /* ---------- Line reveals ---------- */
-  function initLineReveals() {
-    var items = document.querySelectorAll(".line-reveal");
-    items.forEach(function (el) {
-      var observer = new IntersectionObserver(
-        function (entries) {
-          entries.forEach(function (e) {
-            if (e.isIntersecting) {
-              e.target.classList.add("is-visible");
-              observer.unobserve(e.target);
-            }
-          });
-        },
-        { threshold: 0.2 }
-      );
-      observer.observe(el);
-    });
-  }
-
-  /* ---------- Navigation with View Transitions ---------- */
-  function isSameOriginLink(href) {
-    return href && (href.startsWith("/") || href.startsWith("#"));
-  }
-  function navigateTo(href) {
-    var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduced || !document.startViewTransition) {
-      location.href = href;
-      return;
-    }
-    try {
-      var tv = document.startViewTransition(function () {
-        location.href = href;
-      });
-      tv.finally(function () {
-        window.scrollTo(0, 0);
-      });
-    } catch (e) {
-      location.href = href;
-    }
-  }
-  function wireNav() {
-    document.querySelectorAll('a[href^="/"]:not([target="_blank"]):not([download])').forEach(function (link) {
-      link.addEventListener("click", function (e) {
-        var href = link.getAttribute("href");
-        if (!href || href.startsWith("#") || href === "/") return;
-        e.preventDefault();
-        navigateTo(href);
-      });
-    });
-  }
-
   /* ---------- Init ---------- */
   function init() {
     applyTheme(tryLocal("theme"));
     applyLang(getLang());
+    wireControls();
     initWhatsAppLinks();
-  buildControls();
     initActiveNav();
     initReveals();
-    initLineReveals();
-    wireNav();
   }
 
   if (document.readyState === "loading") {
