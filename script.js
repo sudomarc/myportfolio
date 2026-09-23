@@ -207,18 +207,53 @@
       "legal.ip": "Propriété intellectuelle",
       "legal.ip.text": "Les contenus et éléments graphiques publiés doivent respecter les droits d’utilisation applicables. Les éléments tiers seront documentés au besoin.",
       /* privacy */
-      "privacy.data": "Données collectées",
-      "privacy.data.text": "Le site ne comporte pas de formulaire actif ni d’outil d’analytics. Le navigateur peut conserver localement les préférences de thème et de langue via localStorage. Ces préférences restent dans le navigateur et ne sont pas envoyées par le site à un serveur.",
+      "privacy.hero.eyebrow": "Confidentialité",
+      "privacy.hero.title": "Votre vie privée, clairement.",
+      "privacy.hero.intro": "Cette page décrit le fonctionnement actuel du portfolio : les données qu’il peut traiter, les usages du stockage local et le rôle des services externes.",
+      "privacy.updated": "Dernière mise à jour : 23 septembre 2026",
+      "privacy.scope": "Périmètre",
+      "privacy.scope.text": "Cette politique concerne ce portfolio personnel et ses pages publiques. Elle décrit ce que le site contrôle directement et ce qui relève de services externes accessibles depuis le portfolio.",
+      "privacy.data": "Données traitées",
+      "privacy.data.text": "Le portfolio ne comporte pas de formulaire de contact intégré, d’outil d’analytics, de pixel publicitaire ou de session replay. Il ne demande pas de compte et ne collecte pas volontairement de données personnelles par un formulaire.",
+      "privacy.storage": "Stockage local",
+      "privacy.storage.text": "Le navigateur peut conserver localement trois préférences d’interface : le thème, la langue et l’état de fermeture du bandeau de confidentialité. Ces informations restent sur votre appareil et ne sont pas envoyées par le portfolio à un serveur.",
+      "privacy.external": "Services et contenus externes",
+      "privacy.external.text": "Certaines réalisations sont affichées dans des aperçus intégrés depuis GitHub Pages. Lorsque vous chargez ces aperçus, votre navigateur contacte directement les sites concernés ; ils peuvent traiter des données techniques selon leurs propres règles et politiques. Les liens WhatsApp et GitHub sont également des services externes utilisés uniquement lorsque vous choisissez de les ouvrir.",
       "privacy.purpose": "Finalités",
-      "privacy.purpose.text": "Les préférences locales servent uniquement à conserver le thème et la langue choisis pour les visites suivantes.",
-      "privacy.contact": "Contact",
-      "privacy.contact.text": "Pour contacter le responsable du site : github.com/sudomarc",
+      "privacy.purpose.text": "Le traitement local sert uniquement à conserver vos préférences d’interface et à éviter de réafficher le bandeau après sa fermeture. Les échanges avec les services externes résultent de votre choix de consulter un aperçu ou d’ouvrir un lien.",
+      "privacy.retention": "Conservation",
+      "privacy.retention.text": "Les préférences stockées dans le navigateur restent jusqu’à leur suppression par vous ou au nettoyage du stockage du site. Les données techniques éventuellement présentes dans les journaux de l’hébergeur relèvent des pratiques de l’hébergeur ; aucune durée précise n’est revendiquée ici sans vérification de sa politique.",
+      "privacy.rights": "Vos demandes",
+      "privacy.rights.text": "Pour toute demande concernant les informations contrôlées directement par ce portfolio, vous pouvez utiliser le canal de contact public indiqué ci-dessous. Les demandes concernant un service externe doivent être adressées au service concerné.",
+      "privacy.contact": "Responsable et contact",
+      "privacy.contact.text": "Responsable public du site : sudomarc, Conakry, Guinée. Contact public :",
+      "privacy.external.link": "GitHub — github.com/sudomarc",
+      "privacy.updates": "Mises à jour",
+      "privacy.updates.text": "Cette politique sera revue lorsqu’une nouvelle fonctionnalité, un nouvel hébergement, un outil de mesure ou une nouvelle intégration externe modifiera le traitement des données.",
+      "privacy.cookies.link": "Consulter aussi la politique cookies →",
+/* cookie/privacy notice */
+      "cookie.banner.title": "Confidentialité & cookies",
+      "cookie.banner.text": "Ce portfolio ne dépose aucun cookie publicitaire ou de suivi. Il mémorise seulement certaines préférences dans votre navigateur. Les aperçus de projets externes peuvent, eux, suivre les règles de leurs propres sites.",
+      "cookie.banner.privacy": "Confidentialité",
+      "cookie.banner.cookies": "Cookies",
+      "cookie.banner.dismiss": "Compris",
+      "cookie.banner.aria": "Avis sur la confidentialité et les cookies",
+/* cookie/privacy notice */
+      "cookie.banner.title": "Privacy & cookies",
+      "cookie.banner.text": "This portfolio does not set advertising or tracking cookies. It only stores a few preferences in your browser. External project previews may follow the rules of the sites that host them.",
+      "cookie.banner.privacy": "Privacy",
+      "cookie.banner.cookies": "Cookies",
+      "cookie.banner.dismiss": "Got it",
+      "cookie.banner.aria": "Privacy and cookie notice",
       /* cookies */
       "cookies.heading": "Inventaire actuel",
-      "cookies.inventory": "À ce stade, ce site n'utilise aucun cookie, analytics, pixel, embed tiers, police distante ni script externe. Seul le stockage local du navigateur (localStorage) enregistre deux préférences utilisateur : le thème (sombre/clair) et la langue (FR/EN). Ces clés ne servent qu'à votre confort de lecture, restent sur votre appareil et ne sont ni lues ni transmises à un serveur.",
-      "cookies.banner": "Aucune bannière de consentement n’est prévue à ce stade : le site utilise uniquement des préférences locales strictement fonctionnelles, sans publicité ni analytics. Cet inventaire sera revérifié à chaque ajout d’intégration externe.",
+      "cookies.inventory": "Le site ne dépose pas de cookie publicitaire, analytique ou de suivi. Il utilise uniquement localStorage pour mémoriser le thème, la langue et l’état de fermeture du bandeau de confidentialité. Les aperçus de projets affichés dans des iframes proviennent de sites externes et peuvent utiliser leurs propres mécanismes.",
+      "cookies.banner": "Bandeau d’information",
+      "cookies.banner.text": "Le bandeau affiché sur le site est informatif : il explique le fonctionnement actuel du stockage et renvoie vers cette page et la politique de confidentialité. Il ne sert pas de mécanisme de consentement pour des cookies non essentiels, car le portfolio n’en dépose pas actuellement.",
+      "cookies.external": "Aperçus externes",
+      "cookies.external.text": "Les pages de projets peuvent être chargées depuis GitHub Pages dans des aperçus intégrés. Ces sites externes sont distincts du portfolio et peuvent déposer leurs propres cookies ou utiliser leur propre stockage selon leur configuration.",
       "cookies.evolution": "Évolution",
-      "cookies.evolution.text": "Si une intégration ajoute un cookie, un stockage ou un outil de mesure, cet inventaire sera mis à jour avant l'implémentation, puis un contrôle de consentement sera évalué.",
+      "cookies.evolution.text": "Si une intégration ajoute un cookie, un stockage ou un outil de mesure non strictement nécessaire, l’inventaire sera mis à jour avant l’implémentation et la stratégie de consentement sera réévaluée selon les règles applicables.",
       "theme.label": "Thème",
       "lang.label": "Langue"
     },
@@ -415,18 +450,39 @@
       "legal.ip": "Intellectual property",
       "legal.ip.text": "Published content and graphic elements must respect applicable usage rights. Third-party assets will be documented when relevant.",
       /* privacy */
-      "privacy.data": "Data collected",
-      "privacy.data.text": "The site has no active form or analytics tool. The browser may locally store theme and language preferences through localStorage. These preferences stay in the browser and are not sent by this site to a server.",
+      "privacy.hero.eyebrow": "Privacy",
+      "privacy.hero.title": "Your privacy, clearly.",
+      "privacy.hero.intro": "This page describes how the portfolio currently works: the data it may process, the use of browser storage, and the role of external services.",
+      "privacy.updated": "Last updated: September 23, 2026",
+      "privacy.scope": "Scope",
+      "privacy.scope.text": "This policy covers this personal portfolio and its public pages. It describes what the site controls directly and what belongs to external services accessed from the portfolio.",
+      "privacy.data": "Data processed",
+      "privacy.data.text": "The portfolio has no built-in contact form, analytics tool, advertising pixel, or session replay. It does not require an account and does not intentionally collect personal data through a form.",
+      "privacy.storage": "Local storage",
+      "privacy.storage.text": "Your browser may locally store three interface preferences: theme, language, and whether the privacy notice has been dismissed. These values stay on your device and are not sent by this portfolio to a server.",
+      "privacy.external": "External services and content",
+      "privacy.external.text": "Some projects are displayed through embedded previews hosted on GitHub Pages. When you load these previews, your browser contacts the relevant sites directly; they may process technical data under their own rules and policies. WhatsApp and GitHub links are also external services used only when you choose to open them.",
       "privacy.purpose": "Purposes",
-      "privacy.purpose.text": "Local preferences are used only to preserve the selected theme and language for later visits.",
-      "privacy.contact": "Contact",
-      "privacy.contact.text": "To contact the site operator: github.com/sudomarc",
+      "privacy.purpose.text": "Local storage is used only to keep your interface preferences and avoid showing the notice again after dismissal. Requests to external services result from your choice to view a preview or open a link.",
+      "privacy.retention": "Retention",
+      "privacy.retention.text": "Browser preferences remain until you delete them or clear the site's storage. Any technical data present in hosting logs is governed by the host's practices; no specific retention period is claimed here without verifying its policy.",
+      "privacy.rights": "Your requests",
+      "privacy.rights.text": "For requests concerning information directly controlled by this portfolio, use the public contact channel below. Requests concerning an external service should be addressed to that service.",
+      "privacy.contact": "Operator and contact",
+      "privacy.contact.text": "Public site operator: sudomarc, Conakry, Guinea. Public contact:",
+      "privacy.external.link": "GitHub — github.com/sudomarc",
+      "privacy.updates": "Updates",
+      "privacy.updates.text": "This policy will be reviewed when a new feature, hosting setup, measurement tool, or external integration changes the data flow.",
+      "privacy.cookies.link": "Also read the cookie policy →",
       /* cookies */
       "cookies.heading": "Current inventory",
-      "cookies.inventory": "At this stage, this site uses no cookies, analytics, pixels, third-party embeds, remote fonts, or external scripts. Only browser local storage (localStorage) records two user preferences: the theme (dark/light) and the language (FR/EN). These keys serve only your reading comfort, stay on your device, and are neither read nor transmitted to any server.",
-      "cookies.banner": "No consent banner is planned at this stage: the site uses only strictly functional local preferences, with no advertising or analytics. This inventory must be reviewed whenever an external integration is added.",
+      "cookies.inventory": "The site does not set advertising, analytics, or tracking cookies. It uses localStorage only to remember the theme, language, and whether the privacy notice has been dismissed. Project previews shown in iframes come from external sites and may use their own mechanisms.",
+      "cookies.banner": "Information banner",
+      "cookies.banner.text": "The banner shown on the site is informational: it explains the current storage behavior and links to this page and the privacy policy. It is not a consent mechanism for non-essential cookies because the portfolio does not currently set any.",
+      "cookies.external": "External previews",
+      "cookies.external.text": "Project pages may be loaded from GitHub Pages inside embedded previews. These external sites are separate from the portfolio and may set their own cookies or use their own storage depending on their configuration.",
       "cookies.evolution": "Evolution",
-      "cookies.evolution.text": "If an integration adds a cookie, storage, or measurement tool, this inventory will be updated before implementation, and a consent control will then be evaluated.",
+      "cookies.evolution.text": "If an integration adds a cookie, storage, or measurement tool that is not strictly necessary, the inventory will be updated before implementation and the consent strategy will be reassessed under the applicable rules.",
       "theme.label": "Theme",
       "lang.label": "Language"
     }
@@ -564,6 +620,51 @@
     });
   }
 
+  /* ---------- Privacy / cookie notice ---------- */
+  var COOKIE_NOTICE_KEY = "sudomarc:cookie-note-dismissed";
+
+  function initCookieNotice() {
+    if (document.getElementById("cookie-note")) return;
+
+    var note = document.createElement("aside");
+    note.id = "cookie-note";
+    note.className = "cookie-note";
+    note.setAttribute("role", "region");
+    note.setAttribute("aria-label", "Avis sur la confidentialité et les cookies");
+    note.innerHTML =
+      '<div class="cookie-note__content">' +
+      '<p class="cookie-note__title" data-i18n="cookie.banner.title">Confidentialité &amp; cookies</p>' +
+      '<p class="cookie-note__text" data-i18n="cookie.banner.text">Ce portfolio ne dépose aucun cookie publicitaire ou de suivi. Il mémorise seulement certaines préférences dans votre navigateur. Les aperçus de projets externes peuvent, eux, suivre les règles de leurs propres sites.</p>' +
+      '</div>' +
+      '<div class="cookie-note__actions">' +
+      '<a class="cookie-note__link" href="/confidentialite.html" data-i18n="cookie.banner.privacy">Confidentialité</a>' +
+      '<a class="cookie-note__link" href="/cookies.html" data-i18n="cookie.banner.cookies">Cookies</a>' +
+      '<button class="cookie-note__dismiss" type="button" data-cookie-note-dismiss><span data-i18n="cookie.banner.dismiss">Compris</span><span aria-hidden="true">→</span></button>' +
+      '</div>';
+
+    document.body.appendChild(note);
+
+    if (tryLocal(COOKIE_NOTICE_KEY) === "1") {
+      note.hidden = true;
+      return;
+    }
+
+    document.body.classList.add("cookie-note-open");
+
+    var dismiss = note.querySelector("[data-cookie-note-dismiss]");
+    function close() {
+      note.hidden = true;
+      document.body.classList.remove("cookie-note-open");
+      tryLocal(COOKIE_NOTICE_KEY, "1");
+    }
+
+    if (dismiss) dismiss.addEventListener("click", close);
+
+    note.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && !note.hidden) close();
+    });
+  }
+
   /* ---------- Active nav (IntersectionObserver) ---------- */
   function initActiveNav() {
     var navLinks = document.querySelectorAll("[data-nav]");
@@ -646,6 +747,7 @@
 
   /* ---------- Init ---------- */
   function init() {
+    initCookieNotice();
     applyTheme(effectiveTheme());
     applyLang(getLang());
     wireControls();

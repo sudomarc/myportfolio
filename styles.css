@@ -1932,3 +1932,134 @@ button {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ---------- Privacy / cookie notice ---------- */
+/* Informational notice inspired by the Amplio legal-note pattern.
+   It does not act as a consent gate because this portfolio itself
+   does not deploy non-essential cookies or tracking. */
+.cookie-note {
+  position: fixed;
+  right: max(1rem, env(safe-area-inset-right));
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  left: max(1rem, env(safe-area-inset-left));
+  z-index: 55;
+  width: min(56rem, calc(100vw - 2rem));
+  margin-inline: auto;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-5);
+  padding: var(--space-5) var(--space-6);
+  background: color-mix(in srgb, var(--surface-1) 94%, var(--text));
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  color: var(--text);
+  box-shadow: var(--panel-shadow);
+  animation: cookie-note-in var(--dur-slow) var(--ease-emphasis);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.cookie-note[hidden] {
+  display: none;
+}
+
+.cookie-note-open {
+  padding-bottom: 7.5rem;
+}
+
+.cookie-note__content {
+  min-width: 0;
+  flex: 1 1 36rem;
+}
+
+.cookie-note__title {
+  margin: 0 0 var(--space-2);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.cookie-note__text {
+  margin: 0;
+  max-width: 68ch;
+  color: var(--text-2);
+  font-size: var(--text-sm);
+  line-height: 1.55;
+}
+
+.cookie-note__actions {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--space-2) var(--space-4);
+}
+
+.cookie-note__link {
+  color: var(--text-2);
+  font-size: var(--text-sm);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.cookie-note__link:hover {
+  color: var(--text);
+}
+
+.cookie-note__dismiss {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.7rem 0.95rem;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-pill);
+  background: var(--accent);
+  color: var(--accent-fg);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  line-height: 1;
+  transition:
+    transform var(--dur-fast) var(--ease-standard),
+    filter var(--dur-fast) var(--ease-standard);
+}
+
+.cookie-note__dismiss:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.03);
+}
+
+@keyframes cookie-note-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 42rem) {
+  .cookie-note {
+    align-items: stretch;
+    flex-direction: column;
+    gap: var(--space-4);
+    padding: var(--space-4);
+  }
+
+  .cookie-note__actions {
+    justify-content: flex-start;
+  }
+
+  .cookie-note-open {
+    padding-bottom: 11rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cookie-note {
+    animation: none;
+  }
+}

@@ -42,19 +42,36 @@
   <main class="page" id="main-content">
     <div class="container">
       <a class="page-back" href="/"><span aria-hidden="true">←</span> <span data-i18n="page.back.home">Retour à l'accueil</span></a>
-      <header class="page-head">
+      <header class="page-head privacy-page-head">
         <span class="label" data-i18n="legal.label">Légal</span>
         <h1 class="display">Cookies et stockage</h1>
       </header>
-      <section class="legal-section reveal">
-        <h2 data-i18n="cookies.heading">Inventaire actuel</h2>
-        <p data-i18n="cookies.inventory">À ce stade, ce site n'utilise aucun cookie, analytics, pixel, embed tiers, police distante ni script externe. Seul le stockage local du navigateur (localStorage) enregistre deux préférences utilisateur : le thème (sombre/clair) et la langue (FR/EN). Ces clés ne servent qu'à votre confort de lecture, restent sur votre appareil et ne sont ni lues ni transmises à un serveur.</p>
-        <p data-i18n="cookies.banner">Aucune bannière de consentement n’est prévue à ce stade : le site utilise uniquement des préférences locales strictement fonctionnelles, sans publicité ni analytics. Cet inventaire sera revérifié à chaque ajout d’intégration externe.</p>
-      </section>
-      <section class="legal-section reveal">
-        <h2 data-i18n="cookies.evolution">Évolution</h2>
-        <p data-i18n="cookies.evolution.text">Si une intégration ajoute un cookie, un stockage ou un outil de mesure, cet inventaire sera mis à jour avant l'implémentation, puis un contrôle de consentement sera évalué.</p>
-      </section>
+
+      <div class="privacy-grid">
+        <section class="legal-section reveal">
+          <span class="label">01</span>
+          <h2 data-i18n="cookies.heading">Inventaire actuel</h2>
+          <p data-i18n="cookies.inventory">Le site ne dépose pas de cookie publicitaire, analytique ou de suivi. Il utilise uniquement localStorage pour mémoriser le thème, la langue et l’état de fermeture du bandeau de confidentialité. Les aperçus de projets affichés dans des iframes proviennent de sites externes et peuvent utiliser leurs propres mécanismes.</p>
+        </section>
+
+        <section class="legal-section reveal">
+          <span class="label">02</span>
+          <h2 data-i18n="cookies.banner">Bandeau d’information</h2>
+          <p data-i18n="cookies.banner.text">Le bandeau affiché sur le site est informatif : il explique le fonctionnement actuel du stockage et renvoie vers cette page et la politique de confidentialité. Il ne sert pas de mécanisme de consentement pour des cookies non essentiels, car le portfolio n’en dépose pas actuellement.</p>
+        </section>
+
+        <section class="legal-section reveal">
+          <span class="label">03</span>
+          <h2 data-i18n="cookies.external">Aperçus externes</h2>
+          <p data-i18n="cookies.external.text">Les pages de projets peuvent être chargées depuis GitHub Pages dans des aperçus intégrés. Ces sites externes sont distincts du portfolio et peuvent déposer leurs propres cookies ou utiliser leur propre stockage selon leur configuration.</p>
+        </section>
+
+        <section class="legal-section reveal">
+          <span class="label">04</span>
+          <h2 data-i18n="cookies.evolution">Évolution</h2>
+          <p data-i18n="cookies.evolution.text">Si une intégration ajoute un cookie, un stockage ou un outil de mesure non strictement nécessaire, l’inventaire sera mis à jour avant l’implémentation et la stratégie de consentement sera réévaluée selon les règles applicables.</p>
+        </section>
+      </div>
     </div>
   </main>
   <footer class="site-footer"><div class="container"><div class="footer-grid"><div><a class="footer-brand" href="/">sudomarc</a><p class="footer-tagline" data-i18n="footer.tagline">Web development &amp; UI — interfaces simples, claires et crédibles.</p></div><nav class="footer-col" aria-label="Navigation"><h2 data-i18n="footer.nav.title">Navigation</h2><ul role="list"><li><a href="/" data-i18n="nav.home">Accueil</a></li><li><a href="/#work" data-i18n="nav.projects">Projets</a></li><li><a href="/#about" data-i18n="nav.about">À propos</a></li><li><a href="/#contact" data-i18n="nav.contact">Contact</a></li></ul></nav><div class="footer-col"><h2 data-i18n="footer.legal.title">Légal</h2><ul role="list"><li><a href="/mentions-legales.html" data-i18n="footer.legal.mentions">Mentions légales</a></li><li><a href="/confidentialite.html" data-i18n="footer.legal.privacy">Confidentialité</a></li><li><a href="/cookies.html" data-i18n="footer.legal.cookies">Cookies</a></li></ul></div></div><div class="footer-bottom"><p data-i18n="footer.copyright">© 2026 sudomarc. Tous droits réservés.</p></div></div></footer>
