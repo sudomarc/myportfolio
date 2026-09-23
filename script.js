@@ -255,8 +255,8 @@
       "hero.index.series": "Selection",
       "hero.index.count": "3 projects",
       "hero.index.items.0.sub": "Showcase site · services, portfolio, contact",
-      "hero.index.items.1.sub": "Demo · Landing page",
-      "hero.index.items.2.sub": "Concept · Visual direction",
+      "hero.index.items.1.sub": "Club site · activities, actions, contact",
+      "hero.index.items.2.sub": "Restaurant demo · menu, gallery, cart",
       /* sections */
       "section.work.eyebrow": "Selected work",
       "section.work.title": "Projects before promises.",
