@@ -96,8 +96,12 @@ for (const file of htmlFiles) {
   check(/<title[^>]*>[^<]+<\/title>/.test(html), "title");
   check(/<meta name="description" content="[^"]+"/.test(html), "meta description");
   check(/<meta name="viewport" content="width=device-width, initial-scale=1"/.test(html), "viewport");
-  check(/<link rel="icon" href="\/icon\.svg"/.test(html), "favicon");
-  check(/href="\/styles\.css"/.test(html), "stylesheet");
+  const assetPrefix = rel.includes("/") ? "../" : "./";
+  const assetPrefixPattern = assetPrefix === "../" ? "\\.\\.\\/" : "\\.\\/";
+  check(new RegExp(`<link rel="icon" href="${assetPrefixPattern}icon\\.svg"`).test(html), "favicon");
+  check(new RegExp(`<link rel="stylesheet" href="${assetPrefixPattern}styles\\.css"`).test(html), "stylesheet");
+  check(new RegExp(`<script src="${assetPrefixPattern}theme\\.js"`).test(html), "theme script");
+  check(new RegExp(`<script src="${assetPrefixPattern}script\\.js"`).test(html), "site script");
   check(/class="skip-link" href="#main-content">Aller au contenu/.test(html), "skip link");
   check(/<main[^>]*id="main-content"/.test(html), "main landmark");
   check((html.match(/<h1[\s>]/g) || []).length === 1, "exactement un h1");
@@ -108,31 +112,41 @@ for (const file of htmlFiles) {
 
 /* ---------- 4. Liens internes ---------- */
 console.log("\n[4/6] Liens internes");
-const hrefs = new Set();
-for (const file of htmlFiles) {
-  const html = readFileSync(file, "utf8");
-  for (const match of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
-    hrefs.add(match[1]);
-  }
-}
-
-const resolve = (url) => {
-  if (/^(https?:|mailto:|tel:)/.test(url)) return "external";
+const resolveLocal = (file, url) => {
+  if (/^(https?:|mailto:|tel:|data:|javascript:)/i.test(url)) return "external";
   const clean = url.split("#")[0].split("?")[0];
   if (clean === "") return "anchor-only";
   if (clean === "/") return existsSync(join(root, "index.html")) ? "ok" : "index.html manquant";
-  const target = clean.startsWith("/") ? clean.slice(1) : clean;
-  const candidates = [target, `${target}.html`, join(target, "index.html")];
-  return candidates.some((c) => existsSync(join(root, c))) ? "ok" : `introuvable : ${url}`;
+
+  const pageDir = dirname(file);
+  const targetPath = clean.startsWith("/")
+    ? join(root, clean.slice(1))
+    : join(pageDir, clean);
+
+  const candidates = [
+    targetPath,
+    `${targetPath}.html`,
+    join(targetPath, "index.html"),
+  ];
+
+  return candidates.some((c) => existsSync(c))
+    ? "ok"
+    : `introuvable : ${url}`;
 };
 
-for (const href of [...hrefs].sort()) {
-  const res = resolve(href);
-  if (res === "ok" || res === "external" || res === "anchor-only") {
-    if (res === "ok") ok(href);
-    else console.log(`  --   ${href} (${res})`);
-  } else {
-    fail(res);
+for (const file of htmlFiles) {
+  const rel = file.slice(root.length + 1);
+  const html = readFileSync(file, "utf8");
+
+  for (const match of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
+    const href = match[1];
+    const res = resolveLocal(file, href);
+    if (res === "ok" || res === "external" || res === "anchor-only") {
+      if (res === "ok") ok(`${rel} → ${href}`);
+      else console.log(`  --   ${rel} → ${href} (${res})`);
+    } else {
+      fail(`${rel} : ${res}`);
+    }
   }
 }
 
