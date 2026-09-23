@@ -6,7 +6,7 @@
 - Positionnement : Web Dev
 - Baseline : « Je construis des interfaces web et j’apprends en développant. »
 - Localisation publique : Conakry · Guinée
-- Contact : WhatsApp +224 628 016 9479 · GitHub github.com/sudomarc
+- Contact : WhatsApp +224 628 069 479 · GitHub github.com/sudomarc
 
 ## Homepage
 
