@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+# Sitemap : ajouté uniquement lorsque le domaine de production sera vérifié.

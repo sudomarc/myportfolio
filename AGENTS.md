@@ -31,20 +31,21 @@ Le portfolio sert trois objectifs dans cet ordre :
 
 ## Ingénierie
 
-- Next.js App Router.
-- Server Components par défaut.
-- Client Components uniquement lorsque l'interaction navigateur l'exige.
-- Préférer les primitives CSS aux bibliothèques d'animation lourdes.
-- Utiliser `next/image` pour les vraies images.
-- Les URLs, textes et données de projets doivent rester séparés des composants.
-- Toute modification importante doit conserver `npm run lint`, `npm run typecheck` et `npm run build` fonctionnels.
+- Site **100 % statique** : HTML, CSS, JavaScript vanilla.
+- **Aucun framework** (React, Vue, Svelte, Astro…), aucune dépendance runtime, aucun bundler obligatoire.
+- **Progressive enhancement** : le contenu et l'essentiel fonctionnent sans JavaScript.
+- `theme.js` (blocant, `<head>`) gère le FOUC-protection du thème. `script.js` (déféré) gère les interactions : thème, langue, révélations, transitions de vue, WhatsApp.
+- Les données du site vivent dans les pages HTML ; `script.js` ne contient que des améliorations d'interaction.
+- Les URLs et textes doivent rester cohérents entre pages ; toute modification de contenu doit être revue sur chaque page concernée.
+- Toute vérification réelle passe par : serveur statique, contrôle des routes, `scripts/verify.mjs`, puis revue du diff.
+- **CSP stricte** : `style-src 'self'` (zéro `style=` inline, stagger via `:nth-child`), `script-src 'self'` (zéro script inline sauf `theme.js`).
 
 ## Workflow
 
 1. Lire la roadmap.
 2. Identifier le plus petit changement utile.
 3. Implémenter.
-4. Vérifier lint + types + build.
+4. Vérifier : serveur statique + contrôle des routes + revue ciblée de la surface modifiée.
 5. Inspecter le diff.
 6. Mettre à jour la documentation si le comportement ou l'architecture change.
 
@@ -62,10 +63,11 @@ Préférer des commits atomiques :
 
 ## Ne pas faire
 
-- Ne pas introduire une dépendance pour un effet facilement réalisable en CSS.
+- Ne pas introduire une dépendance pour un effet facilement réalisable en HTML/CSS/JS natif.
 - Ne pas ajouter de faux témoignages.
 - Ne pas afficher de prix ou métriques non validés.
 - Ne pas supprimer un placeholder sans le remplacer par une donnée réelle.
+- Ne pas réintroduire un framework, `package.json`, `node_modules`, `*.tsx` ou une config Tailwind sans décision explicite.
 
 ## Mandatory Vibe Coding Instructions integration
 
@@ -116,7 +118,6 @@ Use the narrowest applicable Vibe Coding Instructions skill(s), especially for:
 - `.ai/skills/web-performance/`
 - `.ai/skills/browser-qa/`
 - `.ai/skills/legal-compliance/`
-- `.ai/skills/nextjs/`
 
 Do not load every skill by default. Route by changed surface and risk.
 
