@@ -47,41 +47,59 @@
 
   <main id="main-content">
     <section class="hero" aria-labelledby="hero-title">
-      <!-- 3D Scene Layers (decorative, aria-hidden) -->
+      <!-- Decorative 3D interface scene -->
       <div class="hero-scene" aria-hidden="true">
         <div class="h-layer h-bg"><div class="hero-bg"></div></div>
 
         <div class="h-layer h-atmos"><div class="hero-atmos"></div></div>
 
         <div class="h-layer h-far">
-          <div class="hero-far">
-            <span class="ring wire"></span>
-            <span class="cube"></span>
+          <div class="hero-stack">
+            <div class="browser-card browser-card-back">
+              <span class="browser-top"></span>
+              <span class="browser-line line-long"></span>
+              <span class="browser-line line-mid"></span>
+              <span class="browser-block"></span>
+            </div>
+            <div class="browser-card browser-card-side">
+              <span class="browser-top"></span>
+              <span class="browser-line line-short"></span>
+              <span class="browser-line line-mid"></span>
+              <span class="browser-block"></span>
+            </div>
           </div>
         </div>
 
         <div class="h-layer h-mid">
-          <div class="hero-mid">
-            <span class="panel panel-a"></span>
-            <span class="panel panel-b"></span>
-            <span class="panel panel-c"></span>
+          <div class="hero-ui-cards">
+            <span class="ui-card ui-card-a"></span>
+            <span class="ui-card ui-card-b"></span>
+            <span class="ui-card ui-card-c"></span>
           </div>
         </div>
 
         <div class="h-layer h-primary">
-          <div class="hero-primary">
-            <div class="orbit">
-              <span class="core"></span>
-              <span class="ring ring-a"></span>
-              <span class="ring ring-b"></span>
-              <span class="crosshair"></span>
+          <div class="hero-device">
+            <div class="browser-main">
+              <div class="browser-toolbar">
+                <span class="browser-dots"><i></i><i></i><i></i></span>
+                <span class="browser-address"></span>
+              </div>
+              <div class="browser-content">
+                <span class="content-hero"></span>
+                <span class="content-copy"></span>
+                <span class="content-copy content-copy-short"></span>
+                <span class="content-card content-card-a"></span>
+                <span class="content-card content-card-b"></span>
+              </div>
             </div>
+            <span class="device-edge"></span>
           </div>
         </div>
 
         <div class="h-layer h-fore">
           <div class="hero-fore">
-            <span class="shape shape-square"></span>
+            <span class="cursor-shape"></span>
             <span class="shape shape-plus"></span>
             <span class="shape shape-dots"><i></i></span>
           </div>
@@ -93,7 +111,7 @@
       <!-- Content Layer -->
       <div class="container hero-grid">
         <div class="hero-content stagger">
-          <p class="label hero-eyebrow reveal" data-i18n="hero.eyebrow">Portfolio — Web Dev</p>
+          <p class="label hero-eyebrow reveal" data-i18n="hero.eyebrow">Web design · Front-end</p>
 
           <div class="hero-meta reveal" aria-label="localisation et disponibilité" data-i18n-aria="hero.meta.aria">
             <span class="mono" data-i18n="hero.meta.location">Conakry · Guinée</span>
@@ -101,12 +119,11 @@
           </div>
 
           <h1 class="display reveal" id="hero-title" data-i18n="hero.title">
-            Je construis des interfaces web et j’apprends en développant.
+            Je conçois et développe des interfaces web claires, utiles et soignées.
           </h1>
 
           <p class="hero-lead reveal" data-i18n="hero.lead">
-            Sites web, interfaces et projets personnels — documentés par
-            ce qui a réellement été construit.
+            Sites web, interfaces et projets publiés — avec le travail, les choix et les détails visibles.
           </p>
 
           <div class="hero-actions reveal">
@@ -162,8 +179,8 @@
           <article class="project project-featured reveal">
             <div class="live-preview" data-preview-url="https://sudomarc.github.io/amplio-web/">
               <div class="preview-bar">
-                <span class="preview-label">Live preview</span>
-                <a href="https://sudomarc.github.io/amplio-web/" target="_blank" rel="noreferrer">Ouvrir le site ↗</a>
+                <span class="preview-label" data-i18n="project.preview">Aperçu</span>
+                <a href="https://sudomarc.github.io/amplio-web/" target="_blank" rel="noreferrer" data-i18n="project.open">Ouvrir le site ↗</a>
               </div>
               <iframe title="Preview interactive de Amplio Web" src="https://sudomarc.github.io/amplio-web/" loading="lazy" allow="fullscreen"></iframe>
             </div>
@@ -187,12 +204,11 @@
           <article class="project reveal">
             <div class="live-preview live-preview-pending">
               <div class="preview-bar">
-                <span class="preview-label">Live preview</span>
-                <a href="https://github.com/sudomarc/Interact-Conakry" target="_blank" rel="noreferrer">Voir le projet ↗</a>
+                <span class="preview-label" data-i18n="project.preview">Aperçu</span>
+                <a href="https://github.com/sudomarc/Interact-Conakry" target="_blank" rel="noreferrer" data-i18n="project.view">Voir le projet ↗</a>
               </div>
               <div class="preview-pending">
-                <strong>Site en cours de déploiement</strong>
-                <span>La preview interactive sera activée dès que GitHub Pages sera disponible.</span>
+                <strong data-i18n="project.preview.unavailable">Aperçu non disponible</strong>
               </div>
             </div>
             <div class="project-head">
@@ -215,8 +231,8 @@
           <article class="project reveal">
             <div class="live-preview" data-preview-url="https://sudomarc.github.io/CrazyCook/">
               <div class="preview-bar">
-                <span class="preview-label">Live preview</span>
-                <a href="https://sudomarc.github.io/CrazyCook/" target="_blank" rel="noreferrer">Ouvrir le site ↗</a>
+                <span class="preview-label" data-i18n="project.preview">Aperçu</span>
+                <a href="https://sudomarc.github.io/CrazyCook/" target="_blank" rel="noreferrer" data-i18n="project.open">Ouvrir le site ↗</a>
               </div>
               <iframe title="Preview interactive de CrazyCook" src="https://sudomarc.github.io/CrazyCook/" loading="lazy" allow="fullscreen"></iframe>
             </div>
@@ -224,7 +240,7 @@
               <div>
                 <div class="project-title-row">
                   <h3 class="display">CrazyCook</h3>
-                  <span class="status status-real" aria-label="Statut : projet réel" data-i18n-aria="status.real.aria" data-i18n="status.real">Projet réel</span>
+                  <span class="status status-demo" aria-label="Statut : démo" data-i18n-aria="status.demo.aria" data-i18n="status.demo">Démo</span>
                 </div>
                 <p class="project-cat mono" data-i18n="work.crazycook.meta">Restaurant · Démo personnelle · 2026</p>
               </div>
@@ -252,12 +268,12 @@
           <div class="editorial-row reveal">
             <span class="num">01</span>
             <h3 data-i18n="section.about.rows.0.title">Qui je suis</h3>
-            <p><span class="ph" data-i18n="section.about.rows.0.text">Étudiant en informatique à Conakry, je construis des projets web et j’apprends en développant, en testant et en déployant.</span></p>
+            <p data-i18n="section.about.rows.0.text">Étudiant en informatique à Conakry, je construis des projets web avec une attention particulière portée à l’interface, à la clarté et à la qualité de réalisation.</p>
           </div>
           <div class="editorial-row reveal">
             <span class="num">02</span>
-            <h3 data-i18n="section.about.rows.1.title">Ce que j'apprends</h3>
-            <p data-i18n="section.about.rows.1.text">Web development, design systems, performance et accessibilité — documenté au fil des projets publiés dans ce portfolio.</p>
+            <h3 data-i18n="section.about.rows.1.title">Ce que je pratique</h3>
+            <p data-i18n="section.about.rows.1.text">Développement front-end, responsive design, systèmes d’interface, performance et accessibilité — appliqués à des projets publiés et documentés.</p>
           </div>
           <div class="editorial-row reveal">
             <span class="num">03</span>
@@ -278,7 +294,7 @@
         <div class="section-head reveal">
           <span class="label" data-i18n="section.capabilities.eyebrow">Capacités</span>
           <h2 class="display" id="capabilities-title" data-i18n="section.capabilities.title">Ce que je sais construire.</h2>
-          <p data-i18n="section.capabilities.desc">Liste courte, chaque capacité étant démontrée ou démontrée en cours par les projets de ce portfolio.</p>
+          <p data-i18n="section.capabilities.desc">Liste courte : les capacités présentées ici sont rattachées à des projets visibles dans ce portfolio.</p>
         </div>
 
         <div class="capabilities-grid stagger">
@@ -303,11 +319,11 @@
         </div>
 
         <ol class="process-list stagger" role="list">
-          <li class="process-step reveal"><span class="num">01 · Discover</span><h3 data-i18n="section.process.steps.0.title">Discover</h3><p data-i18n="section.process.steps.0.desc">Cadrer le besoin réel et les contraintes avant d'écrire du code.</p></li>
-          <li class="process-step reveal"><span class="num">02 · Design</span><h3 data-i18n="section.process.steps.1.title">Design</h3><p data-i18n="section.process.steps.1.desc">Hiérarchie, typographie, composition et interaction.</p></li>
-          <li class="process-step reveal"><span class="num">03 · Build</span><h3 data-i18n="section.process.steps.2.title">Build</h3><p data-i18n="section.process.steps.2.desc">HTML, CSS, JavaScript — propre, léger, progressif.</p></li>
-          <li class="process-step reveal"><span class="num">04 · Verify</span><h3 data-i18n="section.process.steps.3.title">Verify</h3><p data-i18n="section.process.steps.3.desc">Responsive, accessibilité, sécurité, SEO, navigateur.</p></li>
-          <li class="process-step reveal"><span class="num">05 · Deploy</span><h3 data-i18n="section.process.steps.4.title">Deploy</h3><p data-i18n="section.process.steps.4.desc">Publication avec headers, robots et preuves de release.</p></li>
+          <li class="process-step reveal"><span class="num">01 · Découvrir</span><h3 data-i18n="section.process.steps.0.title">Découvrir</h3><p data-i18n="section.process.steps.0.desc">Cadrer le besoin réel et les contraintes avant d'écrire du code.</p></li>
+          <li class="process-step reveal"><span class="num">02 · Concevoir</span><h3 data-i18n="section.process.steps.1.title">Concevoir</h3><p data-i18n="section.process.steps.1.desc">Hiérarchie, typographie, composition et interaction.</p></li>
+          <li class="process-step reveal"><span class="num">03 · Construire</span><h3 data-i18n="section.process.steps.2.title">Construire</h3><p data-i18n="section.process.steps.2.desc">HTML, CSS, JavaScript — propre, léger, progressif.</p></li>
+          <li class="process-step reveal"><span class="num">04 · Vérifier</span><h3 data-i18n="section.process.steps.3.title">Vérifier</h3><p data-i18n="section.process.steps.3.desc">Responsive, accessibilité, sécurité, SEO, navigateur.</p></li>
+          <li class="process-step reveal"><span class="num">05 · Mettre en ligne</span><h3 data-i18n="section.process.steps.4.title">Mettre en ligne</h3><p data-i18n="section.process.steps.4.desc">Publication avec headers, robots et preuves de release.</p></li>
         </ol>
       </div>
     </section>
@@ -315,9 +331,9 @@
     <section class="section" id="contact" aria-labelledby="contact-title">
       <div class="container">
         <div class="contact-panel reveal">
-          <span class="label" data-i18n="section.contact.title">Contact</span>
+          <span class="label" data-i18n="section.contact.eyebrow">Contact</span>
           <h2 class="display" id="contact-title" data-i18n="section.contact.title">Un projet à construire ?</h2>
-          <p class="lead" data-i18n="section.contact.lead">Le canal principal est WhatsApp. Le lien s'active dès qu'un numéro est configuré ; le formulaire viendra lorsque le prestataire du formulaire sera choisi.</p>
+          <p class="lead" data-i18n="section.contact.lead">Parlons de votre projet, de l’interface à construire ou simplement du besoin à résoudre. Le premier échange se fait sur WhatsApp.</p>
 
           <div class="contact-actions">
             <a class="btn btn-primary" href="#contact" data-whatsapp data-i18n="section.contact.cta">Ouvrir WhatsApp</a>
@@ -332,10 +348,6 @@
             <div class="contact-channel">
               <span class="label" data-i18n="section.contact.channels.github">GitHub</span>
               <a class="value" href="https://github.com/sudomarc">github.com/sudomarc</a>
-            </div>
-            <div class="contact-channel">
-              <span class="label" data-i18n="section.contact.channels.formulaire">Formulaire</span>
-              <span class="value" data-i18n="section.contact.channels.formulaire.value">Non activé — aucun fournisseur de formulaire choisi</span>
             </div>
           </div>
         </div>
@@ -371,7 +383,7 @@
 
       <div class="footer-bottom">
         <p data-i18n="footer.copyright">© 2026 sudomarc. Tous droits réservés.</p>
-        <p data-i18n="footer.technical">Fait main — HTML, CSS, JavaScript. Aucun cookie, aucun tracker.</p>
+        
       </div>
     </div>
   </footer>
