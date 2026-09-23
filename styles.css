@@ -1335,6 +1335,40 @@ button {
   color: var(--text);
 }
 
+.preview-inline-note {
+  margin-top: var(--space-4);
+  padding: var(--space-4);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface-1);
+}
+
+.preview-inline-note .label {
+  color: var(--text-3);
+}
+
+.preview-inline-note a {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.preview-inline-note a:hover {
+  color: var(--accent);
+}
+
+@media (max-width: 600px) {
+  .preview-inline-note {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
 /* ---------- Editorial rows (About) ---------- */
 
 .editorial-list {
