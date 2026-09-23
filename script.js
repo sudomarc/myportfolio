@@ -40,9 +40,9 @@
       "hero.cta.work": "Voir les projets",
       "hero.index.series": "Sélection",
       "hero.index.count": "3 projets",
-      "hero.index.items.0.sub": "Projet réel · Web design",
-      "hero.index.items.1.sub": "Projet réel · Site club",
-      "hero.index.items.2.sub": "Démo · Site restaurant",
+      "hero.index.items.0.sub": "Site vitrine · services, portfolio, contact",
+      "hero.index.items.1.sub": "Site du club · activités, actions, contact",
+      "hero.index.items.2.sub": "Démo restaurant · menu, galerie, panier",
       /* sections */
       "section.work.eyebrow": "Sélection",
       "section.work.title": "Les projets avant les promesses.",
@@ -254,7 +254,7 @@
       "hero.cta.work": "View projects",
       "hero.index.series": "Selection",
       "hero.index.count": "3 projects",
-      "hero.index.items.0.sub": "Real project · Web design",
+      "hero.index.items.0.sub": "Showcase site · services, portfolio, contact",
       "hero.index.items.1.sub": "Demo · Landing page",
       "hero.index.items.2.sub": "Concept · Visual direction",
       /* sections */
@@ -544,7 +544,7 @@
 
   /* ---------- WhatsApp links ---------- */
   var SITE_CONFIG = {
-    whatsappNumber: "+224 6280169479",
+    whatsappNumber: "+224 628069479",
     whatsappMessage:
       "Bonjour Marco, je viens de voir votre portfolio et je souhaite discuter d'un projet."
   };
