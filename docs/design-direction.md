@@ -6,7 +6,10 @@ Portfolio éditorial sombre, précis et documentaire — maîtrisé, sans effet
 décoratif qui n'explique rien.
 
 Le site doit ressembler davantage à un carnet de projets / studio numérique
-qu'à un template de freelance.
+qu'à un template de freelance. Le hero porte une scène 3D immersive
+procédurale (CSS 3D transforms + particules canvas, zéro framework, zéro
+asset) qui donne de la profondeur et une identité technique, sans dégrader
+la lecture ni le contenu.
 
 ## Audience
 
@@ -26,10 +29,14 @@ Visiteur qui veut répondre rapidement à trois questions :
 - Bordures fines uniformes (`--border` / `--border-strong`), surfaces sobres
   (`--surface-1`, `--surface-2`), pas de glassmorphism systématique (le seul
   `backdrop-filter` est fonctionnel : lisibilité du header sticky).
-- Une seule idée distinctive dans le hero : le panneau éditorial des projets
-  (index panel), choix assumé et conservé comme unique signature visuelle.
+- Le hero combine deux signatures : la **scène 3D** (satellite orbital,
+  anneaux, structures filaires, panneaux flottants, particules — toutes
+  décoratives, `aria-hidden`, alimentées par tokens thème) et le **panneau
+  éditorial des projets** (index panel), conservé comme signature de contenu.
 - Numérotation et métadonnées monospace pour l'identité éditoriale.
-- Motion brève, fonctionnelle, jamais permanente ni pointer-tracking.
+- Motion : brève pour les changements d'état ; parallaxe pointer/scroll et
+  animation ambiante confinées à la scène décorative du hero (jamais sur le
+  contenu, jamais sur les contrôles).
 
 ## Tokens
 
@@ -74,10 +81,36 @@ changement d'état ou une continuité — jamais divertir.
   par défaut ; `.motion-ready` n'est ajouté par `script.js` que si
   IntersectionObserver est disponible. Désactivés sous
   `prefers-reduced-motion`.
+- Hero 3D : parallaxe pointer/scroll (coefficients par profondeur, lerp,
+  une seule boucle `requestAnimationFrame`), gérés par `hero.js` sur les
+  wrappers `.h-layer` (le transform JS ne touche jamais les visuels).
+  L'entrée (stagger `scene-in`) et l'ambiance (breathe / ring spin / float /
+  drift / crosshair-pulse) sont en CSS animé uniquement sur les éléments
+  décoratifs — fail-safe : toute la scène est `aria-hidden` et lisible sans JS.
+  Couleurs partagées via tokens (`--accent`, `--core-high`, `--core-depth`) ;
+  `hero.js` réécoute les changements de `data-theme` (MutationObserver) pour
+  resampler la couleur des particules.
 - View Transitions natives (`@view-transition { navigation: auto }`) en
   amélioration progressive.
 - Micro-interactions : hover/active sur liens et boutons CNL state-meaningful.
+- `prefers-reduced-motion` : stop de la boucle rAF, canvas masqué, animations
+  CSS forcées à 0.01ms par la règle globale.
 - Durées centralisées dans les tokens (aucune valeur magique).
+
+## Hero 3D scene (architecture)
+
+- `.hero-scene` (absolute, `z-index: -1`, isolé, `perspective`) héberge les
+  wrappers `.h-layer` — transformés en JS (parallaxe).
+- Chaque wrapper contient un visuel CSS : `hero-bg` (gradients + grille
+  masquée), `hero-atmos` (halos), `hero-far` (anneau filaire + cube),
+  `hero-mid` (panneaux), `hero-primary` (orbit : core + anneaux + crosshair),
+  `hero-fore` (petites formes). Les `transform-style: preserve-3d` enchaînent
+  les plans pour un vrai rendu 3D imbriqué.
+- `.hero-particles` : canvas 2D, 60 particules, dérive + légère attraction au
+  pointer, couleur lue dans `--accent` (thème-aware), DPR-aware.
+- Contenu (`hero-grid` + `index-panel`) : `z-index: 1`, jamais animé au
+  pointer. Sur mobile (<768px), la scène est réduite et repoussée en bordure
+  pour laisser la priorité au texte.
 
 ## Responsive priorities
 
@@ -91,10 +124,16 @@ changement d'état ou une continuité — jamais divertir.
 ## Anti-vibe gate
 
 Revue anti-vibe (`.ai/skills/anti-vibe-design`) appliquée sur la surface
-modifiée : aucun pattern tendance empilé (pas de gradient, pas de
-glassmorphism de masse, pas de duo de polices tendance, pas de pointer FX,
-pas de grain/noise). Les deux effets retenus (blur du header, reveals) ont une
-justification fonctionnelle documentée et un état `prefers-reduced-motion`.
+modifiée : la scène 3D reste une seule idée cohérente en profondeur (jamais
+d'empilement de patterns tendance — pas de glassmorphism de masse, pas de duo
+de polices, pas de grain/noise, pas de cursor custom), limitée au hero et
+clairement séparée du contenu. La parallaxe a une justification fonctionnelle
+(cue de profondeur), l'ambiance CSS n'est jamais pointer-tracking et tout est
+coupé sous `prefers-reduced-motion`. Le blur du header et les reveals gardent
+leur justification documentée.
+
+IMPROVE, pas REMOVE : la refonte 3D a étendu la direction éditoriale existante
+(tokens uniques, panneaux éditoriaux, contraste AA) au lieu de la remplacer.
 
 ## Content principle
 

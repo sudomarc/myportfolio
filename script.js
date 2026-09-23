@@ -653,7 +653,7 @@
 
   /* ---------- Init ---------- */
   function init() {
-    applyTheme(tryLocal("theme"));
+    applyTheme(effectiveTheme());
     applyLang(getLang());
     wireControls();
     initWhatsAppLinks();

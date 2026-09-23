@@ -9,6 +9,7 @@
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/styles.css">
   <script src="/script.js" defer></script>
+  <script type="module" src="/hero.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Aller au contenu</a>
@@ -46,9 +47,53 @@
 
   <main id="main-content">
     <section class="hero" aria-labelledby="hero-title">
+      <!-- 3D Scene Layers (decorative, aria-hidden) -->
+      <div class="hero-scene" aria-hidden="true">
+        <div class="h-layer h-bg"><div class="hero-bg"></div></div>
+
+        <div class="h-layer h-atmos"><div class="hero-atmos"></div></div>
+
+        <div class="h-layer h-far">
+          <div class="hero-far">
+            <span class="ring wire"></span>
+            <span class="cube"></span>
+          </div>
+        </div>
+
+        <div class="h-layer h-mid">
+          <div class="hero-mid">
+            <span class="panel panel-a"></span>
+            <span class="panel panel-b"></span>
+            <span class="panel panel-c"></span>
+          </div>
+        </div>
+
+        <div class="h-layer h-primary">
+          <div class="hero-primary">
+            <div class="orbit">
+              <span class="core"></span>
+              <span class="ring ring-a"></span>
+              <span class="ring ring-b"></span>
+              <span class="crosshair"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="h-layer h-fore">
+          <div class="hero-fore">
+            <span class="shape shape-square"></span>
+            <span class="shape shape-plus"></span>
+            <span class="shape shape-dots"><i></i></span>
+          </div>
+        </div>
+
+        <canvas class="hero-particles" aria-hidden="true"></canvas>
+      </div>
+
+      <!-- Content Layer -->
       <div class="container hero-grid">
-        <div class="stagger">
-          <p class="label hero-eyebrow reveal" data-i18n="hero.eyebrow">Portfolio — Web development &amp; UI</p>
+        <div class="hero-content stagger">
+          <p class="label hero-eyebrow reveal" data-i18n="hero.eyebrow">Portfolio — Web development & UI</p>
 
           <div class="hero-meta reveal" aria-label="localisation et disponibilité" data-i18n-aria="hero.meta.aria">
             <span class="mono" data-i18n="hero.meta.location">Guinée · Remote</span>

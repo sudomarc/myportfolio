@@ -12,8 +12,8 @@
 | SEO | REQUIRED | Metadata + robots + sitemap |
 | Accessibilité | REQUIRED | Sémantique native + clavier + focus + reduced motion |
 | Responsive | REQUIRED | Mobile-first, tablette, desktop |
-| Motion | APPLICABLE | Animations brèves et justifiées |
-| 3D / WebGL | NOT APPLICABLE | Aucun besoin actuel |
+| Motion | APPLICABLE | Reveals + parallaxe hero, kinetic défini, reduced motion |
+| 3D / WebGL | APPLICABLE | Scène 3D CSS (transforms) + particules canvas, zéro WebGL/asset, `aria-hidden`, fallback statique, cut reduced-motion |
 | Assets tiers | APPLICABLE | Provenance/licence à documenter |
 | Sécurité navigateur | REQUIRED | Headers de base + absence de secrets client |
 | Performance | REQUIRED | Mesure avant optimisation |
