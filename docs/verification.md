@@ -85,7 +85,7 @@ son résultat observé.
 - Profil public : sudomarc · étudiant en informatique · Web Dev · Conakry, Guinée.
 - WhatsApp configuré : +224 628 016 9479.
 - GitHub public : github.com/sudomarc.
-- Faux case studies Le Patio et Naya Beauty remplacées par Interact-Conakry et CrazyCook.
+- Les anciens case studies fictifs ont été remplacés par Interact-Conakry et CrazyCook.
 - Contexte, contraintes, décisions, solutions et absence de métriques renseignés selon les éléments disponibles.
 - Stack Amplio corrigée d’après le dépôt réel : HTML, CSS, JavaScript, Three.js.
 - Thème : la préférence système claire n’écrase plus un data-theme explicite.
@@ -93,8 +93,8 @@ son résultat observé.
 ### État de vérification de cette passe
 - Contrôle par lecture des fichiers GitHub : effectué.
 - Cohérence des clés data-i18n* contre le dictionnaire script.js : 0 clé manquante sur les fichiers contrôlés.
-- Placeholders littéraux [PLACEHOLDER...] dans les fichiers contrôlés : 0.
-- Anciennes références projet : supprimées des fichiers courants contrôlés.
+- Aucun placeholder éditorial actif dans les fichiers contrôlés.
+- Les anciens case studies fictifs ne sont plus présents dans les fichiers courants.
 - node scripts/verify.mjs après ces derniers changements : NON EXÉCUTÉ dans cet environnement.
 - Vérification navigateur interactive après ces derniers changements : NON EXÉCUTÉE.
 - Vérification des URLs de production des projets : NON VÉRIFIÉE.
