@@ -6,10 +6,11 @@ Portfolio éditorial sombre, précis et documentaire — maîtrisé, sans effet
 décoratif qui n'explique rien.
 
 Le site doit ressembler davantage à un carnet de projets / studio numérique
-qu'à un template de freelance. Le hero porte une scène 3D immersive
+qu'à un template de freelance. Le hero porte une scène 3D éditoriale
 procédurale (CSS 3D transforms + particules canvas, zéro framework, zéro
-asset) qui donne de la profondeur et une identité technique, sans dégrader
-la lecture ni le contenu.
+asset externe) construite autour d'objets d'interface web : fenêtres de
+navigateur, cartes UI et une surface principale en perspective. La profondeur
+doit évoquer directement le travail présenté, sans dégrader la lecture ni le contenu.
 
 ## Audience
 
@@ -29,10 +30,10 @@ Visiteur qui veut répondre rapidement à trois questions :
 - Bordures fines uniformes (`--border` / `--border-strong`), surfaces sobres
   (`--surface-1`, `--surface-2`), pas de glassmorphism systématique (le seul
   `backdrop-filter` est fonctionnel : lisibilité du header sticky).
-- Le hero combine deux signatures : la **scène 3D** (satellite orbital,
-  anneaux, structures filaires, panneaux flottants, particules — toutes
-  décoratives, `aria-hidden`, alimentées par tokens thème) et le **panneau
-  éditorial des projets** (index panel), conservé comme signature de contenu.
+- Le hero combine deux signatures : une **scène 3D d'interface web** (fenêtres
+  navigateur, cartes et surface principale en perspective, toutes décoratives
+  et `aria-hidden`) et le **panneau éditorial des projets** (index panel),
+  conservé comme signature de contenu.
 - Numérotation et métadonnées monospace pour l'identité éditoriale.
 - Motion : brève pour les changements d'état ; parallaxe pointer/scroll et
   animation ambiante confinées à la scène décorative du hero (jamais sur le
@@ -84,15 +85,14 @@ changement d'état ou une continuité — jamais divertir.
 - Hero 3D : parallaxe pointer/scroll (coefficients par profondeur, lerp,
   une seule boucle `requestAnimationFrame`), gérés par `hero.js` sur les
   wrappers `.h-layer` (le transform JS ne touche jamais les visuels).
-  L'entrée (stagger `scene-in`) et l'ambiance (breathe / ring spin / float /
-  drift / crosshair-pulse) sont en CSS animé uniquement sur les éléments
-  décoratifs — fail-safe : toute la scène est `aria-hidden` et lisible sans JS.
-  Couleurs partagées via tokens (`--accent`, `--core-high`, `--core-depth`) ;
-  `hero.js` réécoute les changements de `data-theme` (MutationObserver) pour
-  resampler la couleur des particules.
+  L'entrée (`scene-in`) et les mouvements d'ambiance sont en CSS sur les
+  éléments décoratifs — fail-safe : toute la scène est `aria-hidden` et
+  lisible sans JS. Les particules restent limitées en nombre et le moteur
+  suspend sa boucle quand la scène est hors écran, quand l'onglet est caché
+  ou quand `prefers-reduced-motion` est actif.
 - View Transitions natives (`@view-transition { navigation: auto }`) en
   amélioration progressive.
-- Micro-interactions : hover/active sur liens et boutons CNL state-meaningful.
+- Micro-interactions : hover/active sur liens et boutons avec un retour d’état lisible.
 - `prefers-reduced-motion` : stop de la boucle rAF, canvas masqué, animations
   CSS forcées à 0.01ms par la règle globale.
 - Durées centralisées dans les tokens (aucune valeur magique).
@@ -101,13 +101,12 @@ changement d'état ou une continuité — jamais divertir.
 
 - `.hero-scene` (absolute, `z-index: -1`, isolé, `perspective`) héberge les
   wrappers `.h-layer` — transformés en JS (parallaxe).
-- Chaque wrapper contient un visuel CSS : `hero-bg` (gradients + grille
-  masquée), `hero-atmos` (halos), `hero-far` (anneau filaire + cube),
-  `hero-mid` (panneaux), `hero-primary` (orbit : core + anneaux + crosshair),
-  `hero-fore` (petites formes). Les `transform-style: preserve-3d` enchaînent
-  les plans pour un vrai rendu 3D imbriqué.
-- `.hero-particles` : canvas 2D, 60 particules, dérive + légère attraction au
-  pointer, couleur lue dans `--accent` (thème-aware), DPR-aware.
+- `.h-far` porte deux fenêtres navigateur secondaires, `.h-mid` trois cartes
+  UI simplifiées, `.h-primary` une fenêtre principale en perspective et
+  `.h-fore` des accents graphiques minimaux. Tous les objets sont CSS-only,
+  theme-aware et décoratifs.
+- `.hero-particles` : canvas 2D, 38 particules légères, couleur lue dans
+  `--accent` et rendu DPR-aware.
 - Contenu (`hero-grid` + `index-panel`) : `z-index: 1`, jamais animé au
   pointer. Sur mobile (<768px), la scène est réduite et repoussée en bordure
   pour laisser la priorité au texte.

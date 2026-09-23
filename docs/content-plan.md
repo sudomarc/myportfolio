@@ -3,8 +3,8 @@
 ## Identity
 
 - Nom public : sudomarc
-- Positionnement : Web Dev
-- Baseline : « Je construis des interfaces web et j’apprends en développant. »
+- Positionnement : Web design · Front-end
+- Baseline : « Je conçois et développe des interfaces web claires, utiles et soignées. »
 - Localisation publique : Conakry · Guinée
 - Contact : WhatsApp +224 628 069 479 · GitHub github.com/sudomarc
 

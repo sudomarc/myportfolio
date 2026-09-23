@@ -185,10 +185,23 @@ if (vercel?.headers?.some((h) => h.headers?.some((x) => x.key === "Content-Secur
 } else fail("CSP absente de vercel.json");
 
 const index = readFileSync(join(root, "index.html"), "utf8");
-if (/href="https?:\/\//.test(index)) {
-  const externals = [...index.matchAll(/href="(https?:\/\/[^"]+)"/g)].map((m) => m[1]);
-  fail(`liens externes à vérifier : ${externals.join(", ")}`);
-} else ok("index.html : aucun lien externe");
+const allowedExternalLinks = new Set([
+  "https://github.com/sudomarc",
+  "https://github.com/sudomarc/Interact-Conakry",
+  "https://sudomarc.github.io/amplio-web/",
+  "https://sudomarc.github.io/CrazyCook/",
+]);
+const externals = [...index.matchAll(/href="(https?:\/\/[^"]+)"/g)].map((m) => m[1]);
+const unexpectedExternals = externals.filter((url) => !allowedExternalLinks.has(url));
+if (unexpectedExternals.length === 0) {
+  if (externals.length > 0) {
+    ok(`index.html : ${externals.length} lien(s) externe(s) explicitement autorisé(s)`);
+  } else {
+    ok("index.html : aucun lien externe");
+  }
+} else {
+  fail(`liens externes non allowlistés : ${unexpectedExternals.join(", ")}`);
+}
 
 /* ---------- Bilan ---------- */
 console.log("\n----------------------------------------");
