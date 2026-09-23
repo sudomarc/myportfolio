@@ -129,3 +129,9 @@ If a material conflict remains unresolved, do not guess. Surface the conflict.
 ### Evidence requirement
 
 Never claim that Vibe Coding Instructions, tests, builds, browser checks, audits, or deployments were used or completed unless there is evidence that they actually were.
+
+### Vendored governance
+
+The applicable Vibe Coding Instructions skills are vendored under .ai/ in this repository. Prefer the vendored copy for development so governance is available offline and versioned with the project.
+
+When a task affects a governed surface, read the relevant local .ai/skill before implementation. Changes to Vibe Coding governance itself require an explicit task and separate review.
