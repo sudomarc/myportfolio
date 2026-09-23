@@ -172,6 +172,18 @@ else fail("eval détecté");
 if (!/\bfetch\s*\(|XMLHttpRequest/.test(js)) ok("aucun appel réseau");
 else fail("appel réseau détecté dans script.js");
 
+const mobileCssChecks = [
+  [/\.live-preview\s*\{[\s\S]*?aspect-ratio:\s*4\s*\/\s*3/, "previews : format mobile"],
+  [/\.live-preview iframe\s*\{[\s\S]*?min-height:\s*0/, "previews : hauteur intrinsèque mobile"],
+  [/\.hero-device\s*\{[\s\S]*?min-width:\s*0/, "hero 3D : largeur fluide mobile"],
+  [/\.cookie-note__actions\s*\{[\s\S]*?grid-template-columns:/, "bandeau : actions empilables sur mobile"],
+  [/\.theme-toggle\s*\{[\s\S]*?flex:\s*0\s*0\s*2\.75rem/, "header : cible tactile mobile"]
+];
+for (const [pattern, label] of mobileCssChecks) {
+  if (pattern.test(css)) ok(label);
+  else fail(`styles.css : ${label} MANQUANT`);
+}
+
 /* ---------- 6. Sécurité / SEO ---------- */
 console.log("\n[6/6] Sécurité & SEO");
 const robots = readFileSync(join(root, "robots.txt"), "utf8");
