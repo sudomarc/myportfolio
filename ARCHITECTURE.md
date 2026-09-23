@@ -15,8 +15,8 @@ Site **100 % statique** : HTML, CSS et JavaScript vanilla.
 |---|---|---|
 | `/` | `index.html` | Page d'accueil : identité, projets, à propos, capacités, méthode, contact |
 | `/work/amplio-web` | `work/amplio-web.html` | Étude de cas — projet réel |
-| `/work/le-patio` | `work/le-patio.html` | Étude de cas — démo |
-| `/work/naya-beauty` | `work/naya-beauty.html` | Étude de cas — concept |
+| `/work/interact-conakry` | `work/interact-conakry.html` | Étude de cas — projet réel |
+| `/work/crazycook` | `work/crazycook.html` | Étude de cas — démo personnelle |
 | `/mentions-legales` | `mentions-legales.html` | Page légale |
 | `/confidentialite` | `confidentialite.html` | Page de confidentialité |
 | `/cookies` | `cookies.html` | Inventaire cookies / stockage |
