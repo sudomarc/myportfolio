@@ -2,11 +2,11 @@
 
 ## Identity
 
-- Nom public : Marco Polo
-- Positionnement : [À FINALISER]
-- Baseline : [À FINALISER]
-- Localisation publique : Guinée · Remote
-- Contact : [À CONFIGURER]
+- Nom public : sudomarc
+- Positionnement : Web Dev
+- Baseline : « Je construis des interfaces web et j’apprends en développant. »
+- Localisation publique : Conakry · Guinée
+- Contact : WhatsApp +224 628 016 9479 · GitHub github.com/sudomarc
 
 ## Homepage
 
