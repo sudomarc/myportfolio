@@ -2063,3 +2063,339 @@ button {
     animation: none;
   }
 }
+
+
+/* ---------- Galaxy A17 / mobile refinement ---------- */
+/* Tuned for narrow touch viewports without hard-coding a device model:
+   fluid widths, intrinsic heights, safer tap targets and lighter 3D. */
+
+.privacy-grid {
+  display: grid;
+  gap: 1px;
+  margin-top: var(--space-10);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--border);
+  overflow: hidden;
+}
+
+.privacy-grid .legal-section {
+  margin-top: 0;
+  padding: var(--space-6);
+  background: var(--bg-soft);
+}
+
+.privacy-intro {
+  max-width: 54ch;
+  color: var(--text-2);
+  font-size: var(--text-lg);
+}
+
+.privacy-updated {
+  color: var(--text-3);
+}
+
+@media (max-width: 767px) {
+  .container {
+    width: min(var(--container-w), calc(100% - 2rem));
+  }
+
+  .header-inner {
+    gap: var(--space-2);
+  }
+
+  .header-controls {
+    gap: var(--space-1);
+  }
+
+  .menu summary {
+    min-height: 2.75rem;
+  }
+
+  .hero {
+    padding: 3.5rem 0 4rem;
+  }
+
+  .hero-grid {
+    gap: var(--space-8);
+  }
+
+  .hero-meta {
+    gap: var(--space-2) var(--space-4);
+    margin-bottom: var(--space-5);
+  }
+
+  .hero-lead {
+    margin-top: var(--space-6);
+    font-size: 1.05rem;
+    line-height: 1.55;
+  }
+
+  .hero-actions {
+    margin-top: var(--space-8);
+  }
+
+  .hero-device {
+    top: 7%;
+    right: -4%;
+    width: min(76vw, 320px);
+    min-width: 0;
+    opacity: 0.72;
+  }
+
+  .browser-card {
+    opacity: 0.28;
+  }
+
+  .browser-card-side,
+  .ui-card-c {
+    display: none;
+  }
+
+  .ui-card-a {
+    left: -10%;
+    opacity: 0.5;
+  }
+
+  .ui-card-b {
+    left: 2%;
+    opacity: 0.55;
+  }
+
+  .shape-dots {
+    left: 6%;
+  }
+
+  .index-panel-head,
+  .index-item {
+    padding-inline: var(--space-4);
+  }
+
+  .index-item {
+    grid-template-columns: 2.5rem 1fr auto;
+    gap: var(--space-3);
+    padding-block: var(--space-4);
+  }
+
+  .index-item small {
+    font-size: 0.68rem;
+    letter-spacing: 0.11em;
+    line-height: 1.45;
+  }
+
+  .section {
+    padding: 4rem 0;
+  }
+
+  .section-head {
+    gap: var(--space-4);
+    margin-bottom: var(--space-10);
+  }
+
+  .project {
+    gap: var(--space-5);
+    padding: var(--space-8) 0;
+  }
+
+  .project-links {
+    gap: var(--space-4);
+  }
+
+  .live-preview {
+    aspect-ratio: 4 / 3;
+  }
+
+  .preview-bar {
+    height: 2.5rem;
+    padding-inline: var(--space-3);
+  }
+
+  .preview-bar a {
+    min-height: 2.5rem;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .live-preview iframe {
+    min-height: 0;
+  }
+
+  .preview-pending {
+    min-height: 0;
+    padding: var(--space-5);
+  }
+
+  .editorial-row {
+    padding-block: var(--space-5);
+  }
+
+  .capability,
+  .process-step {
+    padding: var(--space-5);
+  }
+
+  .contact-panel {
+    padding: var(--space-6);
+  }
+
+  .contact-actions {
+    gap: var(--space-2);
+  }
+
+  .contact-channel {
+    align-items: flex-start;
+  }
+
+  .contact-channel .label {
+    min-width: 5.5rem;
+  }
+
+  .page {
+    padding: var(--space-12) 0 var(--space-16);
+  }
+
+  .page-head {
+    margin-top: var(--space-8);
+    gap: var(--space-4);
+  }
+
+  .page-head h1 {
+    font-size: clamp(2.4rem, 12vw, 4rem);
+  }
+
+  .privacy-grid {
+    margin-top: var(--space-8);
+  }
+
+  .privacy-grid .legal-section {
+    padding: var(--space-5);
+  }
+
+  .site-footer {
+    padding-top: var(--space-10);
+  }
+
+  .footer-bottom {
+    margin-top: var(--space-10);
+  }
+
+  .cookie-note {
+    right: max(0.75rem, env(safe-area-inset-right));
+    bottom: max(0.75rem, env(safe-area-inset-bottom));
+    left: max(0.75rem, env(safe-area-inset-left));
+    width: min(100% - 1.5rem, 38rem);
+    max-height: min(70vh, 34rem);
+    overflow: auto;
+    padding: var(--space-4);
+  }
+
+  .cookie-note-open {
+    padding-bottom: 14rem;
+  }
+
+  .cookie-note__content {
+    flex-basis: auto;
+  }
+
+  .cookie-note__actions {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-2);
+  }
+
+  .cookie-note__link,
+  .cookie-note__dismiss {
+    min-height: 2.75rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cookie-note__dismiss {
+    width: 100%;
+  }
+}
+
+@media (max-width: 420px) {
+  .brand {
+    flex-shrink: 0;
+  }
+
+  .menu summary {
+    padding-inline: 0.7rem;
+  }
+
+  .lang-toggle button {
+    min-width: 2.2rem;
+    min-height: 2.75rem;
+    padding-inline: 0.5rem;
+  }
+
+  .theme-toggle {
+    width: 2.75rem;
+    height: 2.75rem;
+    flex: 0 0 2.75rem;
+  }
+
+  .hero {
+    padding-top: 3rem;
+  }
+
+  .hero-device {
+    top: 5%;
+    right: -12%;
+    width: min(78vw, 300px);
+  }
+
+  .hero-bg::after {
+    background-size: 48px 48px;
+    -webkit-mask-image: radial-gradient(ellipse at 55% 42%, #000 0%, transparent 68%);
+    mask-image: radial-gradient(ellipse at 55% 42%, #000 0%, transparent 68%);
+  }
+
+  .index-item {
+    grid-template-columns: 2rem minmax(0, 1fr);
+  }
+
+  .index-item .arrow {
+    display: none;
+  }
+
+  .hero-actions .btn,
+  .contact-actions .btn {
+    width: 100%;
+  }
+
+  .cookie-note__actions {
+    grid-template-columns: 1fr;
+  }
+
+  .cookie-note-open {
+    padding-bottom: 16rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .privacy-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .privacy-grid .legal-section:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (pointer: coarse) {
+  .theme-toggle,
+  .menu summary,
+  .lang-toggle button,
+  .btn,
+  .btn-link,
+  .index-item,
+  .preview-bar a,
+  .cookie-note__link,
+  .cookie-note__dismiss {
+    -webkit-tap-highlight-color: transparent;
+  }
+}

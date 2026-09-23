@@ -11,7 +11,7 @@
 | Pages légales | REQUIRED | Placeholder explicite jusqu'à finalisation |
 | SEO | REQUIRED | Metadata + robots + sitemap |
 | Accessibilité | REQUIRED | Sémantique native + clavier + focus + reduced motion |
-| Responsive | REQUIRED | Mobile-first, tablette, desktop |
+| Responsive | REQUIRED | Mobile-first, narrow phone (~320px), Galaxy-class phone (~360–412px CSS), tablette, desktop |
 | Motion | APPLICABLE | Reveals + parallaxe hero, kinetic défini, reduced motion |
 | 3D / WebGL | APPLICABLE | Scène 3D CSS (transforms) + particules canvas, zéro WebGL/asset, `aria-hidden`, fallback statique, cut reduced-motion |
 | Assets tiers | APPLICABLE | Aperçus de projets via iframes GitHub Pages ; provenance/licence à documenter |
@@ -36,3 +36,7 @@
 Aucun analytics, pixel, session replay, cookie, sessionStorage, IndexedDB ou service worker n'est implémenté. Le site utilise localStorage pour le thème, la langue et l'état de fermeture du bandeau informatif. Les aperçus de projets visibles sur la page d'accueil sont chargés depuis des sites externes dans des iframes.
 
 Cette affirmation devra être revérifiée au moment de chaque intégration.
+
+## Responsive QA target
+
+The public portfolio is verified as a fluid mobile-first site. The narrow-phone range around 320px and the common 360–412px CSS viewport range used by modern Galaxy-class phones are explicit QA targets, alongside tablet and desktop widths. Critical checks: no horizontal overflow, usable header/navigation, readable hero, non-cropped project previews, touch-friendly controls, and unobstructed content when the privacy notice is visible.
