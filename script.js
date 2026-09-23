@@ -149,11 +149,9 @@
       /* case body — amplio */
       "case.amplio.context": "Projet réalisé pour quelqu’un afin d’améliorer sa visibilité en ligne et de faciliter la prise de contact.",
       "case.amplio.problem": "Créer une présence web crédible qui présente clairement l’activité et oriente les visiteurs vers le contact.",
-      "case.amplio.constraint": "Ordinateur personnel aux performances limitées pour le développement.",
-      "case.amplio.constraint2": "Accès limité aux modèles IA avancés faute d’abonnement.",
+      "case.amplio.constraint": "Architecture légère et périmètre technique maîtrisé.",
       "case.amplio.decision": "Privilégier une architecture légère, des outils accessibles et une vérification régulière plutôt que dépendre d’une génération automatisée complète.",
       "case.amplio.solution": "Conception, développement, intégration des interactions, tests et déploiement ont été réalisés de bout en bout par moi.",
-      "case.interface.note": "Captures réelles à intégrer après ajout des assets.",
       "case.result.unmeasured": "Non mesuré",
       "case.result.measured": "Projet accessible publiquement ; aucune métrique de trafic, conversion ou performance n’est revendiquée à ce stade.",
       "case.limits.text": "Aucune métrique de trafic, de conversion ou de performance n’est revendiquée tant qu’elle n’est pas réellement mesurée.",
@@ -162,15 +160,13 @@
       /* case body — interact-conakry */
       "case.interact-conakry.context": "Projet réalisé pour l’Interact de ma ville afin de présenter le club et renforcer sa visibilité.",
       "case.interact-conakry.problem": "Donner au club une présence web claire expliquant son identité, ses activités et ses moyens de contact.",
-      "case.interact-conakry.constraint": "Ordinateur personnel aux performances limitées pour le développement.",
-      "case.interact-conakry.constraint2": "Accès limité aux modèles IA avancés faute d’abonnement.",
+      "case.interact-conakry.constraint": "Présentation claire du club, de ses activités et de ses moyens de contact.",
       "case.interact-conakry.decision": "Construire une interface claire et accessible, avec la présentation du club et la visibilité comme priorités.",
       "case.interact-conakry.solution": "Conception, développement, tests et déploiement réalisés de bout en bout par moi.",
       /* case body — crazycook */
       "case.crazycook.context": "Démo personnelle créée pour travailler la réalisation d’un site restaurant statique et tester un flux de développement complet.",
       "case.crazycook.problem": "Explorer une structure de site restaurant crédible tout en travaillant le front-end, le responsive et le déploiement.",
-      "case.crazycook.constraint": "Ordinateur personnel aux performances limitées pour le développement.",
-      "case.crazycook.constraint2": "Accès limité aux modèles IA avancés faute d’abonnement.",
+      "case.crazycook.constraint": "Architecture statique et déploiement simple.",
       "case.crazycook.decision": "Rester sur une approche statique avec HTML, CSS et JavaScript et tester le projet sur un vrai pipeline de publication.",
       "case.crazycook.solution": "Template de site restaurant statique développé, testé et préparé pour GitHub Pages.",
       /* media labels */
@@ -361,8 +357,7 @@
       /* case body — amplio */
       "case.amplio.context": "Main project of this portfolio: a real showcase combining artistic direction, content structure, and front-end integration.",
       "case.amplio.problem": "Build a credible web presence that clearly presents the activity and guides visitors toward contact.",
-      "case.amplio.constraint": "A personal computer with limited development performance.",
-      "case.amplio.constraint2": "Limited access to advanced AI models because of subscription constraints.",
+      "case.amplio.constraint": "Lightweight architecture and a controlled technical scope.",
       "case.amplio.decision": "Favor a lightweight architecture, accessible tools and regular verification instead of depending on full automated generation.",
       "case.amplio.solution": "I handled the design, front-end development, interactions, testing and deployment end to end.",
       "case.interface.note": "Real captures to integrate. Placeholder blocks until assets are available.",
@@ -374,15 +369,13 @@
       /* case body — interact-conakry */
       "case.interact-conakry.context": "Project built for the Interact club in my city to present the club and improve its visibility.",
       "case.interact-conakry.problem": "Give the club a clear web presence explaining who it is, what it does and how to get in touch.",
-      "case.interact-conakry.constraint": "A personal computer with limited development performance.",
-      "case.interact-conakry.constraint2": "Limited access to advanced AI models because of subscription constraints.",
+      "case.interact-conakry.constraint": "Clear presentation of the club, its activities, and contact options.",
       "case.interact-conakry.decision": "Keep the interface clear and accessible, with club presentation and visibility as the priorities.",
       "case.interact-conakry.solution": "I handled the design, development, testing and deployment end to end.",
       /* case body — crazycook */
       "case.crazycook.context": "Personal demo created to practice building a static restaurant website and test an end-to-end development workflow.",
       "case.crazycook.problem": "Explore a credible restaurant-site structure while practicing front-end, responsive work and deployment.",
-      "case.crazycook.constraint": "A personal computer with limited development performance.",
-      "case.crazycook.constraint2": "Limited access to advanced AI models because of subscription constraints.",
+      "case.crazycook.constraint": "Static architecture and straightforward deployment.",
       "case.crazycook.decision": "Stay with a static HTML/CSS/JavaScript approach and test the project on a real publishing pipeline.",
       "case.crazycook.solution": "A static restaurant template developed, tested and prepared for GitHub Pages.",
       /* media labels */
