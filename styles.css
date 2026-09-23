@@ -91,7 +91,7 @@
 }
 
 @media (prefers-color-scheme: light) {
-  :root {
+  :root:not([data-theme]) {
     --bg: #f4f2ed;
     --bg-soft: #eae7e0;
     --surface-1: #ffffff;
