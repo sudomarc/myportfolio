@@ -335,7 +335,6 @@
       /* work meta */
       "work.amplio-web.meta": "Web design · Development",
       "work.interact-conakry.meta": "Site web · Présentation du club",
-      "work.naya-beauty.meta": "Beauty · Visual direction",
       "work.amplio-web.stack.0": "Next.js",
       "work.amplio-web.stack.1": "TypeScript",
       "work.amplio-web.stack.2": "Tailwind CSS",
@@ -370,19 +369,7 @@
       "case.link.demo": "Demo — production URL to be added after final verification",
       "case.link.code": "Code — github.com/sudomarc/amplio-web",
       /* legacy case body removed */
-      "case.le-patio.context": "Exploration made for the portfolio, without a real client. It tests a simple conversion-oriented structure.",
-      "case.le-patio.problem": "A local business needs a simple, readable web presence immediately oriented toward contact.",
-      "case.le-patio.constraint": "Demo project, no real data.",
-      "case.le-patio.constraint2": "A single page, quick reading on mobile.",
-      "case.le-patio.decision": "A short page structured around the offer, visual proof, location, and a CTA.",
-      "case.le-patio.solution": "A mobile-first landing page: offer presentation, gallery, location, and a single path to contact. Hierarchy guides the eye toward the action.",
       /* legacy case body removed */
-      "case.naya-beauty.context": "Design exploration made for the portfolio, without a client relationship. It tests a brand direction and content hierarchy for a beauty activity.",
-      "case.naya-beauty.problem": "Present a beauty offer elegantly without hiding useful information.",
-      "case.naya-beauty.constraint": "Concept: no real content or client data.",
-      "case.naya-beauty.constraint2": "Priority to mobile reading.",
-      "case.naya-beauty.decision": "Scope the services, gallery, and contact with a very mobile-first structure.",
-      "case.naya-beauty.solution": "A lightweight editorial structure: the offer at the top, the gallery as proof, the appointment as the final action. The design stays sober and lets hierarchy carry the reading.",
       /* case body — interact-conakry */
       "case.interact-conakry.context": "Project built for the Interact club in my city to present the club and improve its visibility.",
       "case.interact-conakry.problem": "Give the club a clear web presence explaining who it is, what it does and how to get in touch.",
@@ -415,10 +402,6 @@
       "doc.home.desc": "Personal portfolio: web projects, interfaces, digital experiences, and case studies — documented by proof, not promises.",
       "doc.amplio.title": "Amplio Web — Case study | sudomarc",
       "doc.amplio.desc": "Amplio Web case study: the main web project serving as a demonstration of art direction, product structure, and front-end integration.",
-      "doc.le-patio.title": "Le Patio — Case study | sudomarc",
-      "doc.le-patio.desc": "Le Patio case study: a mobile-first landing page demo for presenting an offer and generating contacts.",
-      "doc.naya-beauty.title": "Naya Beauty — Case study | sudomarc",
-      "doc.naya-beauty.desc": "Naya Beauty case study: a mini-site concept structuring services, a gallery, and appointment booking.",
       "doc.mentions.title": "Legal notice | sudomarc",
       "doc.mentions.desc": "Legal notice for the sudomarc portfolio.",
       "doc.privacy.title": "Privacy policy | sudomarc",
