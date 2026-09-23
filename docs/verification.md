@@ -73,3 +73,32 @@ son résultat observé.
 
 - `node scripts/verify.mjs` — **PASS** (mêmes critères ci-dessus).
 - Route checker (`serve-and-check.mjs`) — **15/15 OK**.
+
+## Pré-publication — contenu et cohérence (2026-09-23)
+
+### Sources consultées
+- Dépôt sudomarc/myportfolio.
+- Dépôts projet sudomarc/amplio-web, sudomarc/Interact-Conakry et sudomarc/CrazyCook.
+- Pages Notion liées aux projets et au parcours technique.
+
+### Corrections appliquées
+- Profil public : sudomarc · étudiant en informatique · Web Dev · Conakry, Guinée.
+- WhatsApp configuré : +224 628 016 9479.
+- GitHub public : github.com/sudomarc.
+- Faux case studies Le Patio et Naya Beauty remplacées par Interact-Conakry et CrazyCook.
+- Contexte, contraintes, décisions, solutions et absence de métriques renseignés selon les éléments disponibles.
+- Stack Amplio corrigée d’après le dépôt réel : HTML, CSS, JavaScript, Three.js.
+- Thème : la préférence système claire n’écrase plus un data-theme explicite.
+
+### État de vérification de cette passe
+- Contrôle par lecture des fichiers GitHub : effectué.
+- Cohérence des clés data-i18n* contre le dictionnaire script.js : 0 clé manquante sur les fichiers contrôlés.
+- Placeholders littéraux [PLACEHOLDER...] dans les fichiers contrôlés : 0.
+- Anciennes références projet : supprimées des fichiers courants contrôlés.
+- node scripts/verify.mjs après ces derniers changements : NON EXÉCUTÉ dans cet environnement.
+- Vérification navigateur interactive après ces derniers changements : NON EXÉCUTÉE.
+- Vérification des URLs de production des projets : NON VÉRIFIÉE.
+- Captures réelles des case studies : NON INTÉGRÉES.
+- Informations juridiques complètes et URL de production du portfolio : À VÉRIFIER AVANT PUBLICATION.
+
+Ne pas considérer la release comme publiée ou complètement vérifiée tant que les points NON EXÉCUTÉ / NON VÉRIFIÉ ci-dessus ne sont pas traités.
