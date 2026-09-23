@@ -58,6 +58,7 @@ Puis contrôle manuel des routes via un serveur statique (voir `docs/verificatio
 
 ## Contact
 
-Aucun secret ni variable d'environnement n'est nécessaire.
+- GitHub : https://github.com/sudomarc
+- WhatsApp : +224 628 016 9479
 
-Le numéro WhatsApp se configure directement dans `script.js` (`SITE_CONFIG.whatsappNumber`).
+Aucun formulaire ni variable d’environnement n’est requis à ce stade.
