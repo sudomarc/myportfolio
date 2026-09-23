@@ -8,7 +8,7 @@ export default function HomePage() {
   const featuredProjects = projects.filter((project) => project.featured);
 
   return (
-    <main>
+    <main id="main-content">
       <section className="container-shell flex min-h-[calc(100vh-4rem)] items-center py-20 md:py-28">
         <div className="grid w-full gap-14 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
           <div>
@@ -81,9 +81,14 @@ export default function HomePage() {
           description="Chaque carte devra devenir une étude de cas avec contexte, décisions, interface et éléments vérifiables."
         />
 
-        <div className="mt-10 grid gap-6 md:grid-cols-2">
-          {featuredProjects.map((project) => (
-            <ProjectCard key={project.slug} project={project} />
+        <div className="mt-10 grid gap-x-10 gap-y-14 md:grid-cols-2">
+          {featuredProjects.map((project, index) => (
+            <div key={project.slug} className="relative">
+              <p className="mb-4 font-mono text-xs text-zinc-600">
+                0{index + 1} / {featuredProjects.length.toString().padStart(2, "0")}
+              </p>
+              <ProjectCard project={project} />
+            </div>
           ))}
         </div>
       </section>
@@ -94,15 +99,16 @@ export default function HomePage() {
           title="Un portfolio qui reste honnête sur le niveau et les preuves."
         />
 
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
+        <div className="mt-10 divide-y divide-white/10 border-y border-white/10">
           {[
-            ["Clarté", "Une présentation compréhensible sans jargon inutile."],
-            ["Exécution", "Des projets consultables plutôt qu’une liste de compétences."],
-            ["Évolution", "Le portfolio s’améliore avec les vrais projets et les vraies données."],
-          ].map(([title, text]) => (
-            <div key={title} className="surface rounded-[28px] p-6">
+            ["01", "Clarté", "Une présentation compréhensible sans jargon inutile."],
+            ["02", "Exécution", "Des projets consultables plutôt qu’une liste de compétences."],
+            ["03", "Évolution", "Le portfolio s’améliore avec les vrais projets et les vraies données."],
+          ].map(([index, title, text]) => (
+            <div key={title} className="grid gap-4 py-6 md:grid-cols-[64px_180px_1fr] md:items-baseline">
+              <span className="font-mono text-xs text-zinc-600">{index}</span>
               <h3 className="text-xl font-semibold tracking-tight">{title}</h3>
-              <p className="mt-3 text-sm leading-6 text-zinc-400">{text}</p>
+              <p className="max-w-xl text-sm leading-6 text-zinc-400">{text}</p>
             </div>
           ))}
         </div>
