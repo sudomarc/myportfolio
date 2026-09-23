@@ -148,6 +148,7 @@ else fail("Tailwind détecté");
 if ((css.match(/:root/g) || []).length >= 1 && css.includes("--")) ok("tokens :root présents");
 else fail("tokens CSS manquants");
 
+const js = readFileSync(join(root, "script.js"), "utf8");
 const privacyPage = readFileSync(join(root, "confidentialite.html"), "utf8");
 const cookiesPage = readFileSync(join(root, "cookies.html"), "utf8");
 if (/cookie-note|sudomarc:cookie-note-dismissed/.test(js)) ok("notice confidentialité/cookies présente");
@@ -156,8 +157,6 @@ if (/privacy\.external|privacy\.storage|privacy\.retention/.test(privacyPage)) o
 else fail("confidentialite.html : sections de traitement insuffisantes");
 if (/cookies\.external|cookies\.banner\.text/.test(js) && /Bandeau d’information|Information banner/.test(cookiesPage)) ok("cookies : inventaire + notice documentés");
 else fail("cookies.html : inventaire/notice non documentés");
-
-const js = readFileSync(join(root, "script.js"), "utf8");
 if (!/querySelectorAll\("\.reveal, \[data-reveal\]"\)/.test(js)) {
   fail("script.js : sélecteur reveal incohérent");
 } else {
