@@ -660,7 +660,7 @@
 
     if (dismiss) dismiss.addEventListener("click", close);
 
-    note.addEventListener("keydown", function (event) {
+    document.addEventListener("keydown", function (event) {
       if (event.key === "Escape" && !note.hidden) close();
     });
   }
