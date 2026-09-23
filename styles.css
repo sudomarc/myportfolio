@@ -263,11 +263,16 @@ button {
 /* ---------- Motion / Reveal system ---------- */
 
 .reveal {
+  opacity: 1;
+  transform: translateY(0);
+  --i: 0;
+}
+
+.motion-ready .reveal {
   opacity: 0;
   transform: translateY(28px);
   transition: opacity var(--dur-med) var(--ease-standard),
     transform var(--dur-med) var(--ease-standard);
-  --i: 0;
 }
 
 .reveal.is-visible {
@@ -275,7 +280,7 @@ button {
   transform: translateY(0);
 }
 
-.stagger .reveal {
+.motion-ready .stagger .reveal {
   transition-delay: calc(var(--i, 0) * 0.07s);
 }
 .stagger .reveal:nth-child(1) { --i: 0; }

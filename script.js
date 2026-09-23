@@ -535,7 +535,7 @@
 
   /* ---------- Reveal (IntersectionObserver) ---------- */
   function initReveals() {
-    var items = document.querySelectorAll("[data-reveal]");
+    var items = document.querySelectorAll(".reveal, [data-reveal]");
     if (items.length === 0) return;
     var observer = new IntersectionObserver(
       function (entries) {

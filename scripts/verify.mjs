@@ -149,6 +149,16 @@ if ((css.match(/:root/g) || []).length >= 1 && css.includes("--")) ok("tokens :r
 else fail("tokens CSS manquants");
 
 const js = readFileSync(join(root, "script.js"), "utf8");
+if (!/querySelectorAll\("\\.reveal, \\[data-reveal\\]"\)/.test(js)) {
+  fail("script.js : sélecteur reveal incohérent");
+} else {
+  ok("script.js : sélecteur reveal cohérent");
+}
+if (!css.includes(".motion-ready .reveal")) {
+  fail("styles.css : reveal fail-safe manquant");
+} else {
+  ok("styles.css : reveal fail-safe présent");
+}
 if (!/\beval\s*\(/.test(js)) ok("pas d'eval");
 else fail("eval détecté");
 if (!/\bfetch\s*\(|XMLHttpRequest/.test(js)) ok("aucun appel réseau");
