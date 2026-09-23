@@ -42,22 +42,70 @@
   <main class="page" id="main-content">
     <div class="container">
       <a class="page-back" href="/"><span aria-hidden="true">←</span> <span data-i18n="page.back.home">Retour à l'accueil</span></a>
-      <header class="page-head">
-        <span class="label" data-i18n="legal.label">Légal</span>
-        <h1 class="display">Politique de confidentialité</h1>
+
+      <header class="page-head privacy-page-head">
+        <span class="label" data-i18n="privacy.hero.eyebrow">Confidentialité</span>
+        <h1 class="display" data-i18n="privacy.hero.title">Votre vie privée, clairement.</h1>
+        <p class="privacy-intro" data-i18n="privacy.hero.intro">Cette page décrit le fonctionnement actuel du portfolio : les données qu’il peut traiter, les usages du stockage local et le rôle des services externes.</p>
+        <p class="privacy-updated mono" data-i18n="privacy.updated">Dernière mise à jour : 23 septembre 2026</p>
       </header>
-      <section class="legal-section reveal">
-        <h2 data-i18n="privacy.data">Données collectées</h2>
-        <p data-i18n="privacy.data.text">Le site ne comporte pas de formulaire actif ni d’outil d’analytics. Le navigateur peut conserver localement les préférences de thème et de langue via localStorage. Ces préférences restent dans le navigateur et ne sont pas envoyées par le site à un serveur.</p>
-      </section>
-      <section class="legal-section reveal">
-        <h2 data-i18n="privacy.purpose">Finalités</h2>
-        <p data-i18n="privacy.purpose.text">Les préférences locales servent uniquement à conserver le thème et la langue choisis pour les visites suivantes.</p>
-      </section>
-      <section class="legal-section reveal">
-        <h2 data-i18n="privacy.contact">Contact</h2>
-        <p data-i18n="privacy.contact.text">Pour contacter le responsable du site : github.com/sudomarc</p>
-      </section>
+
+      <div class="privacy-grid">
+        <section class="legal-section reveal">
+          <span class="label">01</span>
+          <h2 data-i18n="privacy.scope">Périmètre</h2>
+          <p data-i18n="privacy.scope.text">Cette politique concerne ce portfolio personnel et ses pages publiques. Elle décrit ce que le site contrôle directement et ce qui relève de services externes accessibles depuis le portfolio.</p>
+        </section>
+
+        <section class="legal-section reveal">
+          <span class="label">02</span>
+          <h2 data-i18n="privacy.data">Données traitées</h2>
+          <p data-i18n="privacy.data.text">Le portfolio ne comporte pas de formulaire de contact intégré, d’outil d’analytics, de pixel publicitaire ou de session replay. Il ne demande pas de compte et ne collecte pas volontairement de données personnelles par un formulaire.</p>
+        </section>
+
+        <section class="legal-section reveal">
+          <span class="label">03</span>
+          <h2 data-i18n="privacy.storage">Stockage local</h2>
+          <p data-i18n="privacy.storage.text">Le navigateur peut conserver localement trois préférences d’interface : le thème, la langue et l’état de fermeture du bandeau de confidentialité. Ces informations restent sur votre appareil et ne sont pas envoyées par le portfolio à un serveur.</p>
+        </section>
+
+        <section class="legal-section reveal">
+          <span class="label">04</span>
+          <h2 data-i18n="privacy.external">Services et contenus externes</h2>
+          <p data-i18n="privacy.external.text">Certaines réalisations sont affichées dans des aperçus intégrés depuis GitHub Pages. Lorsque vous chargez ces aperçus, votre navigateur contacte directement les sites concernés ; ils peuvent traiter des données techniques selon leurs propres règles et politiques. Les liens WhatsApp et GitHub sont également des services externes utilisés uniquement lorsque vous choisissez de les ouvrir.</p>
+        </section>
+
+        <section class="legal-section reveal">
+          <span class="label">05</span>
+          <h2 data-i18n="privacy.purpose">Finalités</h2>
+          <p data-i18n="privacy.purpose.text">Le traitement local sert uniquement à conserver vos préférences d’interface et à éviter de réafficher le bandeau après sa fermeture. Les échanges avec les services externes résultent de votre choix de consulter un aperçu ou d’ouvrir un lien.</p>
+        </section>
+
+        <section class="legal-section reveal">
+          <span class="label">06</span>
+          <h2 data-i18n="privacy.retention">Conservation</h2>
+          <p data-i18n="privacy.retention.text">Les préférences stockées dans le navigateur restent jusqu’à leur suppression par vous ou au nettoyage du stockage du site. Les données techniques éventuellement présentes dans les journaux de l’hébergeur relèvent des pratiques de l’hébergeur ; aucune durée précise n’est revendiquée ici sans vérification de sa politique.</p>
+        </section>
+
+        <section class="legal-section reveal">
+          <span class="label">07</span>
+          <h2 data-i18n="privacy.rights">Vos demandes</h2>
+          <p data-i18n="privacy.rights.text">Pour toute demande concernant les informations contrôlées directement par ce portfolio, vous pouvez utiliser le canal de contact public indiqué ci-dessous. Les demandes concernant un service externe doivent être adressées au service concerné.</p>
+        </section>
+
+        <section class="legal-section reveal">
+          <span class="label">08</span>
+          <h2 data-i18n="privacy.contact">Responsable et contact</h2>
+          <p><span data-i18n="privacy.contact.text">Responsable public du site : sudomarc, Conakry, Guinée. Contact public :</span> <a href="https://github.com/sudomarc" target="_blank" rel="noreferrer" data-i18n="privacy.external.link">GitHub — github.com/sudomarc</a></p>
+        </section>
+
+        <section class="legal-section reveal">
+          <span class="label">09</span>
+          <h2 data-i18n="privacy.updates">Mises à jour</h2>
+          <p data-i18n="privacy.updates.text">Cette politique sera revue lorsqu’une nouvelle fonctionnalité, un nouvel hébergement, un outil de mesure ou une nouvelle intégration externe modifiera le traitement des données.</p>
+          <p><a class="btn-link" href="/cookies.html" data-i18n="privacy.cookies.link">Consulter aussi la politique cookies →</a></p>
+        </section>
+      </div>
     </div>
   </main>
   <footer class="site-footer"><div class="container"><div class="footer-grid"><div><a class="footer-brand" href="/">sudomarc</a><p class="footer-tagline" data-i18n="footer.tagline">Web development &amp; UI — interfaces simples, claires et crédibles.</p></div><nav class="footer-col" aria-label="Navigation"><h2 data-i18n="footer.nav.title">Navigation</h2><ul role="list"><li><a href="/" data-i18n="nav.home">Accueil</a></li><li><a href="/#work" data-i18n="nav.projects">Projets</a></li><li><a href="/#about" data-i18n="nav.about">À propos</a></li><li><a href="/#contact" data-i18n="nav.contact">Contact</a></li></ul></nav><div class="footer-col"><h2 data-i18n="footer.legal.title">Légal</h2><ul role="list"><li><a href="/mentions-legales.html" data-i18n="footer.legal.mentions">Mentions légales</a></li><li><a href="/confidentialite.html" data-i18n="footer.legal.privacy">Confidentialité</a></li><li><a href="/cookies.html" data-i18n="footer.legal.cookies">Cookies</a></li></ul></div></div><div class="footer-bottom"><p data-i18n="footer.copyright">© 2026 sudomarc. Tous droits réservés.</p></div></div></footer>
