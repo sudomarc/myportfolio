@@ -1,8 +1,6 @@
 /* ============================================================
-   HERO — Immersive 3D scene (vanilla, no dependencies)
-   JS owns parallax + particles only. Visual layers and entrance
-   choreography are pure CSS (fail-safe: content visible without JS).
-   Theme-aware: colors are read from CSS custom properties.
+   HERO — Editorial 3D interface scene (vanilla, no dependencies)
+   Decorative only. Content remains fully usable without the scene.
    ============================================================ */
 
 (() => {
@@ -10,197 +8,288 @@
 
   const CFG = {
     layers: [
-      { sel: ".h-bg", parallax: 0.02, scale: 1.15 },
-      { sel: ".h-atmos", parallax: 0.08, scale: 1.1 },
-      { sel: ".h-far", parallax: 0.18, scale: 1.05 },
-      { sel: ".h-mid", parallax: 0.3, scale: 1.02 },
-      { sel: ".h-primary", parallax: 0.45, scale: 1 },
-      { sel: ".h-fore", parallax: 0.65, scale: 0.95 },
+      { sel: ".h-bg", parallax: 0.02, scale: 1.08 },
+      { sel: ".h-atmos", parallax: 0.06, scale: 1.04 },
+      { sel: ".h-far", parallax: 0.14, scale: 1.02 },
+      { sel: ".h-mid", parallax: 0.24, scale: 1 },
+      { sel: ".h-primary", parallax: 0.38, scale: 1 },
+      { sel: ".h-fore", parallax: 0.54, scale: 0.98 },
     ],
-    particles: { count: 60, size: { min: 1, max: 3 }, speed: 0.15 },
+    particles: { count: 38, size: { min: 1, max: 2.2 }, speed: 0.11 },
   };
 
-  let els = null;
-  let states = null;
+  let els = [];
+  let states = [];
   let canvas = null;
   let ctx = null;
+  let hero = null;
   let particles = [];
   let rafId = null;
   let accent = "134, 239, 172";
   let reduced = false;
+  let visible = true;
+  let pageVisible = !document.hidden;
   let started = false;
 
   const lerp = (a, b, t) => a + (b - a) * t;
   const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
-  const prefersReduced = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const prefersReduced = () =>
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   function readAccent() {
-    var v = getComputedStyle(document.documentElement).getPropertyValue("--accent").trim();
-    if (v) {
-      var m = v.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
-      if (m) accent = m[1] + ", " + m[2] + ", " + m[3];
-      else accent = v;
-    }
+    const value = getComputedStyle(document.documentElement)
+      .getPropertyValue("--accent")
+      .trim();
+
+    if (!value) return;
+
+    const match = value.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
+    accent = match ? match.slice(1, 4).join(", ") : value;
   }
 
   function initLayers() {
     els = [];
     states = [];
-    CFG.layers.forEach((l) => {
-      var el = document.querySelector(l.sel);
+
+    CFG.layers.forEach((layer) => {
+      const el = document.querySelector(layer.sel);
       if (!el) return;
+
       els.push(el);
-      states.push({ parallax: l.parallax, scale: l.scale, x: 0, y: 0, tx: 0, ty: 0, rx: 0, ry: 0 });
+      states.push({
+        parallax: layer.parallax,
+        scale: layer.scale,
+        x: 0,
+        y: 0,
+        tx: 0,
+        ty: 0,
+        rx: 0,
+        ry: 0,
+        scroll: window.scrollY,
+      });
     });
+  }
+
+  function resizeCanvas() {
+    if (!canvas || !canvas.parentElement) return;
+
+    const rect = canvas.parentElement.getBoundingClientRect();
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+    canvas.width = Math.max(1, Math.round(rect.width * dpr));
+    canvas.height = Math.max(1, Math.round(rect.height * dpr));
+    canvas.style.width = rect.width + "px";
+    canvas.style.height = rect.height + "px";
+
+    if (ctx) ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    spawnParticles(rect.width, rect.height);
   }
 
   function initCanvas() {
     canvas = document.querySelector(".hero-particles");
     if (!canvas) return;
+
     ctx = canvas.getContext("2d");
-    resize();
-    spawn();
-    window.addEventListener("resize", resize, { passive: true });
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas, { passive: true });
+
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener("resize", resizeCanvas, {
+        passive: true,
+      });
+    }
   }
 
-  function resize() {
-    if (!canvas) return;
-    var rect = canvas.parentElement.getBoundingClientRect();
-    canvas.width = Math.max(1, Math.round(rect.width * devicePixelRatio));
-    canvas.height = Math.max(1, Math.round(rect.height * devicePixelRatio));
-    canvas.style.width = rect.width + "px";
-    canvas.style.height = rect.height + "px";
-    if (!ctx) return;
-    ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
-  }
-
-  function spawn() {
-    if (!canvas) return;
-    var w = canvas.width / devicePixelRatio;
-    var h = canvas.height / devicePixelRatio;
+  function spawnParticles(width, height) {
     particles = [];
-    for (var i = 0; i < CFG.particles.count; i++) {
+
+    for (let i = 0; i < CFG.particles.count; i += 1) {
       particles.push({
-        x: Math.random() * w,
-        y: Math.random() * h,
-        r: Math.random() * (CFG.particles.size.max - CFG.particles.size.min) + CFG.particles.size.min,
+        x: Math.random() * width,
+        y: Math.random() * height,
+        r:
+          Math.random() *
+            (CFG.particles.size.max - CFG.particles.size.min) +
+          CFG.particles.size.min,
         vx: (Math.random() - 0.5) * CFG.particles.speed,
         vy: (Math.random() - 0.5) * CFG.particles.speed,
-        o: 0.1 + Math.random() * 0.35,
+        opacity: 0.08 + Math.random() * 0.22,
       });
     }
   }
 
   function drawParticles() {
     if (!ctx || !canvas) return;
-    var w = canvas.width / devicePixelRatio;
-    var h = canvas.height / devicePixelRatio;
-    ctx.clearRect(0, 0, w, h);
-    for (var i = 0; i < particles.length; i++) {
-      var p = particles[i];
-      p.vx *= 0.998;
-      p.vy *= 0.998;
-      p.x += p.vx;
-      p.y += p.vy;
-      if (p.x < 0) p.x = w;
-      if (p.x > w) p.x = 0;
-      if (p.y < 0) p.y = h;
-      if (p.y > h) p.y = 0;
+
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const width = canvas.width / dpr;
+    const height = canvas.height / dpr;
+
+    ctx.clearRect(0, 0, width, height);
+
+    particles.forEach((particle) => {
+      particle.x += particle.vx;
+      particle.y += particle.vy;
+
+      if (particle.x < -4) particle.x = width + 4;
+      if (particle.x > width + 4) particle.x = -4;
+      if (particle.y < -4) particle.y = height + 4;
+      if (particle.y > height + 4) particle.y = -4;
+
       ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = "rgba(" + accent + ", " + p.o + ")";
+      ctx.arc(particle.x, particle.y, particle.r, 0, Math.PI * 2);
+      ctx.fillStyle =
+        "rgba(" + accent + ", " + particle.opacity.toFixed(3) + ")";
       ctx.fill();
-    }
+    });
   }
 
-  function onPointer(e) {
-    if (reduced || !els.length) return;
-    var hero = document.querySelector(".hero");
-    if (!hero) return;
-    var rect = hero.getBoundingClientRect();
-    var x = clamp((e.clientX - rect.left) / rect.width - 0.5, -0.5, 0.5);
-    var y = clamp((e.clientY - rect.top) / rect.height - 0.5, -0.5, 0.5);
-    if (!states) return;
-    for (var i = 0; i < states.length; i++) states[i].tx = x;
-    for (var j = 0; j < states.length; j++) states[j].ty = y;
+  function onPointer(event) {
+    if (reduced || !hero) return;
+
+    const rect = hero.getBoundingClientRect();
+    const x = clamp(
+      (event.clientX - rect.left) / rect.width - 0.5,
+      -0.5,
+      0.5,
+    );
+    const y = clamp(
+      (event.clientY - rect.top) / rect.height - 0.5,
+      -0.5,
+      0.5,
+    );
+
+    states.forEach((state) => {
+      state.tx = x;
+      state.ty = y;
+    });
   }
 
-  function onLeave() {
-    if (!states) return;
-    for (var i = 0; i < states.length; i++) {
-      states[i].tx = 0;
-      states[i].ty = 0;
-    }
+  function resetPointer() {
+    states.forEach((state) => {
+      state.tx = 0;
+      state.ty = 0;
+    });
   }
 
   function onScroll() {
-    if (reduced) return;
-    var sy = window.scrollY;
-    for (var i = 0; i < states.length; i++) {
-      states[i].scroll = sy;
+    const scrollY = window.scrollY;
+
+    states.forEach((state) => {
+      state.scroll = scrollY;
+    });
+  }
+
+  function stopLoop() {
+    if (rafId) cancelAnimationFrame(rafId);
+    rafId = null;
+  }
+
+  function syncLoop() {
+    if (reduced || !visible || !pageVisible) {
+      stopLoop();
+      return;
     }
+
+    if (!rafId) rafId = requestAnimationFrame(loop);
   }
 
   function loop() {
-    for (var i = 0; i < states.length; i++) {
-      var s = states[i];
-      if (s.scroll == null) s.scroll = 0;
-      var px = s.tx * s.parallax * 120 + s.scroll * s.parallax * 0.25;
-      var py = s.ty * s.parallax * 80 + s.scroll * s.parallax * 0.12;
-      s.x = lerp(s.x, px, 0.1);
-      s.y = lerp(s.y, py, 0.1);
-      s.rx = lerp(s.rx, -py * 0.05, 0.1);
-      s.ry = lerp(s.ry, px * 0.05, 0.1);
-      if (els[i]) {
-        els[i].style.transform =
-          "translate3d(" + s.x.toFixed(2) + "px, " + s.y.toFixed(2) + "px, 0) " +
-          "rotateX(" + s.rx.toFixed(2) + "deg) rotateY(" + s.ry.toFixed(2) + "deg) " +
-          "scale(" + s.scale + ")";
-      }
-    }
+    rafId = null;
+
+    if (reduced || !visible || !pageVisible) return;
+
+    states.forEach((state, index) => {
+      const px =
+        state.tx * state.parallax * 96 +
+        state.scroll * state.parallax * 0.08;
+      const py =
+        state.ty * state.parallax * 64 +
+        state.scroll * state.parallax * 0.04;
+
+      state.x = lerp(state.x, px, 0.1);
+      state.y = lerp(state.y, py, 0.1);
+      state.rx = lerp(state.rx, -py * 0.045, 0.1);
+      state.ry = lerp(state.ry, px * 0.045, 0.1);
+
+      els[index].style.transform =
+        "translate3d(" +
+        state.x.toFixed(2) +
+        "px, " +
+        state.y.toFixed(2) +
+        "px, 0) rotateX(" +
+        state.rx.toFixed(2) +
+        "deg) rotateY(" +
+        state.ry.toFixed(2) +
+        "deg) scale(" +
+        state.scale +
+        ")";
+    });
+
     drawParticles();
-    rafId = requestAnimationFrame(loop);
+    syncLoop();
   }
 
   function onReducedChange() {
     reduced = prefersReduced();
-    if (reduced) {
-      if (rafId) cancelAnimationFrame(rafId);
-      rafId = null;
-      if (canvas) canvas.style.display = "none";
-    } else {
-      if (canvas) canvas.style.display = "";
-      if (!rafId) rafId = requestAnimationFrame(loop);
-    }
+
+    if (canvas) canvas.style.display = reduced ? "none" : "";
+    syncLoop();
+  }
+
+  function initVisibilityObserver() {
+    if (!hero || !("IntersectionObserver" in window)) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        visible = Boolean(entries[0] && entries[0].isIntersecting);
+        syncLoop();
+      },
+      { rootMargin: "160px 0px" },
+    );
+
+    observer.observe(hero);
   }
 
   function init() {
     if (started) return;
     started = true;
+
+    hero = document.querySelector(".hero");
+    if (!hero) return;
+
     reduced = prefersReduced();
     readAccent();
     initLayers();
     initCanvas();
+    initVisibilityObserver();
 
-    document.addEventListener("mousemove", onPointer, { passive: true });
-    document.addEventListener("mouseleave", onLeave, { passive: true });
+    hero.addEventListener("pointermove", onPointer, { passive: true });
+    hero.addEventListener("pointerleave", resetPointer, { passive: true });
     window.addEventListener("scroll", onScroll, { passive: true });
 
+    document.addEventListener("visibilitychange", () => {
+      pageVisible = !document.hidden;
+      syncLoop();
+    });
+
     if ("MutationObserver" in window) {
-      new MutationObserver(function () {
+      new MutationObserver(() => {
         readAccent();
-        if (canvas) spawn();
+        if (canvas) spawnParticles(canvas.clientWidth, canvas.clientHeight);
       }).observe(document.documentElement, {
         attributes: true,
         attributeFilter: ["data-theme"],
       });
     }
 
-    if (!reduced) rafId = requestAnimationFrame(loop);
-    else if (canvas) canvas.style.display = "none";
+    const motionQuery = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    );
+    motionQuery.addEventListener("change", onReducedChange);
 
-    window.matchMedia("(prefers-reduced-motion: reduce)").addEventListener("change", onReducedChange);
-    if (window.visualViewport) window.visualViewport.addEventListener("resize", resize, { passive: true });
+    if (reduced && canvas) canvas.style.display = "none";
+    syncLoop();
   }
 
   window.Hero3D = { init };
