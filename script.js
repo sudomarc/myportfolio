@@ -622,6 +622,8 @@
 
   /* ---------- Privacy / cookie notice ---------- */
   var COOKIE_NOTICE_KEY = "sudomarc:cookie-note-dismissed";
+  var scriptElement = document.currentScript || document.querySelector('script[src$="script.js"]');
+  var siteRoot = scriptElement ? new URL("./", scriptElement.src) : new URL("./", window.location.href);
 
   function initCookieNotice() {
     if (document.getElementById("cookie-note")) return;
@@ -637,8 +639,8 @@
       '<p class="cookie-note__text" data-i18n="cookie.banner.text">Ce portfolio ne dépose aucun cookie publicitaire ou de suivi. Il mémorise seulement certaines préférences dans votre navigateur. Les aperçus de projets externes peuvent, eux, suivre les règles de leurs propres sites.</p>' +
       '</div>' +
       '<div class="cookie-note__actions">' +
-      '<a class="cookie-note__link" href="/confidentialite.html" data-i18n="cookie.banner.privacy">Confidentialité</a>' +
-      '<a class="cookie-note__link" href="/cookies.html" data-i18n="cookie.banner.cookies">Cookies</a>' +
+      '<a class="cookie-note__link" href="' + new URL("confidentialite.html", siteRoot).href + '" data-i18n="cookie.banner.privacy">Confidentialité</a>' +
+      '<a class="cookie-note__link" href="' + new URL("cookies.html", siteRoot).href + '" data-i18n="cookie.banner.cookies">Cookies</a>' +
       '<button class="cookie-note__dismiss" type="button" data-cookie-note-dismiss><span data-i18n="cookie.banner.dismiss">Compris</span><span aria-hidden="true">→</span></button>' +
       '</div>';
 
