@@ -134,11 +134,13 @@ const resolveLocal = (file, url) => {
     : `introuvable : ${url}`;
 };
 
+let checkedLinkCount = 0;
 for (const file of htmlFiles) {
   const rel = file.slice(root.length + 1);
   const html = readFileSync(file, "utf8");
 
   for (const match of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
+    checkedLinkCount += 1;
     const href = match[1];
     const res = resolveLocal(file, href);
     if (res === "ok" || res === "external" || res === "anchor-only") {
@@ -240,7 +242,7 @@ if (unexpectedExternals.length === 0) {
 /* ---------- Bilan ---------- */
 console.log("\n----------------------------------------");
 if (errors.length === 0) {
-  console.log(`VERIFY: PASS (${htmlFiles.length} pages HTML, ${hrefs.size} liens contrôlés)`);
+  console.log(`VERIFY: PASS (${htmlFiles.length} pages HTML, ${checkedLinkCount} liens contrôlés)`);
   process.exit(0);
 } else {
   console.log(`VERIFY: FAIL — ${errors.length} problème(s)`);
