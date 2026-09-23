@@ -5,8 +5,8 @@
 - [x] Poser la gouvernance et l'architecture statique.
 - [x] CI statique (contrôle structurel, sans npm).
 - [x] Pages légales avec placeholders.
-- [ ] Finaliser les décisions de marque (nom, positionnement, baseline).
-- [ ] Configurer le numéro WhatsApp et l'email.
+- [x] Finaliser les décisions de marque (nom public `sudomarc`, positionnement `Web Dev`, statut étudiant, Conakry).
+- [x] Configurer le numéro WhatsApp ; GitHub est utilisé comme contact public et aucun email public n’est affiché.
 
 ## Phase 1 — Direction artistique
 - [x] Direction Dark Editorial / Digital Studio documentée.
@@ -26,9 +26,9 @@
 
 ## Phase 3 — Case studies
 - [x] Fiche par projet (structure complète : contexte → liens).
-- [ ] Compléter contexte, contraintes et décisions réels.
-- [ ] Liens demo / code vérifiés.
-- [ ] Résultats mesurés ou explicitement marqués non mesurés.
+- [x] Compléter contexte, contraintes et décisions réels pour Amplio Web, Interact-Conakry et CrazyCook.
+- [ ] Liens de démo vérifiés ; les dépôts GitHub des projets sont identifiés.
+- [x] Résultats marqués non mesurés lorsqu’aucune mesure fiable n’est disponible.
 
 ## Phase 4 — Qualité
 - [ ] Responsive vérifié en navigateur (360 / 390 / 768 / 1024 / 1440 px).
@@ -40,9 +40,9 @@
 
 ## Phase 5 — Publication
 - [ ] Connecter Vercel.
-- [ ] Définir l'URL de production (`NEXT_PUBLIC_SITE_URL` supprimé — URL dans la documentation).
+- [ ] Définir et vérifier l’URL de production ; aucune URL n’est inventée.
 - [ ] Ajouter domaine personnalisé.
-- [ ] Compléter les pages légales (identité, hébergeur).
+- [ ] Finaliser les informations légales et d’hébergement après vérification de la production.
 - [ ] Publier v1.0.
 
 ## Hors scope initial
