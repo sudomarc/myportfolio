@@ -224,7 +224,8 @@ const index = readFileSync(join(root, "index.html"), "utf8");
 const allowedExternalLinks = new Set([
   "https://github.com/sudomarc",
   "https://github.com/sudomarc/Interact-Conakry",
-  "https://sudomarc.github.io/amplio-web/",
+  "https://sudomarc.github.io/nova-web/",
+  "https://interact-conakry.vercel.app",
   "https://sudomarc.github.io/CrazyCook/",
 ]);
 const externals = [...index.matchAll(/href="(https?:\/\/[^"]+)"/g)].map((m) => m[1]);
