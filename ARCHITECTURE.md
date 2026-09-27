@@ -14,7 +14,7 @@ Site **100 % statique** : HTML, CSS et JavaScript vanilla.
 | URL | Fichier | Rôle |
 |---|---|---|
 | `/` | `index.html` | Page d'accueil : identité, projets, à propos, capacités, méthode, contact |
-| `/work/amplio-web` | `work/amplio-web.html` | Étude de cas — projet réel |
+| `/work/amplio-web` | `work/amplio-web.html` | Étude de cas — Nova Web, projet réel (slug historique conservé) |
 | `/work/interact-conakry` | `work/interact-conakry.html` | Étude de cas — projet réel |
 | `/work/crazycook` | `work/crazycook.html` | Étude de cas — démo personnelle |
 | `/mentions-legales` | `mentions-legales.html` | Page légale |
