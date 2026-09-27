@@ -102,3 +102,11 @@ son résultat observé.
 - Informations juridiques complètes et URL de production du portfolio : À VÉRIFIER AVANT PUBLICATION.
 
 Ne pas considérer la release comme publiée ou complètement vérifiée tant que les points NON EXÉCUTÉ / NON VÉRIFIÉ ci-dessus ne sont pas traités.
+
+## Synchronisation des previews portfolio (2026-09-27)
+
+- Nova Web : le dépôt projet est désormais `sudomarc/nova-web` ; son URL de publication déclarée est `https://sudomarc.github.io/nova-web/`. Les exécutions GitHub Pages des 25 septembre 2026 sont en succès.
+- Interact-Conakry : l'URL de publication déclarée par le dépôt est `https://interact-conakry.vercel.app`. Le workflow GitHub Pages historique du 23 septembre 2026 a échoué à l'étape « Configure GitHub Pages » ; le portfolio utilise donc l'URL Vercel déclarée comme source de preview.
+- CrazyCook : l'URL `https://sudomarc.github.io/CrazyCook/` reste la cible de production déclarée ; le dernier workflow GitHub Pages observé le 26 septembre 2026 est en succès.
+- Les trois fiches affichent maintenant un iframe de preview sur la page d'accueil et sur les études de cas concernées.
+- Vérification HTTP interactive publique et vérification navigateur locale de cette passe : NON EXÉCUTÉES dans cet environnement.
