@@ -17,6 +17,7 @@ const requiredFiles = [
   "script.js",
   "icon.svg",
   "robots.txt",
+  "sitemap.xml",
   "404.html",
   "vercel.json",
   "mentions-legales.html",
@@ -107,7 +108,7 @@ for (const file of htmlFiles) {
   check((html.match(/<h1[\s>]/g) || []).length === 1, "exactement un h1");
   check(/<footer[\s>]/.test(html), "footer");
   check(!/style="/.test(html), "pas d'attribut style inline (CSP)");
-  check(!/<script(?![^>]*\ssrc=)/.test(html), "pas de script inline (CSP)");
+  check(!/<script(?![^>]*\ssrc=)(?![^>]*\stype="application\/ld\+json")/.test(html), "pas de script inline exécutable (CSP)");
 }
 
 /* ---------- 4. Liens internes ---------- */
@@ -205,8 +206,8 @@ console.log("\n[6/6] Sécurité & SEO");
 const robots = readFileSync(join(root, "robots.txt"), "utf8");
 if (/Allow:\s*\//.test(robots)) ok("robots : autorisation");
 else fail("robots.txt invalide");
-if (/Sitemap:\s*https?:/.test(robots)) fail("robots : sitemap avant vérification du domaine");
-else ok("robots : pas de sitemap fantôme");
+if (robots.includes("Sitemap: https://myportfolio-weld-three-35.vercel.app/sitemap.xml")) ok("robots : sitemap de production déclaré");
+else fail("robots : sitemap de production absent ou incorrect");
 
 const vercelRaw = readFileSync(join(root, "vercel.json"), "utf8");
 let vercel;
@@ -227,6 +228,7 @@ const allowedExternalLinks = new Set([
   "https://sudomarc.github.io/nova-web/",
   "https://interact-conakry.vercel.app",
   "https://sudomarc.github.io/CrazyCook/",
+  "https://myportfolio-weld-three-35.vercel.app/",
 ]);
 const externals = [...index.matchAll(/href="(https?:\/\/[^"]+)"/g)].map((m) => m[1]);
 const unexpectedExternals = externals.filter((url) => !allowedExternalLinks.has(url));
@@ -239,6 +241,48 @@ if (unexpectedExternals.length === 0) {
 } else {
   fail(`liens externes non allowlistés : ${unexpectedExternals.join(", ")}`);
 }
+
+/* ---------- SEO explicite : canoniques, données structurées, sitemap ---------- */
+const canonicalExpectations = new Map([
+  ["index.html", "https://myportfolio-weld-three-35.vercel.app/"],
+  ["work/amplio-web.html", "https://myportfolio-weld-three-35.vercel.app/work/amplio-web"],
+  ["work/interact-conakry.html", "https://myportfolio-weld-three-35.vercel.app/work/interact-conakry"],
+  ["work/crazycook.html", "https://myportfolio-weld-three-35.vercel.app/work/crazycook"],
+]);
+for (const [file, expected] of canonicalExpectations) {
+  const html = readFileSync(join(root, file), "utf8");
+  const match = html.match(/<link rel="canonical" href="([^"]+)"/);
+  if (match && match[1] === expected) ok(file + ": canonical");
+  else fail(file + ": canonical incorrect ou absent (attendu " + expected + ")");
+}
+
+const schemaMatch = index.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
+if (!schemaMatch) {
+  fail("index.html : données structurées JSON-LD absentes");
+} else {
+  try {
+    const graph = JSON.parse(schemaMatch[1]);
+    const person = graph["@graph"] && graph["@graph"].find((item) => item["@type"] === "Person");
+    const website = graph["@graph"] && graph["@graph"].find((item) => item["@type"] === "WebSite");
+    if (person && person.name === "sudomarc" && person.sameAs && person.sameAs.includes("https://github.com/sudomarc") && website && website.url === "https://myportfolio-weld-three-35.vercel.app/") {
+      ok("index.html : JSON-LD Person/WebSite cohérent");
+    } else fail("index.html : JSON-LD Person/WebSite incohérent");
+  } catch {
+    fail("index.html : JSON-LD invalide");
+  }
+}
+
+const sitemap = readFileSync(join(root, "sitemap.xml"), "utf8");
+const expectedSitemapUrls = [
+  "https://myportfolio-weld-three-35.vercel.app/",
+  "https://myportfolio-weld-three-35.vercel.app/work/amplio-web",
+  "https://myportfolio-weld-three-35.vercel.app/work/interact-conakry",
+  "https://myportfolio-weld-three-35.vercel.app/work/crazycook",
+];
+const sitemapUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
+if (expectedSitemapUrls.length === sitemapUrls.length && expectedSitemapUrls.every((url) => sitemapUrls.includes(url))) {
+  ok("sitemap.xml : les quatre routes canoniques sont listées");
+} else fail("sitemap.xml : routes manquantes, dupliquées ou inattendues");
 
 /* ---------- Bilan ---------- */
 console.log("\n----------------------------------------");
