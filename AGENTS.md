@@ -19,6 +19,13 @@ Le portfolio sert trois objectifs dans cet ordre :
 2. Voir des preuves concrètes de travail.
 3. Me contacter avec un minimum de friction.
 
+## Public privacy baseline
+
+- Keep the public profile pseudonymous.
+- Do not publish personal location, student status, direct phone number, private email, or messaging links in public pages, scripts, metadata, or repository documentation.
+- GitHub is the only public contact route unless explicitly approved otherwise.
+- Removing data from the current branch does not erase previous Git commits or search-engine caches; report that limitation.
+
 ## Design
 
 - Mobile-first.
@@ -34,7 +41,7 @@ Le portfolio sert trois objectifs dans cet ordre :
 - Site **100 % statique** : HTML, CSS, JavaScript vanilla.
 - **Aucun framework** (React, Vue, Svelte, Astro…), aucune dépendance runtime, aucun bundler obligatoire.
 - **Progressive enhancement** : le contenu et l'essentiel fonctionnent sans JavaScript.
-- `theme.js` (blocant, `<head>`) gère le FOUC-protection du thème. `script.js` (déféré) gère les interactions : thème, langue, révélations, transitions de vue, WhatsApp.
+- `theme.js` (blocant, `<head>`) gère le FOUC-protection du thème. `script.js` (déféré) gère les interactions : thème, langue, révélations et transitions de vue.
 - Les données du site vivent dans les pages HTML ; `script.js` ne contient que des améliorations d'interaction.
 - Les URLs et textes doivent rester cohérents entre pages ; toute modification de contenu doit être revue sur chaque page concernée.
 - Toute vérification réelle passe par : serveur statique, contrôle des routes, `scripts/verify.mjs`, puis revue du diff.

@@ -30,9 +30,9 @@
       "nav.contact": "Contact",
       /* hero */
       "hero.eyebrow": "Web design · Front-end",
-      "hero.meta.aria": "Localisation et disponibilité",
+      "hero.meta.aria": "Domaines et disponibilité",
       "hero.index.aria": "Sélection de travaux",
-      "hero.meta.location": "Conakry · Guinée",
+      "hero.meta.focus": "Sites web · interfaces",
       "hero.meta.availability": "Disponible pour des projets web",
       "hero.title": "Je conçois et développe des interfaces web claires, utiles et soignées.",
       "hero.lead": "Sites web, interfaces et projets publiés — avec le travail, les choix et les détails visibles.",
@@ -54,7 +54,7 @@
       "section.about.title": "Court, concret, honnête.",
       "section.about.desc": "Pas de CV interminable : l'essentiel pour comprendre comment je travaille.",
       "section.about.rows.0.title": "Qui je suis",
-      "section.about.rows.0.text": "Étudiant en informatique à Conakry, je construis des projets web avec une attention particulière portée à l’interface, à la clarté et à la qualité de réalisation.",
+      "section.about.rows.0.text": "Je développe des projets web avec une attention particulière portée à l’interface, à la clarté et à la qualité de réalisation.",
       "section.about.rows.1.title": "Ce que je pratique",
       "section.about.rows.1.text": "Développement front-end, responsive design, systèmes d’interface, performance et accessibilité — appliqués à des projets publiés et documentés.",
       "section.about.rows.2.title": "Ce que je construis",
@@ -96,11 +96,9 @@
       "section.process.steps.4.desc": "Publication avec headers, robots et preuves de release.",
       "section.contact.eyebrow": "Contact",
       "section.contact.title": "Un projet à construire ?",
-      "section.contact.lead": "Parlons de votre projet, de l’interface à construire ou simplement du besoin à résoudre. Le premier échange se fait sur WhatsApp.",
-      "section.contact.cta": "Ouvrir WhatsApp",
-      "section.contact.channels.whatsapp": "WhatsApp",
+      "section.contact.lead": "Pour toute question sur les projets publiés, consultez les dépôts et utilisez leurs discussions sur GitHub.",
+      "section.contact.cta": "Voir GitHub",
       "section.contact.channels.github": "GitHub",
-      "section.contact.channels.whatsapp.value": "+224 628 069 479",
       "section.contact.channels.github.value": "github.com/sudomarc",
       "section.contact.legal": "Informations légales",
       /* footer */
@@ -198,7 +196,6 @@
       "legal.label": "Légal",
       "legal.editor": "Éditeur du site",
       "legal.editor.text": "Nom public : sudomarc",
-      "legal.editor.address": "Conakry, Guinée",
       "legal.editor.email": "Contact public : GitHub — github.com/sudomarc",
       "legal.site": "Site publié à l'adresse",
       "legal.site.url": "URL de production : à confirmer avant publication",
@@ -210,7 +207,7 @@
       "privacy.hero.eyebrow": "Confidentialité",
       "privacy.hero.title": "Votre vie privée, clairement.",
       "privacy.hero.intro": "Cette page décrit le fonctionnement actuel du portfolio : les données qu’il peut traiter, les usages du stockage local et le rôle des services externes.",
-      "privacy.updated": "Dernière mise à jour : 23 septembre 2026",
+      "privacy.updated": "Dernière mise à jour : 11 octobre 2026",
       "privacy.scope": "Périmètre",
       "privacy.scope.text": "Cette politique concerne ce portfolio personnel et ses pages publiques. Elle décrit ce que le site contrôle directement et ce qui relève de services externes accessibles depuis le portfolio.",
       "privacy.data": "Données traitées",
@@ -218,7 +215,7 @@
       "privacy.storage": "Stockage local",
       "privacy.storage.text": "Le navigateur peut conserver localement trois préférences d’interface : le thème, la langue et l’état de fermeture du bandeau de confidentialité. Ces informations restent sur votre appareil et ne sont pas envoyées par le portfolio à un serveur.",
       "privacy.external": "Services et contenus externes",
-      "privacy.external.text": "Certaines réalisations sont affichées dans des aperçus intégrés depuis GitHub Pages. Lorsque vous chargez ces aperçus, votre navigateur contacte directement les sites concernés ; ils peuvent traiter des données techniques selon leurs propres règles et politiques. Les liens WhatsApp et GitHub sont également des services externes utilisés uniquement lorsque vous choisissez de les ouvrir.",
+      "privacy.external.text": "Certaines réalisations sont affichées dans des aperçus intégrés depuis GitHub Pages. Lorsque vous chargez ces aperçus, votre navigateur contacte directement les sites concernés ; ils peuvent traiter des données techniques selon leurs propres règles et politiques. Le lien GitHub est un service externe utilisé uniquement lorsque vous choisissez de l’ouvrir.",
       "privacy.purpose": "Finalités",
       "privacy.purpose.text": "Le traitement local sert uniquement à conserver vos préférences d’interface et à éviter de réafficher le bandeau après sa fermeture. Les échanges avec les services externes résultent de votre choix de consulter un aperçu ou d’ouvrir un lien.",
       "privacy.retention": "Conservation",
@@ -226,7 +223,7 @@
       "privacy.rights": "Vos demandes",
       "privacy.rights.text": "Pour toute demande concernant les informations contrôlées directement par ce portfolio, vous pouvez utiliser le canal de contact public indiqué ci-dessous. Les demandes concernant un service externe doivent être adressées au service concerné.",
       "privacy.contact": "Responsable et contact",
-      "privacy.contact.text": "Responsable public du site : sudomarc, Conakry, Guinée. Contact public :",
+      "privacy.contact.text": "Contact public du site :"
       "privacy.external.link": "GitHub — github.com/sudomarc",
       "privacy.updates": "Mises à jour",
       "privacy.updates.text": "Cette politique sera revue lorsqu’une nouvelle fonctionnalité, un nouvel hébergement, un outil de mesure ou une nouvelle intégration externe modifiera le traitement des données.",
@@ -274,9 +271,9 @@
       "nav.contact": "Contact",
       /* hero */
       "hero.eyebrow": "Web design · Front-end",
-      "hero.meta.aria": "Location and availability",
+      "hero.meta.aria": "Focus and availability",
       "hero.index.aria": "Selected work",
-      "hero.meta.location": "Conakry · Guinea",
+      "hero.meta.focus": "Websites · interfaces",
       "hero.meta.availability": "Available for web projects",
       "hero.title": "I design and build clear, useful, considered web interfaces.",
       "hero.lead": "Websites, interfaces, and published projects — with the work, decisions, and details made visible.",
@@ -298,7 +295,7 @@
       "section.about.title": "Short, concrete, honest.",
       "section.about.desc": "No endless résumé: the essentials to understand how I work.",
       "section.about.rows.0.title": "Who I am",
-      "section.about.rows.0.text": "Computer science student in Conakry. I build web projects with a strong focus on interface, clarity, and quality of execution.",
+      "section.about.rows.0.text": "I build web projects with a strong focus on clear interfaces and quality of execution.",
       "section.about.rows.1.title": "What I practice",
       "section.about.rows.1.text": "Front-end development, responsive design, interface systems, performance and accessibility — applied to published, documented projects.",
       "section.about.rows.2.title": "What I build",
@@ -340,11 +337,9 @@
       "section.process.steps.4.desc": "Shipping with headers, robots, and release evidence.",
       "section.contact.eyebrow": "Contact",
       "section.contact.title": "A project to build?",
-      "section.contact.lead": "Tell me about the project, the interface you need, or simply the problem to solve. The first conversation happens on WhatsApp.",
-      "section.contact.cta": "Open WhatsApp",
-      "section.contact.channels.whatsapp": "WhatsApp",
+      "section.contact.lead": "For questions about published work, use the discussions on the relevant GitHub repositories.",
+      "section.contact.cta": "Open GitHub",
       "section.contact.channels.github": "GitHub",
-      "section.contact.channels.whatsapp.value": "+224 628 069 479",
       "section.contact.channels.github.value": "github.com/sudomarc",
       "section.contact.legal": "Legal information",
       /* footer */
@@ -441,7 +436,6 @@
       "legal.label": "Legal",
       "legal.editor": "Site editor",
       "legal.editor.text": "Public name: sudomarc",
-      "legal.editor.address": "Conakry, Guinea",
       "legal.editor.email": "Contact public : GitHub — github.com/sudomarc",
       "legal.site": "Site published at",
       "legal.site.url": "Production URL: to be confirmed before publication",
@@ -453,7 +447,7 @@
       "privacy.hero.eyebrow": "Privacy",
       "privacy.hero.title": "Your privacy, clearly.",
       "privacy.hero.intro": "This page describes how the portfolio currently works: the data it may process, the use of browser storage, and the role of external services.",
-      "privacy.updated": "Last updated: September 23, 2026",
+      "privacy.updated": "Last updated: October 11, 2026",
       "privacy.scope": "Scope",
       "privacy.scope.text": "This policy covers this personal portfolio and its public pages. It describes what the site controls directly and what belongs to external services accessed from the portfolio.",
       "privacy.data": "Data processed",
@@ -461,7 +455,7 @@
       "privacy.storage": "Local storage",
       "privacy.storage.text": "Your browser may locally store three interface preferences: theme, language, and whether the privacy notice has been dismissed. These values stay on your device and are not sent by this portfolio to a server.",
       "privacy.external": "External services and content",
-      "privacy.external.text": "Some projects are displayed through embedded previews hosted on GitHub Pages. When you load these previews, your browser contacts the relevant sites directly; they may process technical data under their own rules and policies. WhatsApp and GitHub links are also external services used only when you choose to open them.",
+      "privacy.external.text": "Some projects are displayed through embedded previews hosted on GitHub Pages. When you load these previews, your browser contacts the relevant sites directly; they may process technical data under their own rules and policies. The GitHub link is an external service used only when you choose to open it.",
       "privacy.purpose": "Purposes",
       "privacy.purpose.text": "Local storage is used only to keep your interface preferences and avoid showing the notice again after dismissal. Requests to external services result from your choice to view a preview or open a link.",
       "privacy.retention": "Retention",
@@ -469,7 +463,7 @@
       "privacy.rights": "Your requests",
       "privacy.rights.text": "For requests concerning information directly controlled by this portfolio, use the public contact channel below. Requests concerning an external service should be addressed to that service.",
       "privacy.contact": "Operator and contact",
-      "privacy.contact.text": "Public site operator: sudomarc, Conakry, Guinea. Public contact:",
+      "privacy.contact.text": "Public website contact:"
       "privacy.external.link": "GitHub — github.com/sudomarc",
       "privacy.updates": "Updates",
       "privacy.updates.text": "This policy will be reviewed when a new feature, hosting setup, measurement tool, or external integration changes the data flow.",
@@ -592,33 +586,6 @@
     });
   }
 
-  /* ---------- WhatsApp links ---------- */
-  var SITE_CONFIG = {
-    whatsappNumber: "+224 628069479",
-    whatsappMessage:
-      "Bonjour Marco, je viens de voir votre portfolio et je souhaite discuter d'un projet."
-  };
-  function initWhatsAppLinks() {
-    var links = document.querySelectorAll("[data-whatsapp]");
-    var digits = String(SITE_CONFIG.whatsappNumber || "").replace(/\D/g, "");
-    if (digits.length === 0) {
-      links.forEach(function (link) {
-        link.removeAttribute("data-whatsapp");
-      });
-      return;
-    }
-    var url =
-      "https://wa.me/" +
-      digits +
-      "?text=" +
-      encodeURIComponent(SITE_CONFIG.whatsappMessage);
-    links.forEach(function (link) {
-      link.setAttribute("href", url);
-      link.setAttribute("target", "_blank");
-      link.setAttribute("rel", "noreferrer");
-      link.removeAttribute("data-whatsapp");
-    });
-  }
 
   /* ---------- Privacy / cookie notice ---------- */
   var COOKIE_NOTICE_KEY = "sudomarc:cookie-note-dismissed";
@@ -753,7 +720,6 @@
     applyTheme(effectiveTheme());
     applyLang(getLang());
     wireControls();
-    initWhatsAppLinks();
     initActiveNav();
     initReveals();
   }

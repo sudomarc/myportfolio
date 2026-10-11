@@ -1,3 +1,10 @@
+## Privacy review — 2026-10-11
+
+- Removed direct phone contact, personal location, and student status from the current public portfolio content and maintained documentation.
+- Public contact route is GitHub only.
+- Historical Git commits and third-party search caches were not rewritten or purged.
+- Automated checks and browser verification were not run through this repository connection.
+
 # Verification Log
 
 ## Refonte contrôlée — système motion / thème / langue (2026-09-23)
@@ -82,9 +89,8 @@ son résultat observé.
 - Pages Notion liées aux projets et au parcours technique.
 
 ### Corrections appliquées
-- Profil public : sudomarc · étudiant en informatique · Web Dev · Conakry, Guinée.
-- WhatsApp configuré : +224 628 016 9479.
-- GitHub public : github.com/sudomarc.
+- Profil public : positionnement Web Dev, sans localisation ni statut personnel.
+- Contact public : GitHub uniquement ; aucun numéro direct publié dans le contenu courant.
 - Les anciens case studies fictifs ont été remplacés par Interact-Conakry et CrazyCook.
 - Contexte, contraintes, décisions, solutions et absence de métriques renseignés selon les éléments disponibles.
 - Stack Amplio corrigée d’après le dépôt réel : HTML, CSS, JavaScript, Three.js.

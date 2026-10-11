@@ -61,7 +61,7 @@ Le contenu métier n'est pas dupliqué entre CSS et JS.
   mise à jour de `document.documentElement.lang` et texte via dictionnaire.
 - **Motion** : IntersectionObserver pour les reveal et les lignes.
 - **Navigation** : surlignage actif + View Transitions MPA (avec fallback).
-- **Contact** : configuration du numéro WhatsApp.
+- **Contact** : lien GitHub public ; aucun numéro personnel stocké dans le client.
 - Fermeture du menu mobile + touche Échap.
 
 Sans JavaScript, le site reste complet et navigable

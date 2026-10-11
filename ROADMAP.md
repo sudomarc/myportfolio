@@ -5,8 +5,8 @@
 - [x] Poser la gouvernance et l'architecture statique.
 - [x] CI statique (contrôle structurel, sans npm).
 - [x] Pages légales avec placeholders.
-- [x] Finaliser les décisions de marque (nom public `sudomarc`, positionnement `Web Dev`, statut étudiant, Conakry).
-- [x] Configurer le numéro WhatsApp ; GitHub est utilisé comme contact public et aucun email public n’est affiché.
+- [x] Positionnement public : Web Dev, sans publication de statut personnel ni de localisation.
+- [x] Contact public limité à GitHub ; aucun numéro personnel ni e-mail direct publié.
 
 ## Phase 1 — Direction artistique
 - [x] Direction Dark Editorial / Digital Studio documentée.
@@ -15,7 +15,7 @@
 - [ ] Créer ou sélectionner les assets réels (captures projets).
 
 ## Phase 2 — Homepage
-- [x] Hero final (identité, positionnement, localisation, disponibilité, CTA).
+- [x] Hero final (identité publique, positionnement, disponibilité, CTA sans localisation personnelle).
 - [x] Sélection de projets avec statuts `REAL` / `DEMO` / `CONCEPT`.
 - [x] Projet mis en avant (Amplio Web).
 - [x] À propos.

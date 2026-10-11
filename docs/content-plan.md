@@ -5,8 +5,8 @@
 - Nom public : sudomarc
 - Positionnement : Web design · Front-end
 - Baseline : « Je conçois et développe des interfaces web claires, utiles et soignées. »
-- Localisation publique : Conakry · Guinée
-- Contact : WhatsApp +224 628 069 479 · GitHub github.com/sudomarc
+- Localisation personnelle : non publiée.
+- Contact public : GitHub uniquement ; aucun numéro ni e-mail personnel.
 
 ## Homepage
 
@@ -23,7 +23,7 @@ Une phrase forte + une phrase explicative + CTA.
 Court, concret, sans CV interminable.
 
 ### Contact
-Un seul parcours principal vers la conversation ou le formulaire choisi.
+GitHub est le seul canal public. Ne pas publier de numéro de téléphone, d’adresse personnelle ou d’e-mail privé.
 
 ## À collecter avant lancement
 
@@ -34,6 +34,5 @@ Un seul parcours principal vers la conversation ou le formulaire choisi.
 - captures d'écran ;
 - stack exacte par projet ;
 - résultats réellement mesurés ;
-- email ;
-- numéro WhatsApp ;
+- canal de contact public, si nécessaire ;
 - domaine final.

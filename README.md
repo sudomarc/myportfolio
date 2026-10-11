@@ -59,6 +59,5 @@ Puis contrôle manuel des routes via un serveur statique (voir `docs/verificatio
 ## Contact
 
 - GitHub : https://github.com/sudomarc
-- WhatsApp : +224 628 016 9479
 
 Aucun formulaire ni variable d’environnement n’est requis à ce stade.
