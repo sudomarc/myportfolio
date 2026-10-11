@@ -33,7 +33,8 @@ Sur Vercel, `cleanUrls: true` rend aussi les URLs sans extension accessibles.
   styles.css        — design system complet (tokens + composants)
   script.js         — améliorations progressives uniquement
   icon.svg          — favicon / app icon
-  robots.txt        — autorisation d'indexation
+  robots.txt        — directives de crawl + annonce du sitemap
+  sitemap.xml       — routes éditoriales canoniques à soumettre à Google
   404.html          — page introuvable
   vercel.json       — headers de sécurité HTTPS/CSP côté Vercel
   mentions-legales.html
@@ -76,10 +77,13 @@ Sans JavaScript, le site reste complet et navigable
 
 ## SEO
 
-- Metadata `title` et `meta description` par page.
-- `robots.txt` à la racine.
-- Sitemap absent tant que le domaine de production n'est pas vérifié.
-- Canonical absent tant que l'URL de production n'est pas connue.
+- Domaine de production Vercel configuré : `https://myportfolio-weld-three-35.vercel.app/` (vérifié dans les domaines du projet Vercel).
+- Canonical absolu sur l'accueil et les trois études de cas publiques, aligné sur les URLs sans extension de `cleanUrls: true`.
+- `robots.txt` déclare `https://myportfolio-weld-three-35.vercel.app/sitemap.xml`.
+- `sitemap.xml` liste uniquement l'accueil et les trois études de cas canoniques.
+- La page d'accueil définit Open Graph/Twitter metadata et JSON-LD `Person` + `WebSite`, avec un lien `sameAs` vers le profil GitHub public.
+- Les études de cas ont des titres, descriptions, canoniques et metadata de partage distincts.
+- Le sitemap facilite la découverte ; il ne garantit pas l'indexation. L'accès public de la production et la validation HTTP doivent être vérifiés séparément.
 
 ## Sécurité
 
