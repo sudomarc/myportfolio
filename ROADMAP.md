@@ -33,14 +33,14 @@
 ## Phase 4 — Qualité
 - [ ] Responsive vérifié en navigateur (360 / 390 / 768 / 1024 / 1440 px).
 - [ ] Accessibilité clavier, focus, contraste vérifiés en navigateur.
-- [ ] SEO : sitemap + canonical une fois le domaine vérifié.
+- [x] SEO technique préparé sur la branche `seo/public-indexability-setup` : canoniques, robots/sitemap, Open Graph/Twitter et données structurées ; publication et indexation Google à confirmer.
 - [ ] Open Graph : image réelle une fois les assets disponibles.
 - [ ] Performance images (WebP, dimensions, lazy loading).
 - [ ] Vérification navigateur complète (console, réseau, clavier).
 
 ## Phase 5 — Publication
-- [ ] Connecter Vercel.
-- [ ] Définir et vérifier l’URL de production ; aucune URL n’est inventée.
+- [x] Dépôt connecté à Vercel (confirmé par le projet et le déploiement Git).
+- [x] URL de production configurée dans Vercel : `https://myportfolio-weld-three-35.vercel.app/` (vérification HTTP à effectuer après ouverture publique).
 - [ ] Ajouter domaine personnalisé.
 - [ ] Finaliser les informations légales et d’hébergement après vérification de la production.
 - [ ] Publier v1.0.

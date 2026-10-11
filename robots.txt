@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-# Sitemap : ajouté uniquement lorsque le domaine de production sera vérifié.
+Sitemap: https://myportfolio-weld-three-35.vercel.app/sitemap.xml
