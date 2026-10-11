@@ -116,3 +116,13 @@ Ne pas considérer la release comme publiée ou complètement vérifiée tant qu
 - CrazyCook : l'URL `https://sudomarc.github.io/CrazyCook/` reste la cible de production déclarée ; le dernier workflow GitHub Pages observé le 26 septembre 2026 est en succès.
 - Les trois fiches affichent maintenant un iframe de preview sur la page d'accueil et sur les études de cas concernées.
 - Vérification HTTP interactive publique et vérification navigateur locale de cette passe : NON EXÉCUTÉES dans cet environnement.
+
+## Préparation SEO technique — 2026-10-11
+
+Branche : `seo/public-indexability-setup`.
+
+- Domaine de production confirmé dans Vercel : `https://myportfolio-weld-three-35.vercel.app/` ; le projet possède un déploiement Git de production `READY`.
+- Implémenté sur la branche : titres, descriptions, canoniques, metadata Open Graph/Twitter, JSON-LD `Person` + `WebSite`, `robots.txt` et `sitemap.xml` sur les quatre routes éditoriales.
+- Le sitemap omet intentionnellement les pages légales et les URLs de preview.
+- Les vérifications automatisées de cette branche et les réponses HTTP publiques ne sont pas encore exécutées. Le contrôle final après CI/déploiement doit mettre à jour cette section ; ne pas conclure que Google a indexé les URL avant contrôle Search Console.
+
